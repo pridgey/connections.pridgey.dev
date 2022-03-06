@@ -1,0 +1,12 @@
+.header {
+  width: 100vw;
+  padding: 15px 0px;
+  display: flex;
+  justify-content: center;
+  font-family: "Fredoka One", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  font-size: 36px;
+  color: #363434;
+  margin-bottom: 30px;
+}
