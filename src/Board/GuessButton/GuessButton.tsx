@@ -1,4 +1,4 @@
-import styles, { disabled } from "./GuessButton.module.css";
+import styles from "./GuessButton.module.css";
 
 type GuessButtonProps = {
   Disabled: boolean;
@@ -6,18 +6,22 @@ type GuessButtonProps = {
   OnDisabledClick: () => void;
 };
 
-export const GuessButton = (props: GuessButtonProps) => (
-  <button
-    onClick={() => {
-      if (props.Disabled) {
-        props.OnDisabledClick();
-      } else {
-        props.OnClick();
-      }
-    }}
-    class={styles.guessButton}
-    classList={{ [disabled]: props.Disabled }}
-  >
-    SUBMIT
-  </button>
-);
+export const GuessButton = (props: GuessButtonProps) => {
+  const { disabled, guessButton } = styles;
+
+  return (
+    <button
+      onClick={() => {
+        if (props.Disabled) {
+          props.OnDisabledClick();
+        } else {
+          props.OnClick();
+        }
+      }}
+      class={guessButton}
+      classList={{ [disabled]: props.Disabled }}
+    >
+      SUBMIT
+    </button>
+  );
+};
