@@ -1,36 +1,63 @@
 import type { Component } from "solid-js";
 import { For, createSignal, createEffect, onCleanup } from "solid-js";
-import { TransitionGroup } from "solid-transition-group";
 import { Card } from "./Card";
 import { GuessButton } from "./GuessButton";
 import { CategoryCard } from "./CategoryCard";
 import styles from "./Board.module.css";
 import shuffle from "lodash.shuffle";
+import { splitWords } from "./Board.functions";
 
-const words = [
-  ["Garfield", "Polk", "Bush"],
-  ["Odie", "Scrappy", "Clifford"],
-  ["Lincoln", "Data", "Natural"],
-  ["Ardent", "Fierce", "Aggressive"],
+export type Category = {
+  Category: string;
+  Words: string[];
+};
+
+export type CategoryWord = {
+  Category: string;
+  Word: string;
+};
+
+const data: Category[] = [
+  {
+    Category: "US Presidents",
+    Words: ["Garfield", "Polk", "Bush"],
+  },
+  {
+    Category: "Fictional Dogs",
+    Words: ["Odie", "Scrappy", "Clifford"],
+  },
+  {
+    Category: "Types of Logs",
+    Words: ["Lincoln", "Data", "Natural"],
+  },
+  {
+    Category: "Belligerent Words",
+    Words: ["Ardent", "Fierce", "Aggresive"],
+  },
 ];
 
 export const Board: Component = () => {
   // Stateful array of current user guesses
-  const [activeWords, setActiveWords] = createSignal<string[]>([]);
+  const [currentGuesses, setCurrentGuesses] = createSignal<CategoryWord[]>([]);
   // Stateful array of correctly guessed words
-  const [correctWords, setCorrectWords] = createSignal<string[][]>([]);
+  const [correctGuesses, setCorrectGuesses] = createSignal<Category[]>([]);
   // Number of guesses
   const [numOfGuesses, setNumOfGuesses] = createSignal<number>(0);
   // Incorrect words. Items in array will show an animation
-  const [incorrectWords, setIncorrectWords] = createSignal<string[]>([]);
+  const [incorrectGuesses, setIncorrectGuesses] = createSignal<CategoryWord[]>(
+    []
+  );
 
   // Reference to the incorrect animation timeout, used to ensure timeout doesn't continue on unmount
   let incorrectAnimationTimeout: number;
 
   // Reset incorrect words after a second
   createEffect(() => {
-    if (incorrectWords().length > 0) {
-      incorrectAnimationTimeout = setTimeout(() => setIncorrectWords([]), 300);
+    if (incorrectGuesses().length > 0) {
+      incorrectAnimationTimeout = setTimeout(
+        () => setIncorrectGuesses([]),
+        300
+      );
     }
   });
 
@@ -43,9 +70,12 @@ export const Board: Component = () => {
     <>
       {/* Categories show the correct answers found by the user */}
       <div class={styles.categories}>
-        <For each={correctWords()}>
+        <For each={correctGuesses()}>
           {(winnerGroup) => (
-            <CategoryCard Words={winnerGroup} Category="To Do" />
+            <CategoryCard
+              Words={winnerGroup.Words}
+              Category={winnerGroup.Category}
+            />
           )}
         </For>
       </div>
@@ -53,37 +83,37 @@ export const Board: Component = () => {
       <div class={styles.board}>
         <For
           each={shuffle(
-            // Show all words not currently in the correctWords arrays
-            words.flat().filter((word) => !correctWords().flat().includes(word))
+            // Show all words not currently in the correctGuesses arrays
+            splitWords(data.filter((c) => !correctGuesses().includes(c)))
           )}
         >
-          {(cardWord) => (
+          {(cw) => (
             <Card
               OnClick={() => {
                 // If the word is already in the list, remove it
-                if (activeWords().includes(cardWord)) {
+                if (currentGuesses().includes(cw)) {
                   // Find index of the word in questions
-                  const index = activeWords().indexOf(cardWord);
+                  const index = currentGuesses().indexOf(cw);
                   // Get array of guessed words
-                  const words = activeWords();
+                  const words = currentGuesses();
                   // Remove word
                   words.splice(index, 1);
                   // Update state
-                  setActiveWords([...words]);
+                  setCurrentGuesses([...words]);
                 } else {
                   // Add the word to the list, but only if there isn't already 3 guesses
-                  const words = activeWords();
+                  const words = currentGuesses();
                   if (words.length < 3) {
                     // Add guess and update state
-                    words.push(cardWord);
-                    setActiveWords([...words]);
+                    words.push(cw);
+                    setCurrentGuesses([...words]);
                   }
                 }
               }}
-              active={activeWords().includes(cardWord)}
-              incorrect={incorrectWords().includes(cardWord)}
+              active={currentGuesses().includes(cw)}
+              incorrect={incorrectGuesses().includes(cw)}
             >
-              {cardWord}
+              {cw.Word}
             </Card>
           )}
         </For>
@@ -92,33 +122,52 @@ export const Board: Component = () => {
       <div class={styles.foot}>
         <span>{numOfGuesses()}</span>
         <GuessButton
-          Disabled={activeWords().length !== 3}
+          Disabled={currentGuesses().length !== 3}
           OnClick={() => {
             // Increment guess counter
             setNumOfGuesses(numOfGuesses() + 1);
             // Check guess, see if it's correct
-            const guesses = activeWords();
+            const guesses = currentGuesses();
+            const guessedWords = guesses.map((cw) => cw.Word);
+
             // There must be one group of words (.some) where all the words match (.every)
-            const win = words.some((categories) =>
-              categories.every((word) => guesses.includes(word))
+            const win = data.some((cat) =>
+              cat.Words.every((word) => guessedWords.includes(word))
             );
             if (win) {
               // Add guesses to array of correct words
-              const correct = correctWords();
-              correct.push(guesses);
-              console.log("Updated Correct:", correct);
-              setCorrectWords([...correct]);
+              const correct = correctGuesses();
+
+              // Find the data record representing the correct guess
+              const guessedCategory = data.find((c) =>
+                c.Words.every((w) => guessedWords.includes(w))
+              );
+
+              // This should pretty much always resolve, since we validated above
+              if (guessedCategory) {
+                // Add the category to the correct list and update state
+                correct.push(guessedCategory);
+                setCorrectGuesses([...correct]);
+              } else {
+                // If we get here, I'm a bad dev
+                console.error("Not sure how, but couldn't find the guess data");
+              }
+
               // Reset guesses
-              setActiveWords([]);
+              setCurrentGuesses([]);
               // If there's only one set left, it must be right
-              if (correctWords().length === 3) {
-                setCorrectWords(words);
+              if (correctGuesses().length === 3) {
+                const currentCorrect = correctGuesses();
+                currentCorrect.push(
+                  data.filter((d) => !correctGuesses().includes(d))[0]
+                );
+                setCorrectGuesses([...currentCorrect]);
               }
             } else {
               // Incorrect, deselect words
               // Could be cool to add something here like a shake effect as a nice feedback
-              setIncorrectWords(guesses);
-              setActiveWords([]);
+              setIncorrectGuesses(guesses);
+              setCurrentGuesses([]);
             }
           }}
           OnDisabledClick={() =>

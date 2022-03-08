@@ -11,3 +11,24 @@
   right: 0px;
   bottom: 0px;
 }
+
+.header {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 14px 1fr 14px;
+  grid-template-rows: min-content;
+  grid-template-areas: "i1 title i2";
+  align-items: center;
+  justify-items: center;
+  padding: 15px;
+  box-sizing: border-box;
+  gap: 0px 15px;
+}
+
+.rules {
+  grid-area: i2;
+}
+
+.stats {
+  grid-area: i1;
+}
