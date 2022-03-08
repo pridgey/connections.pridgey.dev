@@ -1,0 +1,34 @@
+.container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  border: 0px;
+  background-color: transparent;
+  justify-content: space-between;
+  gap: 0px 5px;
+  padding: 0px;
+}
+
+.categoryOverlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(22, 133, 18, 0.9);
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  font-size: 26px;
+  font-weight: 500;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+}
+
+.correct {
+  background-color: rgb(22, 133, 18);
+  color: white;
+  border-color: rgb(22, 133, 18);
+}

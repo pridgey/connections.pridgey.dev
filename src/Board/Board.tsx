@@ -1,8 +1,9 @@
 import type { Component } from "solid-js";
-import { For, createSignal, createEffect } from "solid-js";
+import { For, createSignal, createEffect, onCleanup } from "solid-js";
 import { TransitionGroup } from "solid-transition-group";
 import { Card } from "./Card";
 import { GuessButton } from "./GuessButton";
+import { CategoryCard } from "./CategoryCard";
 import styles from "./Board.module.css";
 import shuffle from "lodash.shuffle";
 
@@ -17,21 +18,43 @@ export const Board: Component = () => {
   // Stateful array of current user guesses
   const [activeWords, setActiveWords] = createSignal<string[]>([]);
   // Stateful array of correctly guessed words
-  const [correctWords, setCorrectWords] = createSignal<string[]>([]);
+  const [correctWords, setCorrectWords] = createSignal<string[][]>([]);
   // Number of guesses
   const [numOfGuesses, setNumOfGuesses] = createSignal<number>(0);
+  // Incorrect words. Items in array will show an animation
+  const [incorrectWords, setIncorrectWords] = createSignal<string[]>([]);
 
-  createEffect(() => console.log(activeWords()));
+  // Reference to the incorrect animation timeout, used to ensure timeout doesn't continue on unmount
+  let incorrectAnimationTimeout: number;
+
+  // Reset incorrect words after a second
+  createEffect(() => {
+    if (incorrectWords().length > 0) {
+      incorrectAnimationTimeout = setTimeout(() => setIncorrectWords([]), 300);
+    }
+  });
+
+  // Cleanup function to clear the timeout when unmounting
+  onCleanup(() => {
+    clearTimeout(incorrectAnimationTimeout);
+  });
 
   return (
     <>
-      <div class={styles.board}>
+      {/* Categories show the correct answers found by the user */}
+      <div class={styles.categories}>
         <For each={correctWords()}>
-          {(winnerWord) => <Card correct={true}>{winnerWord}</Card>}
+          {(winnerGroup) => (
+            <CategoryCard Words={winnerGroup} Category="To Do" />
+          )}
         </For>
+      </div>
+      {/* The board is where the words still in play are displayed */}
+      <div class={styles.board}>
         <For
           each={shuffle(
-            words.flat().filter((word) => !correctWords().includes(word))
+            // Show all words not currently in the correctWords arrays
+            words.flat().filter((word) => !correctWords().flat().includes(word))
           )}
         >
           {(cardWord) => (
@@ -39,9 +62,9 @@ export const Board: Component = () => {
               OnClick={() => {
                 // If the word is already in the list, remove it
                 if (activeWords().includes(cardWord)) {
-                  // Find index
+                  // Find index of the word in questions
                   const index = activeWords().indexOf(cardWord);
-                  // Get array
+                  // Get array of guessed words
                   const words = activeWords();
                   // Remove word
                   words.splice(index, 1);
@@ -58,12 +81,14 @@ export const Board: Component = () => {
                 }
               }}
               active={activeWords().includes(cardWord)}
+              incorrect={incorrectWords().includes(cardWord)}
             >
               {cardWord}
             </Card>
           )}
         </For>
       </div>
+      {/* Footer has submit button and number of guesses */}
       <div class={styles.foot}>
         <span>{numOfGuesses()}</span>
         <GuessButton
@@ -73,23 +98,26 @@ export const Board: Component = () => {
             setNumOfGuesses(numOfGuesses() + 1);
             // Check guess, see if it's correct
             const guesses = activeWords();
+            // There must be one group of words (.some) where all the words match (.every)
             const win = words.some((categories) =>
               categories.every((word) => guesses.includes(word))
             );
             if (win) {
               // Add guesses to array of correct words
               const correct = correctWords();
-              correct.push(...guesses);
+              correct.push(guesses);
+              console.log("Updated Correct:", correct);
               setCorrectWords([...correct]);
               // Reset guesses
               setActiveWords([]);
               // If there's only one set left, it must be right
-              if (correctWords().length === 9) {
-                setCorrectWords([...words.flat()]);
+              if (correctWords().length === 3) {
+                setCorrectWords(words);
               }
             } else {
               // Incorrect, deselect words
               // Could be cool to add something here like a shake effect as a nice feedback
+              setIncorrectWords(guesses);
               setActiveWords([]);
             }
           }}

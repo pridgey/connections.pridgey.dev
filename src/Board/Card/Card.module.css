@@ -25,8 +25,26 @@
   background-color: #e4e4e4;
 }
 
-.correct {
-  background-color: rgb(22, 133, 18);
-  color: white;
-  border-color: rgb(22, 133, 18);
+.incorrect {
+  animation: shake 0.75s infinite;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-10px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(10px);
+  }
 }
