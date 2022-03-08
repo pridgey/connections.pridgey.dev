@@ -20,7 +20,8 @@ export const Rules = (props: RulesProps) => {
           </div>
           <p class={body}>
             Every day there are 12 words / phrases on the board that need to be
-            arranged into 4 categories, each with 3 words.
+            arranged into 4 categories, each with 3 words. They are randomly
+            placed and arranged throughout the board.
           </p>
           <p class={body}>
             Some words may fit into multiple categories, but there will only be
@@ -29,8 +30,8 @@ export const Rules = (props: RulesProps) => {
           </p>
           <p class={body}>
             Select 3 words, that you believe are connected together, by tapping
-            on them and tapping "Submit". The number of total guesses will be
-            tallied in the lower left.
+            on them and tapping "Submit". You may tap the words in any order.
+            The number of total guesses will be tallied in the lower left.
           </p>
         </div>
       </div>

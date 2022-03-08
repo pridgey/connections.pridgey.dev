@@ -19,20 +19,20 @@ export type CategoryWord = {
 
 const data: Category[] = [
   {
-    Category: "US Presidents",
-    Words: ["Garfield", "Polk", "Bush"],
+    Category: "Types of Horses",
+    Words: ["Mustang", "Appaloosa", "Arabian"],
   },
   {
-    Category: "Fictional Dogs",
-    Words: ["Odie", "Scrappy", "Clifford"],
+    Category: "American Muscle Cars",
+    Words: ["Corvette", "Camaro", "Viper"],
   },
   {
-    Category: "Types of Logs",
-    Words: ["Lincoln", "Data", "Natural"],
+    Category: "Types of Snakes",
+    Words: ["Cottonmouth", "Copperhead", "Python"],
   },
   {
-    Category: "Belligerent Words",
-    Words: ["Ardent", "Fierce", "Aggresive"],
+    Category: "Programming Languages",
+    Words: ["Ruby", "Java", "PHP"],
   },
 ];
 
