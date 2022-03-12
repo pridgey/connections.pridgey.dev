@@ -6,6 +6,7 @@ import { CategoryCard } from "./CategoryCard";
 import styles from "./Board.module.css";
 import shuffle from "lodash.shuffle";
 import { splitWords, grabTodaysPuzzle } from "./Board.functions";
+import { Storage } from "./../Utilities";
 
 export type Category = {
   Category: string;
@@ -22,15 +23,15 @@ export const Board: Component = () => {
   const [puzzleWords, setPuzzleWords] = createSignal<Category[]>([]);
   // Stateful array of current user guesses
   const [currentGuesses, setCurrentGuesses] = createSignal<CategoryWord[]>(
-    JSON.parse(localStorage.getItem("concg") ?? "[]")
+    Storage.get("concg") ?? "[]"
   );
   // Stateful array of correctly guessed words
   const [correctGuesses, setCorrectGuesses] = createSignal<Category[]>(
-    JSON.parse(localStorage.getItem("conwg") ?? "[]")
+    Storage.get("conwg") ?? "[]"
   );
   // Number of guesses
   const [numOfGuesses, setNumOfGuesses] = createSignal<number>(
-    JSON.parse(localStorage.getItem("conng") ?? "0")
+    Storage.get("conng") ?? "0"
   );
   // Incorrect words. Items in array will show an animation
   const [incorrectGuesses, setIncorrectGuesses] = createSignal<CategoryWord[]>(
@@ -97,7 +98,7 @@ export const Board: Component = () => {
                   words.splice(index, 1);
                   // Update state
                   setCurrentGuesses([...words]);
-                  localStorage.setItem("concg", JSON.stringify([...words]));
+                  Storage.set("concg", [...words]);
                 } else {
                   // Add the word to the list, but only if there isn't already 3 guesses
                   const words = currentGuesses();
@@ -105,7 +106,7 @@ export const Board: Component = () => {
                     // Add guess and update state
                     words.push(cw);
                     setCurrentGuesses([...words]);
-                    localStorage.setItem("concg", JSON.stringify([...words]));
+                    Storage.set("concg", [...words]);
                   }
                 }
               }}
@@ -126,7 +127,7 @@ export const Board: Component = () => {
             // Increment guess counter
             const timesGuessed = numOfGuesses() + 1;
             setNumOfGuesses(timesGuessed);
-            localStorage.setItem("conng", JSON.stringify(timesGuessed));
+            Storage.set("conng", timesGuessed);
 
             // Check guess, see if it's correct
             const guesses = currentGuesses();
@@ -150,7 +151,7 @@ export const Board: Component = () => {
                 // Add the category to the correct list and update state
                 correct.push(guessedCategory);
                 setCorrectGuesses([...correct]);
-                localStorage.setItem("conwg", JSON.stringify([...correct]));
+                Storage.set("conwg", [...correct]);
               } else {
                 // If we get here, I'm a bad dev
                 console.error("Not sure how, but couldn't find the guess data");
@@ -158,7 +159,7 @@ export const Board: Component = () => {
 
               // Reset guesses
               setCurrentGuesses([]);
-              localStorage.setItem("concg", JSON.stringify([]));
+              Storage.set("concg", []);
               // If there's only one set left, it must be right
               if (correctGuesses().length === 3) {
                 const currentCorrect = correctGuesses();
@@ -166,17 +167,14 @@ export const Board: Component = () => {
                   puzzleWords().filter((d) => !correctGuesses().includes(d))[0]
                 );
                 setCorrectGuesses([...currentCorrect]);
-                localStorage.setItem(
-                  "conwg",
-                  JSON.stringify([...currentCorrect])
-                );
+                Storage.set("conwg", [...currentCorrect]);
               }
             } else {
               // Incorrect, deselect words
               // Could be cool to add something here like a shake effect as a nice feedback
               setIncorrectGuesses(guesses);
               setCurrentGuesses([]);
-              localStorage.setItem("concg", JSON.stringify([]));
+              Storage.set("concg", []);
             }
           }}
           OnDisabledClick={() =>
