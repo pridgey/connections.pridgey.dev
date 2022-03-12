@@ -53,5 +53,6 @@ export const grabTodaysPuzzle = (setPuzzle: any) => {
 
       // Update state
       setPuzzle(JSON.parse(puzzleString || ""));
-    });
+    })
+    .catch((err) => console.error(err);
 };
