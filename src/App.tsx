@@ -8,7 +8,9 @@ import { LeaderBoard } from "./Leaderboard";
 import { IconButton } from "./IconButton";
 
 const App = () => {
-  const [showRules, setShowRules] = createSignal(true);
+  const [showRules, setShowRules] = createSignal(
+    JSON.parse(localStorage.getItem("conrr") ?? "true")
+  );
   const [showStats, setShowStats] = createSignal(false);
 
   return (
@@ -24,7 +26,12 @@ const App = () => {
       </header>
       <Board />
       <Show when={showRules()}>
-        <Rules OnClose={() => setShowRules(false)} />
+        <Rules
+          OnClose={() => {
+            setShowRules(false);
+            localStorage.setItem("conrr", JSON.stringify(false));
+          }}
+        />
       </Show>
       <Show when={showStats()}>
         <LeaderBoard OnClose={() => setShowStats(false)} />
