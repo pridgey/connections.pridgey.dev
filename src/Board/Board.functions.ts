@@ -30,6 +30,7 @@ export const grabTodaysPuzzle = (setPuzzle: any) => {
 
   // Check storage first
   const storage = Storage.get(dateKey);
+  console.log("Storage:", storage);
 
   if (storage) {
     // We got the puzzle from storage
