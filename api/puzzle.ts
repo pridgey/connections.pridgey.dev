@@ -21,9 +21,12 @@ const handler = (req: NextApiRequest, res: NextApiResponse) => {
     },
   ];
 
+  const stringed = JSON.stringify(puzzle);
+
   const resBody = {
-    "Look Away": "What you're doing right now is called cheating",
-    puzzle: btoa(JSON.stringify(puzzle)),
+    Woah: "What you're doing right now is called cheating",
+    strin: stringed,
+    puzzle: btoa(stringed),
   };
 
   res.status(200).json({
