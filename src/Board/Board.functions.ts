@@ -1,5 +1,6 @@
 import { Category, CategoryWord } from "./Board";
 import atob from "atob";
+import { Storage } from "./../Utilities";
 
 // Splits the data into individual word-category pairs
 export const splitWords = (Categories: Category[]): CategoryWord[] => {
@@ -28,9 +29,9 @@ export const grabTodaysPuzzle = (setPuzzle: any) => {
   const dateKey = `${today.getFullYear()}${today.getMonth()}${today.getDate()}`;
 
   // Check storage first
-  const storage = localStorage.getItem(dateKey);
+  const storage = Storage.get(dateKey);
 
-  if (storage) setPuzzle(JSON.parse(storage));
+  if (storage) setPuzzle(storage);
 
   // We couldn't find a puzzle for today, must be a new day
   localStorage.clear();
@@ -41,10 +42,11 @@ export const grabTodaysPuzzle = (setPuzzle: any) => {
   })
     .then((res) => res.json())
     .then((data) => {
+      // Comes in encoded, decode it
       const puzzleString = atob(data.body.puzzle);
 
       // Store the string in storage
-      localStorage.setItem(dateKey, puzzleString);
+      Storage.set(dateKey, puzzleString);
 
       // Update state
       setPuzzle(JSON.parse(puzzleString || ""));
