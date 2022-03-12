@@ -1,5 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { Category } from "./../src/Board/Board";
+import btoa from "btoa";
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
   const puzzle: Category[] = [
