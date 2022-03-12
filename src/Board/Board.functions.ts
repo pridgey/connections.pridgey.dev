@@ -29,7 +29,7 @@ export const grabTodaysPuzzle = (setPuzzle: any) => {
   // Check storage first
   const storage = localStorage.getItem(dateKey);
 
-  if (storage) return JSON.parse(storage);
+  if (storage) setPuzzle(JSON.parse(storage));
 
   // We couldn't find a puzzle for today, must be a new day
   localStorage.clear();
