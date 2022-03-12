@@ -44,7 +44,7 @@ export const grabTodaysPuzzle = (setPuzzle: any) => {
     .then((data) => {
       // Comes in encoded, decode it
       console.log("data.body.puzzle", data.body.puzzle);
-      const puzzleString = atob(data.body.puzzle);
+      const puzzleString = window.atob(data.body.puzzle);
 
       console.log("After decode", puzzleString);
       console.log("Typeof:", typeof puzzleString);
