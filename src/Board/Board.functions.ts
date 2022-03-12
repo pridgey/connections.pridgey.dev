@@ -31,29 +31,32 @@ export const grabTodaysPuzzle = (setPuzzle: any) => {
   // Check storage first
   const storage = Storage.get(dateKey);
 
-  if (storage) setPuzzle(storage);
+  if (storage) {
+    // We got the puzzle from storage
+    setPuzzle(storage);
+  } else {
+    // We couldn't find a puzzle for today, must be a new day
+    localStorage.clear();
 
-  // We couldn't find a puzzle for today, must be a new day
-  localStorage.clear();
-
-  // No storage, grab from the API
-  fetch("/api/puzzle", {
-    method: "post",
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      // Comes in encoded, decode it
-      console.log("data.body.puzzle", data.body.puzzle);
-      const puzzleString = window.atob(data.body.puzzle);
-
-      console.log("After decode", puzzleString);
-      console.log("Typeof:", typeof puzzleString);
-
-      // Store the string in storage
-      Storage.set(dateKey, puzzleString);
-
-      // Update state
-      setPuzzle(JSON.parse(puzzleString || ""));
+    // No storage, grab from the API
+    fetch("/api/puzzle", {
+      method: "post",
     })
-    .catch((err) => console.error("Error:", err));
+      .then((res) => res.json())
+      .then((data) => {
+        // Comes in encoded, decode it
+        console.log("data.body.puzzle", data.body.puzzle);
+        const puzzleString = window.atob(data.body.puzzle);
+
+        console.log("After decode", puzzleString);
+        console.log("Typeof:", typeof puzzleString);
+
+        // Store the string in storage
+        Storage.set(dateKey, puzzleString);
+
+        // Update state
+        setPuzzle(JSON.parse(puzzleString || ""));
+      })
+      .catch((err) => console.error("Error:", err));
+  }
 };
