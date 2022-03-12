@@ -43,7 +43,10 @@ export const grabTodaysPuzzle = (setPuzzle: any) => {
     .then((res) => res.json())
     .then((data) => {
       // Comes in encoded, decode it
+      console.log("data.body.puzzle");
       const puzzleString = atob(data.body.puzzle);
+
+      console.log("After decode");
 
       // Store the string in storage
       Storage.set(dateKey, puzzleString);
