@@ -17,7 +17,7 @@ export const splitWords = (Categories: Category[]): CategoryWord[] => {
 };
 
 // Checks storage for todays data, or grabs it from the api
-export const grabTodaysPuzzle = () => {
+export const grabTodaysPuzzle = (setPuzzle: any) => {
   // Base it on Colorado time, for now
   const today = new Date(
     new Date().toLocaleString("en-US", {
@@ -31,11 +31,21 @@ export const grabTodaysPuzzle = () => {
 
   if (storage) return JSON.parse(storage);
 
+  // We couldn't find a puzzle for today, must be a new day
+  localStorage.clear();
+
   // No storage, grab from the API
-  fetch("/api", {
+  fetch("/api/puzzle", {
     method: "post",
-    body: "baby get back",
   })
     .then((res) => res.json())
-    .then((data) => console.log("Data", data));
+    .then((data) => {
+      const puzzleString = atob(data.body.puzzle);
+
+      // Store the string in storage
+      localStorage.setItem(dateKey, puzzleString);
+
+      // Update state
+      setPuzzle(JSON.parse(puzzleString || ""));
+    });
 };

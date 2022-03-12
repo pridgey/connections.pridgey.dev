@@ -59,7 +59,7 @@ export const Board: Component = () => {
   // Startup
   onMount(() => {
     // Grab day's puzzle
-    grabTodaysPuzzle();
+    grabTodaysPuzzle(setPuzzleWords);
   });
 
   // Reference to the incorrect animation timeout, used to ensure timeout doesn't continue on unmount
