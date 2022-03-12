@@ -1,4 +1,5 @@
 import { Category, CategoryWord } from "./Board";
+import atob from "atob";
 
 // Splits the data into individual word-category pairs
 export const splitWords = (Categories: Category[]): CategoryWord[] => {
