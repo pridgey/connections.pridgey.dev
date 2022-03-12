@@ -1,10 +1,14 @@
 export const Storage = {
   get: (key: string) => {
-    const value = window.atob(localStorage.getItem(key) || "");
-    console.log("Found value:", value);
-    if (value) {
-      return JSON.parse(value);
+    const store = localStorage.getItem(key);
+    console.log({ store });
+    const decoded = window.atob(store || "");
+    console.log({ decoded });
+    if (decoded) {
+      const parsed = JSON.parse(JSON.parse(decoded)); // Double parsing this is a bad idea, but all I got for now
+      return parsed;
     }
+
     return undefined;
   },
   set: (key: string, value: any) => {

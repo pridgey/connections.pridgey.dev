@@ -23,15 +23,15 @@ export const Board: Component = () => {
   const [puzzleWords, setPuzzleWords] = createSignal<Category[]>([]);
   // Stateful array of current user guesses
   const [currentGuesses, setCurrentGuesses] = createSignal<CategoryWord[]>(
-    Storage.get("concg") ?? "[]"
+    Storage.get("concg") ?? []
   );
   // Stateful array of correctly guessed words
   const [correctGuesses, setCorrectGuesses] = createSignal<Category[]>(
-    Storage.get("conwg") ?? "[]"
+    Storage.get("conwg") ?? []
   );
   // Number of guesses
   const [numOfGuesses, setNumOfGuesses] = createSignal<number>(
-    Storage.get("conng") ?? "0"
+    Storage.get("conng") ?? 0
   );
   // Incorrect words. Items in array will show an animation
   const [incorrectGuesses, setIncorrectGuesses] = createSignal<CategoryWord[]>(
@@ -45,7 +45,7 @@ export const Board: Component = () => {
   });
 
   createEffect(() => {
-    console.log("Puzzle Words:", puzzleWords());
+    console.log("Puzzle Words:", currentGuesses());
   }, []);
 
   // Reference to the incorrect animation timeout, used to ensure timeout doesn't continue on unmount
