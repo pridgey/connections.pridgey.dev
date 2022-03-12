@@ -37,5 +37,5 @@ export const grabTodaysPuzzle = () => {
     body: "baby get back",
   })
     .then((res) => res.json())
-    .then((data) => console.log("Data"));
+    .then((data) => console.log("Data", data));
 };
