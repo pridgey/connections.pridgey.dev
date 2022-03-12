@@ -26,7 +26,6 @@ const handler = (req: NextApiRequest, res: NextApiResponse) => {
 
   const resBody = {
     Woah: "What you're doing right now is called cheating",
-    strin: stringed,
     puzzle: btoa(stringed),
   };
 

@@ -17,25 +17,6 @@ export type CategoryWord = {
   Word: string;
 };
 
-const data: Category[] = [
-  {
-    Category: "Types of Horses",
-    Words: ["Mustang", "Appaloosa", "Arabian"],
-  },
-  {
-    Category: "American Muscle Cars",
-    Words: ["Corvette", "Camaro", "Viper"],
-  },
-  {
-    Category: "Types of Snakes",
-    Words: ["Cottonmouth", "Copperhead", "Python"],
-  },
-  {
-    Category: "Programming Languages",
-    Words: ["Ruby", "Java", "PHP"],
-  },
-];
-
 export const Board: Component = () => {
   // The source of truth
   const [puzzleWords, setPuzzleWords] = createSignal<Category[]>([]);
@@ -63,7 +44,7 @@ export const Board: Component = () => {
   });
 
   // Reference to the incorrect animation timeout, used to ensure timeout doesn't continue on unmount
-  let incorrectAnimationTimeout: number;
+  let incorrectAnimationTimeout: NodeJS.Timeout;
 
   // Reset incorrect words after a second
   createEffect(() => {
@@ -152,7 +133,7 @@ export const Board: Component = () => {
             const guessedWords = guesses.map((cw) => cw.Word);
 
             // There must be one group of words (.some) where all the words match (.every)
-            const win = data.some((cat) =>
+            const win = puzzleWords().some((cat) =>
               cat.Words.every((word) => guessedWords.includes(word))
             );
             if (win) {
@@ -160,7 +141,7 @@ export const Board: Component = () => {
               const correct = correctGuesses();
 
               // Find the data record representing the correct guess
-              const guessedCategory = data.find((c) =>
+              const guessedCategory = puzzleWords().find((c) =>
                 c.Words.every((w) => guessedWords.includes(w))
               );
 
@@ -182,7 +163,7 @@ export const Board: Component = () => {
               if (correctGuesses().length === 3) {
                 const currentCorrect = correctGuesses();
                 currentCorrect.push(
-                  data.filter((d) => !correctGuesses().includes(d))[0]
+                  puzzleWords().filter((d) => !correctGuesses().includes(d))[0]
                 );
                 setCorrectGuesses([...currentCorrect]);
                 localStorage.setItem(
