@@ -44,6 +44,10 @@ export const Board: Component = () => {
     grabTodaysPuzzle(setPuzzleWords);
   });
 
+  createEffect(() => {
+    console.log("Puzzle Words:", puzzleWords());
+  }, []);
+
   // Reference to the incorrect animation timeout, used to ensure timeout doesn't continue on unmount
   let incorrectAnimationTimeout: NodeJS.Timeout;
 
