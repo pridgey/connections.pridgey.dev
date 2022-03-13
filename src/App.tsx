@@ -6,6 +6,7 @@ import { Header } from "./Header";
 import { Rules } from "./Rules";
 import { LeaderBoard } from "./Leaderboard";
 import { IconButton } from "./IconButton";
+import { Storage } from "./Utilities";
 
 const App = () => {
   const [showRules, setShowRules] = createSignal(
@@ -29,7 +30,7 @@ const App = () => {
         <Rules
           OnClose={() => {
             setShowRules(false);
-            localStorage.setItem("conrr", JSON.stringify(false));
+            Storage.set("conrr", false);
           }}
         />
       </Show>

@@ -48,14 +48,16 @@ export const grabTodaysPuzzle = (setPuzzle: any) => {
         console.log("data.body.puzzle", data.body.puzzle);
         const puzzleString = window.atob(data.body.puzzle);
 
+        const puzzle = JSON.parse(puzzleString);
+
         console.log("After decode", puzzleString);
         console.log("Typeof:", typeof puzzleString);
 
         // Store the string in storage
-        Storage.set(dateKey, puzzleString);
+        Storage.set(dateKey, puzzle);
 
         // Update state
-        setPuzzle(JSON.parse(puzzleString || ""));
+        setPuzzle(puzzle);
       })
       .catch((err) => console.error("Error:", err));
   }
