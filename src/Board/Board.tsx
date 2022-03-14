@@ -7,12 +7,15 @@ import styles from "./Board.module.css";
 import shuffle from "lodash.shuffle";
 import { splitWords, grabTodaysPuzzle } from "./Board.functions";
 import { Storage } from "./../Utilities";
+import { IconButton } from "./../IconButton";
 
+// Represents a category and its corresponding words
 export type Category = {
   Category: string;
   Words: string[];
 };
 
+// Represents a singular word and its parent category
 export type CategoryWord = {
   Category: string;
   Word: string;
@@ -40,6 +43,7 @@ export const Board: Component = () => {
     []
   );
 
+  // Anytime puzzleWords or correctGuesses updates, we need to refresh the board
   createEffect(() => {
     //Remove any words already guessed
     const updatedWords = puzzleWords().filter(
@@ -105,45 +109,46 @@ export const Board: Component = () => {
       {/* The board is where the words still in play are displayed */}
       <div class={styles.board}>
         <For each={shuffle(splitWords(boardWords()))}>
-          {(cw) => {
-            console.log("Rendering");
-            return (
-              <Card
-                OnClick={() => {
-                  // If the word is already in the list, remove it
-                  if (currentGuesses().includes(cw)) {
-                    // Find index of the word in questions
-                    const index = currentGuesses().indexOf(cw);
-                    // Get array of guessed words
-                    const words = currentGuesses();
-                    // Remove word
-                    words.splice(index, 1);
-                    // Update state
+          {(cw) => (
+            <Card
+              OnClick={() => {
+                // If the word is already in the list, remove it
+                if (currentGuesses().includes(cw)) {
+                  // Find index of the word in questions
+                  const index = currentGuesses().indexOf(cw);
+                  // Get array of guessed words
+                  const words = currentGuesses();
+                  // Remove word
+                  words.splice(index, 1);
+                  // Update state
+                  setCurrentGuesses([...words]);
+                  Storage.set("concg", [...words]);
+                } else {
+                  // Add the word to the list, but only if there isn't already 3 guesses
+                  const words = currentGuesses();
+                  if (words.length < 3) {
+                    // Add guess and update state
+                    words.push(cw);
                     setCurrentGuesses([...words]);
                     Storage.set("concg", [...words]);
-                  } else {
-                    // Add the word to the list, but only if there isn't already 3 guesses
-                    const words = currentGuesses();
-                    if (words.length < 3) {
-                      // Add guess and update state
-                      words.push(cw);
-                      setCurrentGuesses([...words]);
-                      Storage.set("concg", [...words]);
-                    }
                   }
-                }}
-                active={currentGuesses().includes(cw)}
-                incorrect={incorrectGuesses().includes(cw)}
-              >
-                {cw.Word}
-              </Card>
-            );
-          }}
+                }
+              }}
+              active={currentGuesses().includes(cw)}
+              incorrect={incorrectGuesses().includes(cw)}
+            >
+              {cw.Word}
+            </Card>
+          )}
         </For>
       </div>
       {/* Footer has submit button and number of guesses */}
       <div class={styles.foot}>
         <span>{numOfGuesses()}</span>
+        <IconButton
+          Icon="shuffle"
+          OnClick={() => setBoardWords([...shuffle(boardWords())])}
+        />
         <GuessButton
           Disabled={currentGuesses().length !== 3}
           OnClick={() => {

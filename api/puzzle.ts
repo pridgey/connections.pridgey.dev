@@ -5,20 +5,20 @@ import btoa from "btoa";
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
   const puzzle: Category[] = [
     {
-      Category: "Ninja Turtles Characters",
-      Words: ["Leonardo", "Raphael", "April"],
+      Category: "D&D Classes",
+      Words: ["Paladin", "Druid", "Bard", "Cleric"],
     },
     {
-      Category: "Renaissance Artists",
-      Words: ["Michelangelo", "Botticelli", "Bellini"],
+      Category: "Nissan Models",
+      Words: ["Pathfinder", "Rogue", "Altima", "Juke"],
     },
     {
-      Category: "Mixed Cocktails",
-      Words: ["Manhattan", "Margarita", "Old Fashioned"],
+      Category: "Computer Magazines",
+      Words: ["Wired", "PC World", "Antic", "Byte"],
     },
     {
-      Category: "New York Neighborhoods",
-      Words: ["Bronx", "Brooklyn", "Queens"],
+      Category: "Words for Excited",
+      Words: ["Charged", "Hysterical", "Eager", "Frantic"],
     },
   ];
 

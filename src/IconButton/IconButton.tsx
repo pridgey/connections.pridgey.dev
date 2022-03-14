@@ -2,10 +2,11 @@ import { Switch, Match } from "solid-js";
 import styles from "./IconButton.module.css";
 import { TropheyIcon } from "./TropheyIcon";
 import { LawIcon } from "./LawIcon";
+import { ShuffleIcon } from "./ShuffleIcon";
 
 type IconButtonProps = {
   OnClick: () => void;
-  Icon: "trophy" | "law";
+  Icon: "trophy" | "law" | "shuffle";
 };
 
 export const IconButton = (props: IconButtonProps) => (
@@ -16,6 +17,9 @@ export const IconButton = (props: IconButtonProps) => (
       </Match>
       <Match when={props.Icon === "law"}>
         <LawIcon />
+      </Match>
+      <Match when={props.Icon === "shuffle"}>
+        <ShuffleIcon />
       </Match>
     </Switch>
   </button>
