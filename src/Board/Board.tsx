@@ -111,7 +111,7 @@ export const Board: Component = () => {
         class={styles.board}
         style={{
           "grid-template-columns": `repeat(${
-            puzzleWords()[0].Words.length
+            puzzleWords()[0]?.Words.length
           }, 1fr);`,
         }}
       >
@@ -133,7 +133,7 @@ export const Board: Component = () => {
                 } else {
                   // Add the word to the list, but only if there isn't already the right number of guesses
                   const words = currentGuesses();
-                  if (words.length < puzzleWords()[0].Words.length) {
+                  if (words.length < puzzleWords()[0]?.Words.length) {
                     // Add guess and update state
                     words.push(cw);
                     setCurrentGuesses([...words]);
@@ -157,7 +157,7 @@ export const Board: Component = () => {
           OnClick={() => setBoardWords([...shuffle(boardWords())])}
         />
         <GuessButton
-          Disabled={currentGuesses().length !== puzzleWords()[0].Words.length}
+          Disabled={currentGuesses().length !== puzzleWords()[0]?.Words.length}
           OnClick={() => {
             // Increment guess counter
             const timesGuessed = numOfGuesses() + 1;
