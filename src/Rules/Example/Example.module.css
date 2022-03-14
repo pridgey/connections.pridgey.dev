@@ -10,16 +10,23 @@
   gap: 5px;
   box-sizing: border-box;
   justify-items: stretch;
+  width: 40%;
 }
 
 .minisquare {
-  height: 25px;
   border-radius: 6px;
   background-color: transparent;
   border: 2px solid #c4c4c4;
+  aspect-ratio: 1;
 }
 
 .selected {
   border-color: #b1b1b1;
   background-color: #e4e4e4;
+}
+
+@media only screen and (max-width: 600px) {
+  .miniboard {
+    min-height: 90px;
+  }
 }
