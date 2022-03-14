@@ -1,20 +1,30 @@
 export const Storage = {
+  debug: (key?: string) => {
+    return Boolean(
+      [key, "debug"].includes(localStorage.getItem("debug") || "")
+    );
+  },
   get: (key: string) => {
+    // Check storage for debug key to show debug logs
+    const debug = Boolean(
+      ["debug", "storage"].includes(localStorage.getItem("debug") || "")
+    );
+
     const store = localStorage.getItem(key);
-    console.log({ store });
+    debug && console.log({ store });
 
     let clean = cleanString(store || "");
-    console.log({ clean });
+    debug && console.log({ clean });
 
     const decoded = window.atob(clean || "");
-    console.log({ decoded });
+    debug && console.log({ decoded });
 
     const final = cleanString(decoded);
-    console.log({ final });
+    debug && console.log({ final });
 
     if (final) {
       const parsed = JSON.parse(final);
-      console.log({ parsed });
+      debug && console.log({ parsed });
       return parsed;
     }
 
@@ -30,7 +40,7 @@ export const Storage = {
 
 const cleanString = (str: string) => {
   let result = str;
-  console.log("Starts With:", result.startsWith('"'));
+
   // Check for leading quotes
   if (result.startsWith("'") || result.startsWith('"')) {
     result = result.substring(1);
@@ -40,5 +50,5 @@ const cleanString = (str: string) => {
     result = result.substring(0, result.length - 1);
   }
 
-  return decodeURI(result);
+  return decodeURIComponent(result);
 };

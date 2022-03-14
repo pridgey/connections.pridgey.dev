@@ -21,6 +21,8 @@ export type CategoryWord = {
 export const Board: Component = () => {
   // The source of truth
   const [puzzleWords, setPuzzleWords] = createSignal<Category[]>([]);
+  // What to display on the board
+  const [boardWords, setBoardWords] = createSignal<Category[]>([]);
   // Stateful array of current user guesses
   const [currentGuesses, setCurrentGuesses] = createSignal<CategoryWord[]>(
     Storage.get("concg") ?? []
@@ -38,14 +40,35 @@ export const Board: Component = () => {
     []
   );
 
+  createEffect(() => {
+    //Remove any words already guessed
+    const updatedWords = puzzleWords().filter(
+      (c) =>
+        !correctGuesses()
+          .map((g) => g.Category)
+          .includes(c.Category)
+    );
+    setBoardWords([...updatedWords]);
+  });
+
   // Startup
   onMount(() => {
     // Grab day's puzzle
     grabTodaysPuzzle(setPuzzleWords);
   });
 
+  // Show debug info
   createEffect(() => {
-    console.log("Puzzle Words:", currentGuesses());
+    const debug = Storage.debug("state");
+    debug &&
+      console.log("State:", {
+        puzzleWords: puzzleWords(),
+        currentGuesses: currentGuesses(),
+        correctGuesses: correctGuesses(),
+        numOfGuesses: numOfGuesses(),
+        incorrectGuesses: incorrectGuesses(),
+        boardWords: boardWords(),
+      });
   }, []);
 
   // Reference to the incorrect animation timeout, used to ensure timeout doesn't continue on unmount
@@ -81,45 +104,41 @@ export const Board: Component = () => {
       </div>
       {/* The board is where the words still in play are displayed */}
       <div class={styles.board}>
-        <For
-          each={shuffle(
-            // Show all words not currently in the correctGuesses arrays
-            splitWords(
-              puzzleWords().filter((c) => !correctGuesses().includes(c))
-            )
-          )}
-        >
-          {(cw) => (
-            <Card
-              OnClick={() => {
-                // If the word is already in the list, remove it
-                if (currentGuesses().includes(cw)) {
-                  // Find index of the word in questions
-                  const index = currentGuesses().indexOf(cw);
-                  // Get array of guessed words
-                  const words = currentGuesses();
-                  // Remove word
-                  words.splice(index, 1);
-                  // Update state
-                  setCurrentGuesses([...words]);
-                  Storage.set("concg", [...words]);
-                } else {
-                  // Add the word to the list, but only if there isn't already 3 guesses
-                  const words = currentGuesses();
-                  if (words.length < 3) {
-                    // Add guess and update state
-                    words.push(cw);
+        <For each={shuffle(splitWords(boardWords()))}>
+          {(cw) => {
+            console.log("Rendering");
+            return (
+              <Card
+                OnClick={() => {
+                  // If the word is already in the list, remove it
+                  if (currentGuesses().includes(cw)) {
+                    // Find index of the word in questions
+                    const index = currentGuesses().indexOf(cw);
+                    // Get array of guessed words
+                    const words = currentGuesses();
+                    // Remove word
+                    words.splice(index, 1);
+                    // Update state
                     setCurrentGuesses([...words]);
                     Storage.set("concg", [...words]);
+                  } else {
+                    // Add the word to the list, but only if there isn't already 3 guesses
+                    const words = currentGuesses();
+                    if (words.length < 3) {
+                      // Add guess and update state
+                      words.push(cw);
+                      setCurrentGuesses([...words]);
+                      Storage.set("concg", [...words]);
+                    }
                   }
-                }
-              }}
-              active={currentGuesses().includes(cw)}
-              incorrect={incorrectGuesses().includes(cw)}
-            >
-              {cw.Word}
-            </Card>
-          )}
+                }}
+                active={currentGuesses().includes(cw)}
+                incorrect={incorrectGuesses().includes(cw)}
+              >
+                {cw.Word}
+              </Card>
+            );
+          }}
         </For>
       </div>
       {/* Footer has submit button and number of guesses */}
@@ -171,6 +190,7 @@ export const Board: Component = () => {
                   puzzleWords().filter((d) => !correctGuesses().includes(d))[0]
                 );
                 setCorrectGuesses([...currentCorrect]);
+                setBoardWords([]);
                 Storage.set("conwg", [...currentCorrect]);
               }
             } else {

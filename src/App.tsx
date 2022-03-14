@@ -9,9 +9,7 @@ import { IconButton } from "./IconButton";
 import { Storage } from "./Utilities";
 
 const App = () => {
-  const [showRules, setShowRules] = createSignal(
-    JSON.parse(localStorage.getItem("conrr") ?? "true")
-  );
+  const [showRules, setShowRules] = createSignal(Storage.get("conrr") ?? true);
   const [showStats, setShowStats] = createSignal(false);
 
   return (

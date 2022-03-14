@@ -1,5 +1,4 @@
 import { Category, CategoryWord } from "./Board";
-import atob from "atob";
 import { Storage } from "./../Utilities";
 
 // Splits the data into individual word-category pairs
@@ -45,13 +44,10 @@ export const grabTodaysPuzzle = (setPuzzle: any) => {
       .then((res) => res.json())
       .then((data) => {
         // Comes in encoded, decode it
-        console.log("data.body.puzzle", data.body.puzzle);
         const puzzleString = window.atob(data.body.puzzle);
 
+        // Parse it
         const puzzle = JSON.parse(puzzleString);
-
-        console.log("After decode", puzzleString);
-        console.log("Typeof:", typeof puzzleString);
 
         // Store the string in storage
         Storage.set(dateKey, puzzle);
