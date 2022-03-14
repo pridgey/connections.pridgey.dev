@@ -107,7 +107,14 @@ export const Board: Component = () => {
         </For>
       </div>
       {/* The board is where the words still in play are displayed */}
-      <div class={styles.board}>
+      <div
+        class={styles.board}
+        style={{
+          "grid-template-columns": `repeat(${
+            puzzleWords()[0].Words.length
+          }, 1fr);`,
+        }}
+      >
         <For each={shuffle(splitWords(boardWords()))}>
           {(cw) => (
             <Card
@@ -124,9 +131,9 @@ export const Board: Component = () => {
                   setCurrentGuesses([...words]);
                   Storage.set("concg", [...words]);
                 } else {
-                  // Add the word to the list, but only if there isn't already 3 guesses
+                  // Add the word to the list, but only if there isn't already the right number of guesses
                   const words = currentGuesses();
-                  if (words.length < 3) {
+                  if (words.length < puzzleWords()[0].Words.length) {
                     // Add guess and update state
                     words.push(cw);
                     setCurrentGuesses([...words]);
@@ -150,7 +157,7 @@ export const Board: Component = () => {
           OnClick={() => setBoardWords([...shuffle(boardWords())])}
         />
         <GuessButton
-          Disabled={currentGuesses().length !== 3}
+          Disabled={currentGuesses().length !== puzzleWords()[0].Words.length}
           OnClick={() => {
             // Increment guess counter
             const timesGuessed = numOfGuesses() + 1;
