@@ -11,13 +11,26 @@ type CardProps = {
 };
 
 export const Card = (props: CardProps) => {
+  // Card's font size (helpful for text that overflows)
+  const [fontSize, setFontSize] = createSignal(14);
   // Grab children to iterate
   const c = children(() => props.children);
   // Grab css classes
   const { card, selected, correct, incorrect } = styles;
+  // Card ref
+  let cardElement: any;
+
+  createEffect(() => {
+    const { scrollWidth, clientWidth } = cardElement;
+    if (scrollWidth > clientWidth) {
+      setFontSize(fontSize() - 1);
+    }
+  });
 
   return (
     <button
+      ref={cardElement}
+      style={{ "--font-size": `${fontSize()}px` }}
       classList={{
         [selected]: props.active,
         [correct]: props.correct,
