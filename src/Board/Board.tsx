@@ -43,6 +43,9 @@ export const Board: Component = () => {
     []
   );
 
+  // Grab CSS from styles object
+  const { board, fourcol, threecol } = styles;
+
   // Anytime puzzleWords or correctGuesses updates, we need to refresh the board
   createEffect(() => {
     //Remove any words already guessed
@@ -108,11 +111,10 @@ export const Board: Component = () => {
       </div>
       {/* The board is where the words still in play are displayed */}
       <div
-        class={styles.board}
-        style={{
-          "grid-template-columns": `repeat(${
-            puzzleWords()[0]?.Words.length
-          }, 1fr);`,
+        classList={{
+          [board]: true,
+          [fourcol]: puzzleWords()[0]?.Words.length === 4,
+          [threecol]: puzzleWords()[0]?.Words.length === 3,
         }}
       >
         <For each={shuffle(splitWords(boardWords()))}>

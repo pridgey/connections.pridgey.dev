@@ -1,9 +1,16 @@
 .board {
   display: grid;
-  /* grid-template-columns: repeat(4, 1fr); */
   gap: 5px;
   width: 100%;
   margin-bottom: 15px;
+}
+
+.fourcol {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.threecol {
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .categories {
