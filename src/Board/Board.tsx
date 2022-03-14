@@ -27,9 +27,7 @@ export const Board: Component = () => {
   // What to display on the board
   const [boardWords, setBoardWords] = createSignal<Category[]>([]);
   // Stateful array of current user guesses
-  const [currentGuesses, setCurrentGuesses] = createSignal<CategoryWord[]>(
-    Storage.get("concg") ?? []
-  );
+  const [currentGuesses, setCurrentGuesses] = createSignal<CategoryWord[]>([]);
   // Stateful array of correctly guessed words
   const [correctGuesses, setCorrectGuesses] = createSignal<Category[]>(
     Storage.get("conwg") ?? []
@@ -131,7 +129,6 @@ export const Board: Component = () => {
                   words.splice(index, 1);
                   // Update state
                   setCurrentGuesses([...words]);
-                  Storage.set("concg", [...words]);
                 } else {
                   // Add the word to the list, but only if there isn't already the right number of guesses
                   const words = currentGuesses();
@@ -139,7 +136,6 @@ export const Board: Component = () => {
                     // Add guess and update state
                     words.push(cw);
                     setCurrentGuesses([...words]);
-                    Storage.set("concg", [...words]);
                   }
                 }
               }}

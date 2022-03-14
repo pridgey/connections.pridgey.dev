@@ -1,0 +1,25 @@
+.miniboard {
+  margin: 15px;
+  border-radius: 6px;
+  background-color: transparent;
+  border: 2px solid #c4c4c4;
+  padding: 15px;
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+  box-sizing: border-box;
+  justify-items: stretch;
+}
+
+.minisquare {
+  height: 25px;
+  border-radius: 6px;
+  background-color: transparent;
+  border: 2px solid #c4c4c4;
+}
+
+.selected {
+  border-color: #b1b1b1;
+  background-color: #e4e4e4;
+}

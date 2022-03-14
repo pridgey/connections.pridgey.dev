@@ -1,5 +1,6 @@
 import { Portal } from "solid-js/web";
 import styles from "./Rules.module.css";
+import { ExampleBoard } from "./Example";
 
 type RulesProps = {
   OnClose: () => void;
@@ -19,19 +20,22 @@ export const Rules = (props: RulesProps) => {
             </button>
           </div>
           <p class={body}>
-            Every day there are 12 words / phrases on the board that need to be
-            arranged into 4 categories, each with 3 words. They are randomly
-            placed and arranged throughout the board.
+            16 words are arranged randomly on the board with the goal to
+            organize these words into 4 categories, each with 4 words in them.
+            An example board is below:
+          </p>
+          <ExampleBoard />
+          <p class={body}>
+            There may be some words that can fit in multiple categories. This is
+            tricky, and can throw you off. Despite these deceptive words, there
+            should be only one arrangement for each category to contain the
+            intended 4 words.
           </p>
           <p class={body}>
-            Some words may fit into multiple categories, but there will only be
-            one way for all answers to fit their categories. This can mean there
-            may be tricky words that will throw you off.
-          </p>
-          <p class={body}>
-            Select 3 words, that you believe are connected together, by tapping
-            on them and tapping "Submit". You may tap the words in any order.
-            The number of total guesses will be tallied in the lower left.
+            Take a look at the board and try to find the connections. Select
+            words by tapping on them and when you're confident, tap "Submit".
+            Your total number of guesses will be tallied on the lower left of
+            the baord.
           </p>
         </div>
       </div>
