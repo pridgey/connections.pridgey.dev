@@ -1,24 +1,24 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { Category } from "./../src/Board/Board";
+import { Category } from "@compositions";
 import btoa from "btoa";
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
   const puzzle: Category[] = [
     {
-      Category: "D&D Classes",
-      Words: ["Paladin", "Druid", "Bard", "Cleric"],
+      Category: "MTG Land Types",
+      Words: ["Mountains", "Plains", "Swamps", "Islands"],
     },
     {
-      Category: "Nissan Models",
-      Words: ["Pathfinder", "Rogue", "Altima", "Juke"],
+      Category: "Forrest Gump Characters",
+      Words: ["Jenny", "Forrest", "Lt. Dan", "Benjamin"],
     },
     {
-      Category: "Computer Magazines",
-      Words: ["Wired", "PC World", "Antic", "Byte"],
+      Category: "Types of Cookies",
+      Words: ["Snickerdoodle", "Biscotti", "Linzer", "Gingersnap"],
     },
     {
-      Category: "Words for Excited",
-      Words: ["Charged", "Hysterical", "Eager", "Frantic"],
+      Category: "Cities in California",
+      Words: ["Sausalito", "Irvine", "Fresno", "Modesto"],
     },
   ];
 
