@@ -36,6 +36,10 @@ export const Storage = {
       window.btoa(encodeURIComponent(JSON.stringify(value)))
     );
   },
+  clear: () => {
+    localStorage.removeItem("conwg");
+    localStorage.removeItem("conng");
+  },
 };
 
 const cleanString = (str: string) => {

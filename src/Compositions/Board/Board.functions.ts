@@ -35,7 +35,7 @@ export const grabTodaysPuzzle = (setPuzzle: any) => {
     setPuzzle(storage);
   } else {
     // We couldn't find a puzzle for today, must be a new day
-    localStorage.clear();
+    Storage.clear();
 
     // No storage, grab from the API
     fetch("/api/puzzle", {
