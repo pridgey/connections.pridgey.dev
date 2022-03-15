@@ -1,12 +1,9 @@
 import { createSignal, Show } from "solid-js";
 
 import styles from "./App.module.css";
-import { Board } from "./Board";
-import { Header } from "./Header";
-import { Rules } from "./Rules";
-import { LeaderBoard } from "./Leaderboard";
-import { IconButton } from "./IconButton";
-import { Storage } from "./Utilities";
+import { Board, Header, LeaderBoard, RulesDialog } from "@compositions";
+import { IconButton } from "@components";
+import { Storage } from "@utilities";
 
 const App = () => {
   const [showRules, setShowRules] = createSignal(Storage.get("conrr") ?? true);
@@ -25,7 +22,7 @@ const App = () => {
       </header>
       <Board />
       <Show when={showRules()}>
-        <Rules
+        <RulesDialog
           OnClose={() => {
             setShowRules(false);
             Storage.set("conrr", false);

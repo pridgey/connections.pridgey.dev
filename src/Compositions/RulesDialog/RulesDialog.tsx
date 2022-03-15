@@ -1,24 +1,21 @@
-import { Portal } from "solid-js/web";
-import styles from "./Rules.module.css";
-import { ExampleBoard } from "./Example";
+import styles from "./RulesDialog.module.css";
+import { ExampleBoard } from "@compositions";
+import { Dialog } from "@components";
 
 type RulesProps = {
   OnClose: () => void;
 };
 
-export const Rules = (props: RulesProps) => {
-  const { back, dialog, title, body, header, close } = styles;
+export const RulesDialog = (props: RulesProps) => {
+  // Grab the body styles for the text
+  const { body } = styles;
 
   return (
-    <Portal>
-      <div class={back}>
-        <div class={dialog}>
-          <div class={header}>
-            <h1 class={title}>How To Play</h1>
-            <button class={close} onClick={props.OnClose}>
-              X
-            </button>
-          </div>
+    <Dialog
+      Title="How To Play"
+      OnClose={props.OnClose}
+      Body={
+        <>
           <p class={body}>
             16 words are arranged randomly on the board with the goal to
             organize these words into 4 categories, each with 4 words in them.
@@ -37,8 +34,8 @@ export const Rules = (props: RulesProps) => {
             Your total number of guesses will be tallied on the lower left of
             the baord.
           </p>
-        </div>
-      </div>
-    </Portal>
+        </>
+      }
+    />
   );
 };

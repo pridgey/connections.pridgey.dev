@@ -16,7 +16,8 @@
     "@types/lodash.shuffle": "^4.2.6",
     "typescript": "^4.5.5",
     "vite": "^2.8.0",
-    "vite-plugin-solid": "^2.2.5"
+    "vite-plugin-solid": "^2.2.5",
+    "vite-tsconfig-paths": "^3.4.1"
   },
   "dependencies": {
     "atob": "^2.1.2",

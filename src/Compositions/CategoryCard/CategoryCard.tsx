@@ -1,6 +1,6 @@
 import { For, createSignal, Show } from "solid-js";
 import styles from "./CategoryCard.module.css";
-import cardStyles from "./../Card/Card.module.css";
+import cardStyles from "./../../Components/Card/Card.module.css";
 
 type CategoryCardProps = {
   Words: string[];

@@ -1,5 +1,5 @@
 import { Category, CategoryWord } from "./Board";
-import { Storage } from "./../Utilities";
+import { Storage } from "@utilities";
 
 // Splits the data into individual word-category pairs
 export const splitWords = (Categories: Category[]): CategoryWord[] => {

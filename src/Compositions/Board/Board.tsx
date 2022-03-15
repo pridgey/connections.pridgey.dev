@@ -1,13 +1,18 @@
 import type { Component } from "solid-js";
-import { For, createSignal, createEffect, onCleanup, onMount } from "solid-js";
-import { Card } from "./Card";
-import { GuessButton } from "./GuessButton";
-import { CategoryCard } from "./CategoryCard";
+import {
+  For,
+  createSignal,
+  createEffect,
+  onCleanup,
+  onMount,
+  Show,
+} from "solid-js";
+import { Button, Card, IconButton } from "@components";
+import { CategoryCard, NeedsMoreSelectionsDialog } from "@compositions";
 import styles from "./Board.module.css";
 import shuffle from "lodash.shuffle";
 import { splitWords, grabTodaysPuzzle } from "./Board.functions";
-import { Storage } from "./../Utilities";
-import { IconButton } from "./../IconButton";
+import { Storage } from "@utilities";
 
 // Represents a category and its corresponding words
 export type Category = {
@@ -40,6 +45,9 @@ export const Board: Component = () => {
   const [incorrectGuesses, setIncorrectGuesses] = createSignal<CategoryWord[]>(
     []
   );
+
+  // Show/hide guesses dialog
+  const [showGuessesDialog, setShowGuessesDialog] = createSignal(false);
 
   // Grab CSS from styles object
   const { board, fourcol, threecol } = styles;
@@ -154,8 +162,9 @@ export const Board: Component = () => {
           Icon="shuffle"
           OnClick={() => setBoardWords([...shuffle(boardWords())])}
         />
-        <GuessButton
+        <Button
           Disabled={currentGuesses().length !== puzzleWords()[0]?.Words.length}
+          Text="SUBMIT"
           OnClick={() => {
             // Increment guess counter
             const timesGuessed = numOfGuesses() + 1;
@@ -211,11 +220,14 @@ export const Board: Component = () => {
               Storage.set("concg", []);
             }
           }}
-          OnDisabledClick={() =>
-            alert("You must selected three items to compare")
-          }
+          OnDisabledClick={() => setShowGuessesDialog(true)}
         />
       </div>
+      <Show when={showGuessesDialog()}>
+        <NeedsMoreSelectionsDialog
+          OnClose={() => setShowGuessesDialog(false)}
+        />
+      </Show>
     </>
   );
 };
