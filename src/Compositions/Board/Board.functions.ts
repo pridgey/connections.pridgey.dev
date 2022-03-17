@@ -58,3 +58,38 @@ export const grabTodaysPuzzle = (setPuzzle: any) => {
       .catch((err) => console.error("Error:", err));
   }
 };
+
+// Log win
+export const logWin = (numOfGuesses: number) => {
+  // First grab the stats
+  let stats = Storage.get("consta");
+
+  // Let's say stats doesn't exist yet
+  if (!stats) {
+    stats = {
+      winsByGuessNum: [],
+      lastSevenDays: [],
+    };
+  }
+
+  // Increment the win total per num of guesses
+  const numOfWins = stats.winsByGuessNum[numOfGuesses] || 0;
+  stats.winsByGuessNum[numOfGuesses] = numOfWins + 1;
+
+  // Increment last seven days
+  if (stats.lastSevenDays?.length === 7) {
+    // Remove day 1
+    stats.lastSevenDays.shift();
+  }
+  stats.lastSevenDays.push(numOfGuesses);
+
+  return new Promise<void>((resolve, reject) => {
+    try {
+      // Update storage
+      Storage.set("consta", stats);
+    } catch (err) {
+      reject(err);
+    }
+    resolve();
+  });
+};

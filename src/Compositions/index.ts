@@ -5,3 +5,4 @@ export * from "./Header";
 export * from "./Leaderboard";
 export * from "./NeedMoreSelectionsDialog";
 export * from "./RulesDialog";
+export * from "./WinDialog";

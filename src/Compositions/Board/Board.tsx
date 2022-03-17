@@ -8,10 +8,14 @@ import {
   Show,
 } from "solid-js";
 import { Button, Card, IconButton } from "@components";
-import { CategoryCard, NeedsMoreSelectionsDialog } from "@compositions";
+import {
+  CategoryCard,
+  NeedsMoreSelectionsDialog,
+  WinDialog,
+} from "@compositions";
 import styles from "./Board.module.css";
 import shuffle from "lodash.shuffle";
-import { splitWords, grabTodaysPuzzle } from "./Board.functions";
+import { splitWords, grabTodaysPuzzle, logWin } from "./Board.functions";
 import { Storage } from "@utilities";
 
 // Represents a category and its corresponding words
@@ -45,9 +49,10 @@ export const Board: Component = () => {
   const [incorrectGuesses, setIncorrectGuesses] = createSignal<CategoryWord[]>(
     []
   );
-
   // Show/hide guesses dialog
   const [showGuessesDialog, setShowGuessesDialog] = createSignal(false);
+  // Show winner dialog
+  const [showWin, setShowWin] = createSignal(false);
 
   // Grab CSS from styles object
   const { board, fourcol, threecol } = styles;
@@ -204,13 +209,22 @@ export const Board: Component = () => {
               Storage.set("concg", []);
               // If there's only one set left, it must be right
               if (correctGuesses().length === 3) {
+                // Grab all correct guesses
                 const currentCorrect = correctGuesses();
+                // Push whatever is yet in there from the words list
                 currentCorrect.push(
                   puzzleWords().filter((d) => !correctGuesses().includes(d))[0]
                 );
+                // Update state for correct guesses
                 setCorrectGuesses([...currentCorrect]);
+                // Clear the board
                 setBoardWords([]);
+                // Persist changes
                 Storage.set("conwg", [...currentCorrect]);
+                // Update user stats and show win
+                logWin(numOfGuesses())
+                  .then(() => setShowWin(true))
+                  .catch(console.error);
               }
             } else {
               // Incorrect, deselect words
@@ -227,6 +241,9 @@ export const Board: Component = () => {
         <NeedsMoreSelectionsDialog
           OnClose={() => setShowGuessesDialog(false)}
         />
+      </Show>
+      <Show when={showWin()}>
+        <WinDialog OnClose={() => setShowWin(false)} />
       </Show>
     </>
   );
