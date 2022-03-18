@@ -1,0 +1,48 @@
+.bar {
+  width: 100%;
+  background-color: rgb(22, 133, 18);
+  animation-name: grow;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  max-width: 30px;
+  border-radius: 4px;
+}
+
+.barcontainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px 0px;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.barvalue {
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #363634;
+}
+
+.bartext {
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #363634;
+  white-space: nowrap;
+}
+
+@keyframes grow {
+  from {
+    height: 0px;
+  }
+  to {
+    height: var(--bar-height);
+  }
+}

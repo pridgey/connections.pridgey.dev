@@ -1,0 +1,33 @@
+.container {
+  padding: 30px;
+  box-sizing: border-box;
+  display: flex;
+  gap: 20px 0px;
+  flex-direction: column;
+}
+
+.title {
+  font-family: "Fredoka One", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  font-size: 18px;
+  color: #363434;
+  margin: 0px;
+}
+
+.distribution {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  gap: 3px 5px;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    width: 100%;
+    padding: 10px;
+  }
+}

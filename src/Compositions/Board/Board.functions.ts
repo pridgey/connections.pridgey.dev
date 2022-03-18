@@ -81,7 +81,12 @@ export const logWin = (numOfGuesses: number) => {
     // Remove day 1
     stats.lastSevenDays.shift();
   }
-  stats.lastSevenDays.push(numOfGuesses);
+
+  const today = new Date();
+  stats.lastSevenDays.push({
+    date: `${today.getMonth() + 1}/${today.getDate()}`,
+    guesses: numOfGuesses,
+  });
 
   return new Promise<void>((resolve, reject) => {
     try {
