@@ -1,7 +1,13 @@
 import { createSignal, Show } from "solid-js";
 
 import styles from "./App.module.css";
-import { Board, Header, LeaderBoard, RulesDialog } from "@compositions";
+import {
+  Board,
+  Header,
+  LeaderBoard,
+  RulesDialog,
+  WinDialog,
+} from "@compositions";
 import { IconButton } from "@components";
 import { Storage } from "@utilities";
 
@@ -30,7 +36,7 @@ const App = () => {
         />
       </Show>
       <Show when={showStats()}>
-        <LeaderBoard OnClose={() => setShowStats(false)} />
+        <WinDialog OnClose={() => setShowStats(false)} />
       </Show>
     </main>
   );
