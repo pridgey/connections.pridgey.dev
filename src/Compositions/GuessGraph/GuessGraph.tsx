@@ -9,15 +9,22 @@ export const GuessGraph = () => {
   const [stats, setStats] = createSignal<any[]>([]);
   // max value for the percentages
   const [maxVal, setMaxVal] = createSignal();
+  // number of guesses this game
+  const [numGuesses, setNumGuesses] = createSignal<number>();
 
   // Grab the data onmount
   onMount(() => {
     const store = Storage.get("consta");
+    const ng = Storage.get("conng");
 
     // If we have it, do it
     if (store?.winsByGuessNum) {
       setStats(store.winsByGuessNum);
       setMaxVal(Math.max(...store.winsByGuessNum));
+    }
+
+    if (ng) {
+      setNumGuesses(ng);
     }
   });
 
@@ -38,7 +45,7 @@ export const GuessGraph = () => {
             const label = i.label;
             // The percentage of the bar
             const percentage =
-              maxVal() === 0 ? 0 : (Number(val) / Number(maxVal())) * 100 || 1;
+              maxVal() === 0 ? 0 : (Number(val) / Number(maxVal())) * 59 || 1;
             // Show debug if requested
             debug &&
               console.log({
@@ -47,14 +54,16 @@ export const GuessGraph = () => {
                 val,
                 label,
                 percentage,
+                guesses: numGuesses(),
               });
 
             // render the graph bar
             return (
               <GraphBar
                 Value={val.toString()}
-                Percentage={`${percentage}%`}
+                Percentage={`${percentage}px`}
                 Label={label}
+                Highlighted={label === numGuesses()?.toString()}
               />
             );
           }}

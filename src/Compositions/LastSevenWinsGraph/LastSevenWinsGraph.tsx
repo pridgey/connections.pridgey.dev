@@ -55,6 +55,7 @@ export const LastSevenWinsGraph = () => {
                 Value={val}
                 Percentage={`${percentage}%`}
                 Label={date}
+                Highlighted={i === stats()[stats().length - 1]}
               />
             );
           }}
