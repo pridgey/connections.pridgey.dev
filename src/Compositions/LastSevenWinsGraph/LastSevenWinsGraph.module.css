@@ -18,9 +18,9 @@
 
 .week {
   width: 100%;
+  height: 100px;
   display: grid;
-  grid-template-columns: repeat(var(--days), 1fr);
-  grid-template-rows: 75px min-content;
+  grid-template-columns: repeat(7, 1fr);
   gap: 3px 5px;
   justify-items: center;
   align-items: flex-end;

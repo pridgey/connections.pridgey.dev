@@ -12,6 +12,7 @@
     "paths": {
       "@components": ["./src/Components/"],
       "@compositions": ["./src/Compositions/"],
+      "@types": ["./src/Types/"],
       "@utilities": ["./src/Utilities/"]
     }
   }

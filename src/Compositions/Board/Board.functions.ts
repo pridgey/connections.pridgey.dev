@@ -84,7 +84,7 @@ export const logWin = (numOfGuesses: number) => {
 
   const today = new Date();
   stats.lastSevenDays.push({
-    date: `${today.getMonth() + 1}/${today.getDate()}`,
+    date: today.toLocaleDateString(),
     guesses: numOfGuesses,
   });
 
