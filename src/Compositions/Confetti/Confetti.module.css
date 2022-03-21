@@ -28,12 +28,22 @@
 }
 
 @keyframes fall {
-  from {
+  0% {
     top: -10px;
-    transform: rotate(45deg);
+    transform: rotate(var(--rotstart));
   }
-  to {
+  25% {
+    left: calc(var(--left) - var(--sway));
+  }
+  50% {
+    left: calc(var(--left) + var(--sway));
+  }
+  75% {
+    left: calc(var(--left) - var(--sway));
+  }
+  100% {
+    left: calc(var(--left) + var(--sway));
     top: 120%;
-    transform: rotate(345deg);
+    transform: rotate(var(--rotend));
   }
 }

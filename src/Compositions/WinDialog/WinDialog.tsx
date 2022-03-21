@@ -40,6 +40,8 @@ export const WinDialog = (props: WinDialogProps) => {
             <Confetti Title="Winner" />
             <Button
               OnClick={() => {
+                console.log("Agent:", navigator.userAgent);
+
                 setShowCopiedMsg(true);
 
                 const g = Storage.get("conng");
@@ -51,7 +53,7 @@ export const WinDialog = (props: WinDialogProps) => {
                   } guesses`
                 );
               }}
-              Text={showCopiedMsg() ? "COPIED" : "SHARE"}
+              Text={showCopiedMsg() ? "COPIED TO CLIPBOARD" : "SHARE WIN"}
             />
           </Show>
           <LastSevenWinsGraph />

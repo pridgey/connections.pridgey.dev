@@ -22,6 +22,9 @@ export const Confetti = (props: ConfettiProps) => {
               "--left": i.Left,
               "--duration": i.Duration,
               "--size": i.Size,
+              "--rotstart": i.RotationStart,
+              "--rotend": i.RotationEnd,
+              "--sway": i.Sway,
             }}
           ></div>
         )}
