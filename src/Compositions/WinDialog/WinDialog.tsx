@@ -3,6 +3,7 @@ import { Dialog, Button } from "@components";
 import { Confetti, GuessGraph, LastSevenWinsGraph } from "@compositions";
 import styles from "./WinDialog.module.css";
 import { getTitle, getWinText } from "./WinDialog.functions";
+import { Storage } from "@utilities";
 
 type WinDialogProps = {
   OnClose: () => void;
