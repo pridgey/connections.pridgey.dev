@@ -40,7 +40,7 @@ export const WinDialog = (props: WinDialogProps) => {
             <Confetti Title="Winner" />
             <Button
               OnClick={() => {
-                console.log("Agent:", navigator.userAgent);
+                alert(navigator.userAgent);
 
                 setShowCopiedMsg(true);
 
