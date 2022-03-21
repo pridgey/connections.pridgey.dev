@@ -1,10 +1,10 @@
 import styles from "./Button.module.css";
 
 type ButtonProps = {
-  Disabled: boolean;
+  Disabled?: boolean;
   Text: string;
   OnClick: () => void;
-  OnDisabledClick: () => void;
+  OnDisabledClick?: () => void;
 };
 
 export const Button = (props: ButtonProps) => {
@@ -14,7 +14,7 @@ export const Button = (props: ButtonProps) => {
     <button
       onClick={() => {
         if (props.Disabled) {
-          props.OnDisabledClick();
+          props.OnDisabledClick?.();
         } else {
           props.OnClick();
         }

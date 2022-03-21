@@ -1,0 +1,39 @@
+.container {
+  position: relative;
+  width: 100%;
+  height: 125px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Fredoka One", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  font-size: 28px;
+  color: rgb(22, 133, 18);
+  overflow: hidden;
+}
+
+.bit {
+  position: absolute;
+  top: -10px;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 2px;
+  animation-name: fall;
+  animation-duration: var(--duration);
+  animation-iteration-count: infinite;
+  background-color: var(--color);
+  left: var(--left);
+  animation-delay: var(--delay);
+}
+
+@keyframes fall {
+  from {
+    top: -10px;
+    transform: rotate(45deg);
+  }
+  to {
+    top: 120%;
+    transform: rotate(345deg);
+  }
+}

@@ -1,5 +1,6 @@
 export * from "./Board";
 export * from "./CategoryCard";
+export * from "./Confetti";
 export * from "./ExampleBoard";
 export * from "./GuessGraph";
 export * from "./Header";

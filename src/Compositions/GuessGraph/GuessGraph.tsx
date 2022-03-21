@@ -4,7 +4,11 @@ import { Storage } from "@utilities";
 import { GraphBar } from "@components";
 import { organizeDistribution } from "./GuessGraph.functions";
 
-export const GuessGraph = () => {
+type GuessGraphProps = {
+  UserHasWon: boolean;
+};
+
+export const GuessGraph = (props: GuessGraphProps) => {
   // State for the stats
   const [stats, setStats] = createSignal<any[]>([]);
   // max value for the percentages
@@ -63,7 +67,9 @@ export const GuessGraph = () => {
                 Value={val.toString()}
                 Percentage={`${percentage}px`}
                 Label={label}
-                Highlighted={label === numGuesses()?.toString()}
+                Highlighted={
+                  label === numGuesses()?.toString() && props.UserHasWon
+                }
               />
             );
           }}

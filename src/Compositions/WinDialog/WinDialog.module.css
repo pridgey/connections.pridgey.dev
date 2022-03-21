@@ -1,28 +1,6 @@
-.week {
-  width: 100%;
-  padding: 5px;
-  display: grid;
-  grid-template-columns: repeat(var(--days), 1fr);
-  grid-template-rows: 75px min-content;
-  gap: 3px 5px;
-  justify-items: center;
-  align-items: flex-end;
-}
-
-.bar {
-  width: 100%;
-  background-color: rgb(22, 133, 18);
-  animation-name: grow;
-  animation-duration: 1s;
-  animation-timing-function: ease-out;
-  animation-fill-mode: forwards;
-}
-
-@keyframes grow {
-  from {
-    height: 0px;
-  }
-  to {
-    height: var(--bar-height);
-  }
+.layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px 0px;
 }
