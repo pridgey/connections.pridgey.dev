@@ -1,0 +1,52 @@
+.container {
+  display: grid;
+  grid-template-columns: min-content 5px 5px min-content;
+  grid-template-rows: min-content min-content min-content;
+  gap: 10px;
+  grid-template-areas: "one one two two" "three three three three" "four or or five";
+  justify-items: stretch;
+  align-items: center;
+  height: 100%;
+}
+
+.guessitem {
+  border-radius: 6px;
+  background-color: transparent;
+  border: 2px solid #c4c4c4;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.category {
+  border-radius: 6px;
+  background-color: transparent;
+  padding: 5px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.text {
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+}

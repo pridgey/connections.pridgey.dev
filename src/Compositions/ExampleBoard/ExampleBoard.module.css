@@ -1,5 +1,4 @@
 .miniboard {
-  margin: 15px;
   border-radius: 6px;
   background-color: transparent;
   border: 2px solid #c4c4c4;
@@ -10,7 +9,8 @@
   gap: 5px;
   box-sizing: border-box;
   justify-items: stretch;
-  width: 40%;
+  aspect-ratio: 1;
+  height: 100%;
 }
 
 .minisquare {
@@ -18,6 +18,8 @@
   background-color: transparent;
   border: 2px solid #c4c4c4;
   aspect-ratio: 1;
+  min-width: 10px;
+  min-height: 10px;
 }
 
 .selected {
