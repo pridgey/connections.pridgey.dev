@@ -11,18 +11,18 @@ type WinDialogProps = {
 
 export const WinDialog = (props: WinDialogProps) => {
   // Has the user won today's game
-  const userHasWon = Storage.get("conwg")?.length === 4;
+  const userHasWon = true; // Storage.get("conwg")?.length === 4;
   // Button state
-  const [showCopiedMsg, setShowCopiedMsg] = createSignal(false);
+  const [tempButtonText, setTempButtonText] = createSignal("");
   // We need to determine if the user is viewing this in a browser that can share
   const inApp = ["FBAN", "FBAV"].includes(navigator.userAgent);
 
   let buttonTimeout: NodeJS.Timeout;
 
   createEffect(() => {
-    if (showCopiedMsg()) {
+    if (tempButtonText()) {
       buttonTimeout = setTimeout(() => {
-        setShowCopiedMsg(false);
+        setTempButtonText("");
       }, 1500);
     }
   });
@@ -42,8 +42,7 @@ export const WinDialog = (props: WinDialogProps) => {
             <Confetti Title="Winner" />
             <Button
               OnClick={() => {
-                setShowCopiedMsg(true);
-
+                // Grab the guesses from storage
                 const g = Storage.get("conng");
                 const today = new Date();
 
@@ -66,17 +65,34 @@ export const WinDialog = (props: WinDialogProps) => {
                   months[today.getMonth()]
                 } ${today.getDate()} - ${g || "1,000,000"} guesses`;
 
-                navigator
-                  .share({
+                // Share and clipboard aren't always available, so we have fallbacks
+                if ("share" in window.navigator) {
+                  // Share exists, so let's do that!
+                  navigator.share({
                     text: winText,
-                  })
-                  .catch(() => {
-                    navigator.clipboard.writeText(winText);
                   });
-
-                //navigator.clipboard.writeText();
+                } else if ("clipboard" in navigator) {
+                  navigator.clipboard.writeText(winText);
+                  setTempButtonText("COPIED TO CLIPBOARD");
+                } else {
+                  // Okay we'll try the hacky way
+                  const ta = document.createElement("textarea");
+                  ta.value = winText;
+                  ta.id = "temp-copy";
+                  ta.style.opacity = "0";
+                  document.body.appendChild(ta);
+                  ta.focus();
+                  ta.select();
+                  try {
+                    document.execCommand("copy");
+                    setTempButtonText("GOT IT");
+                  } catch (err) {
+                    console.error("Copy Failed:", err);
+                  }
+                  document.getElementById("temp-copy")?.remove();
+                }
               }}
-              Text={showCopiedMsg() ? "COPIED TO CLIPBOARD" : "SHARE WIN"}
+              Text={tempButtonText() || "SHARE WIN"}
             />
           </Show>
           <LastSevenWinsGraph />
