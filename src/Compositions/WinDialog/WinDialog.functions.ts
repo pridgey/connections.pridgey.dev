@@ -44,3 +44,23 @@ export const getWinText = () => {
 
   return winText;
 };
+
+export const hackyCopyText = (text: string) => {
+  // Hacky way of copying text, might not work forever
+  const ta = document.createElement("textarea");
+  ta.value = text;
+  ta.id = "temp-copy";
+  ta.style.opacity = "0";
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try {
+    document.execCommand("copy");
+    return true;
+  } catch (err) {
+    console.error("Copy Failed:", err);
+    return false;
+  } finally {
+    document.getElementById("temp-copy")?.remove();
+  }
+};

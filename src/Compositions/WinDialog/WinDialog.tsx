@@ -2,7 +2,7 @@ import { createEffect, createSignal, Show, onCleanup } from "solid-js";
 import { Dialog, Button } from "@components";
 import { Confetti, GuessGraph, LastSevenWinsGraph } from "@compositions";
 import styles from "./WinDialog.module.css";
-import { getTitle, getWinText } from "./WinDialog.functions";
+import { hackyCopyText, getTitle, getWinText } from "./WinDialog.functions";
 import { Storage } from "@utilities";
 
 type WinDialogProps = {
@@ -62,26 +62,15 @@ export const WinDialog = (props: WinDialogProps) => {
                     "writeText" in navigator.clipboard
                   ) {
                     // Share failed, but we can try just copying the text
-                    navigator.clipboard
-                      .writeText(winText)
-                      .catch((err) => alert(err));
+                    navigator.clipboard.writeText(winText).catch((err) => {
+                      console.error("err", err);
+                      if (hackyCopyText(winText)) {
+                        setTempButtonText("COPIED TEXT TO CLIPBOARD");
+                      } else {
+                        setShowFallback(true);
+                      }
+                    });
                     setTempButtonText("COPIED TO CLIPBOARD");
-                  } else if (document.execCommand) {
-                    // Okay we'll try the hacky way
-                    const ta = document.createElement("textarea");
-                    ta.value = winText;
-                    ta.id = "temp-copy";
-                    ta.style.opacity = "0";
-                    document.body.appendChild(ta);
-                    ta.focus();
-                    ta.select();
-                    try {
-                      document.execCommand("copy");
-                      setTempButtonText("COPIED");
-                    } catch (err) {
-                      console.error("Copy Failed:", err);
-                    }
-                    document.getElementById("temp-copy")?.remove();
                   } else {
                     setShowFallback(true);
                   }
