@@ -42,8 +42,6 @@ export const WinDialog = (props: WinDialogProps) => {
             <Confetti Title="Winner" />
             <Button
               OnClick={() => {
-                alert(navigator.userAgent);
-
                 setShowCopiedMsg(true);
 
                 const g = Storage.get("conng");
