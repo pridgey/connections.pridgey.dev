@@ -14,6 +14,8 @@ export const WinDialog = (props: WinDialogProps) => {
   const userHasWon = Storage.get("conwg")?.length === 4;
   // Button state
   const [showCopiedMsg, setShowCopiedMsg] = createSignal(false);
+  // We need to determine if the user is viewing this in a browser that can share
+  const inApp = ["FBAN", "FBAV"].includes(navigator.userAgent);
 
   let buttonTimeout: NodeJS.Timeout;
 
@@ -47,11 +49,34 @@ export const WinDialog = (props: WinDialogProps) => {
                 const g = Storage.get("conng");
                 const today = new Date();
 
-                navigator.clipboard.writeText(
-                  `⏹️ Connections\r\n🎉 ${today.getMonth()}/${today.getDate()} - ${
-                    g || "1,000,000"
-                  } guesses`
-                );
+                const months = [
+                  "Jan",
+                  "Feb",
+                  "Mar",
+                  "Apr",
+                  "May",
+                  "Jun",
+                  "Jul",
+                  "Aug",
+                  "Sep",
+                  "Oct",
+                  "Nov",
+                  "Dec",
+                ];
+
+                const winText = `⏹️ Connections\r\n🎉 ${
+                  months[today.getMonth()]
+                } ${today.getDate()} - ${g || "1,000,000"} guesses`;
+
+                navigator
+                  .share({
+                    text: winText,
+                  })
+                  .catch(() => {
+                    navigator.clipboard.writeText(winText);
+                  });
+
+                //navigator.clipboard.writeText();
               }}
               Text={showCopiedMsg() ? "COPIED TO CLIPBOARD" : "SHARE WIN"}
             />
