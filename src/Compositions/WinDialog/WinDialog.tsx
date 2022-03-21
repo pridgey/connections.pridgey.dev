@@ -57,7 +57,10 @@ export const WinDialog = (props: WinDialogProps) => {
                     navigator.share({
                       text: winText,
                     });
-                  } else if ("clipboard" in window.navigator) {
+                  } else if (
+                    "clipboard" in window.navigator &&
+                    "writeText" in navigator.clipboard
+                  ) {
                     // Share failed, but we can try just copying the text
                     navigator.clipboard.writeText(winText);
                     setTempButtonText("COPIED TO CLIPBOARD");
