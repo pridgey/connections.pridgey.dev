@@ -150,7 +150,12 @@ const puzzles: { [key: string]: Category[] } = {
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
-  const today = new Date();
+  // Base it on Colorado time, for now
+  const today = new Date(
+    new Date().toLocaleString("en-US", {
+      timeZone: "America/Denver",
+    })
+  );
   const puzzleKey = `${today.getMonth() + 1}/${today.getDate()}`;
 
   const puzzle: Category[] = puzzles[puzzleKey];
