@@ -18,17 +18,21 @@
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
     "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
     "Helvetica Neue", sans-serif;
-  font-size: 26px;
+  font-size: var(--font-size);
   font-weight: 500;
   color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 6px;
+  padding: 5px;
+  box-sizing: border-box;
 }
 
-.correct {
-  background-color: rgb(22, 133, 18);
-  color: white;
-  border-color: rgb(22, 133, 18);
+.categoryContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

@@ -16,7 +16,7 @@ export const Card = (props: CardProps) => {
   // Grab children to iterate
   const c = children(() => props.children);
   // Grab css classes
-  const { card, selected, correct, incorrect } = styles;
+  const { card, container, selected, correct, incorrect } = styles;
   // Card ref
   let cardElement: any;
 
@@ -27,10 +27,29 @@ export const Card = (props: CardProps) => {
     }
   });
 
+  if (props.correct) {
+    return (
+      <div
+        classList={{
+          [selected]: props.active,
+          [correct]: props.correct,
+          [card]: true,
+          [incorrect]: props.incorrect,
+        }}
+        onClick={props.OnClick}
+      >
+        <div
+          class={container}
+          ref={cardElement}
+          style={{ "--font-size": `${fontSize()}px` }}
+        >
+          {c()}
+        </div>
+      </div>
+    );
+  }
   return (
     <button
-      ref={cardElement}
-      style={{ "--font-size": `${fontSize()}px` }}
       classList={{
         [selected]: props.active,
         [correct]: props.correct,
@@ -39,7 +58,13 @@ export const Card = (props: CardProps) => {
       }}
       onClick={props.OnClick}
     >
-      {c()}
+      <div
+        class={container}
+        ref={cardElement}
+        style={{ "--font-size": `${fontSize()}px` }}
+      >
+        {c()}
+      </div>
     </button>
   );
 };

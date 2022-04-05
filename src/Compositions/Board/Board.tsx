@@ -133,9 +133,11 @@ export const Board: Component = () => {
             <Card
               OnClick={() => {
                 // If the word is already in the list, remove it
-                if (currentGuesses().includes(cw)) {
+                if (currentGuesses().some((cg) => cg.Word === cw.Word)) {
                   // Find index of the word in questions
-                  const index = currentGuesses().indexOf(cw);
+                  const index = currentGuesses().findIndex(
+                    (cg) => cg.Word === cw.Word
+                  );
                   // Get array of guessed words
                   const words = currentGuesses();
                   // Remove word
@@ -152,8 +154,9 @@ export const Board: Component = () => {
                   }
                 }
               }}
-              active={currentGuesses().includes(cw)}
+              active={currentGuesses().some((cg) => cg.Word === cw.Word)}
               incorrect={incorrectGuesses().includes(cw)}
+              correct={false}
             >
               {cw.Word}
             </Card>
