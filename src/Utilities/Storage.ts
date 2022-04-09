@@ -1,13 +1,14 @@
 export const Storage = {
   debug: (key?: string) => {
     // Determines if we have a storage item telling us to log stuff
-    return Boolean([key, "all"].includes(localStorage.getItem("debug") || ""));
+    return true; // Boolean([key, "all"].includes(localStorage.getItem("debug") || ""));
   },
   get: (key: string) => {
     // Check storage for debug key to show debug logs
-    const debug = Boolean(
-      ["all", "storage"].includes(localStorage.getItem("debug") || "")
-    );
+    const debug = true; 
+    // Boolean(
+    //   ["all", "storage"].includes(localStorage.getItem("debug") || "")
+    // );
 
     // Get the item from storage
     const store = localStorage.getItem(key);
@@ -35,26 +36,49 @@ export const Storage = {
     return undefined;
   },
   set: (key: string, value: any) => {
+    // Check storage for debug key to show debug logs
+    const debug = true;
+    // Boolean(
+    //   ["all", "storage"].includes(localStorage.getItem("debug") || "")
+    // );
+    
+    // Encode the value
+    const endcodedItem = window.btoa(encodeURIComponent(JSON.stringify(value)));
+
+    debug && console.log({ endcodedItem });
+
     localStorage.setItem(
       key,
-      window.btoa(encodeURIComponent(JSON.stringify(value)))
+      endcodedItem
     );
   },
   clear: () => {
-    // Grab the things that should p ersist day to day
+    // Check storage for debug key to show debug logs
+    const debug = true; 
+    // Boolean(
+    //   ["all", "storage"].includes(localStorage.getItem("debug") || "")
+    // );
+
+    debug && console.log("Clear Storage");
+
+    // Grab the things that should persist day to day
     let persist = [
       {
-        id: "conrr",
+        id: "conrr", // Sets if the rules have been marked as read
         val: localStorage.getItem("conrr") || "",
       },
       {
-        id: "consta",
+        id: "consta", // Sets the stats for the user
         val: localStorage.getItem("consta") || "",
       },
     ];
+
+    debug && console.log({ persist });
+
     // Clear everything
     localStorage.clear();
-    // If something is there, add it back
+
+    // Add back any persistant items
     persist.forEach((item) => {
       if (item.val) {
         localStorage.setItem(item.id, item.val);
