@@ -73,6 +73,14 @@ export const Board: Component = () => {
   onMount(() => {
     // Grab day's puzzle
     grabTodaysPuzzle(setPuzzleWords);
+
+    fetch("/api/log", {
+      method: "post",
+      body: JSON.stringify({
+        area: "one",
+        event: "This is a test",
+      }),
+    }).catch(console.error);
   });
 
   // Show debug info
