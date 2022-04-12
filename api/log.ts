@@ -1,27 +1,34 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import KeenTracking from "keen-tracking";
+import Airtable from "airtable";
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
-  const client = new KeenTracking({
-    projectId: process.env.VITE_KEEN_PROJECT?.toString() || "",
-    writeKey: process.env.VITE_KEEN_WRITE?.toString() || "",
-  });
+  console.log({ req, body: req.body });
 
-  const body = req.body;
+  const today = new Date(
+    new Date().toLocaleString("en-US", {
+      timeZone: "America/Denver",
+    })
+  );
 
-  client
-    .recordEvent("log", {
-      area: body.area,
-      event: body.event
-    })
-    .then((response) => {
-      // handle successful responses
-      res.status(200);
-    })
-    .catch((error) => {
-      // handle errors
-      res.status(500);
-    });
+  const body = JSON.parse(req.body);
+
+  const base = new Airtable({ apiKey: process.env.AIRTABLE_KEY || "" }).base(
+    process.env.AIRTABLE_BASE || ""
+  );
+
+  base("Logs")
+    .create([
+      {
+        fields: {
+          Date: today.toString(),
+          User: "",
+          Area: body.area,
+          Event: body.event,
+        },
+      },
+    ])
+    .then(() => res.status(200).send(true))
+    .catch((err) => res.status(500).send(err));
 };
 
 export default handler;
