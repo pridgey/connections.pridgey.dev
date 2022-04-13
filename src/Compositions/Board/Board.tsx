@@ -16,7 +16,7 @@ import {
 import styles from "./Board.module.css";
 import shuffle from "lodash.shuffle";
 import { splitWords, grabTodaysPuzzle, logWin } from "./Board.functions";
-import { Storage } from "@utilities";
+import { Logging, Storage } from "@utilities";
 
 // Represents a category and its corresponding words
 export type Category = {
@@ -74,13 +74,7 @@ export const Board: Component = () => {
     // Grab day's puzzle
     grabTodaysPuzzle(setPuzzleWords);
 
-    fetch("/api/log", {
-      method: "post",
-      body: JSON.stringify({
-        area: "one",
-        event: "This is a test",
-      }),
-    }).catch(console.error);
+    Logging().forceLog("Test", "This is a test");
   });
 
   // Show debug info

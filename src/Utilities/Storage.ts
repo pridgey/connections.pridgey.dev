@@ -5,7 +5,7 @@ export const Storage = {
   },
   get: (key: string) => {
     // Check storage for debug key to show debug logs
-    const debug = true; 
+    const debug = true;
     // Boolean(
     //   ["all", "storage"].includes(localStorage.getItem("debug") || "")
     // );
@@ -41,20 +41,17 @@ export const Storage = {
     // Boolean(
     //   ["all", "storage"].includes(localStorage.getItem("debug") || "")
     // );
-    
+
     // Encode the value
     const endcodedItem = window.btoa(encodeURIComponent(JSON.stringify(value)));
 
     debug && console.log({ endcodedItem });
 
-    localStorage.setItem(
-      key,
-      endcodedItem
-    );
+    localStorage.setItem(key, endcodedItem);
   },
   clear: () => {
     // Check storage for debug key to show debug logs
-    const debug = true; 
+    const debug = true;
     // Boolean(
     //   ["all", "storage"].includes(localStorage.getItem("debug") || "")
     // );
@@ -70,6 +67,10 @@ export const Storage = {
       {
         id: "consta", // Sets the stats for the user
         val: localStorage.getItem("consta") || "",
+      },
+      {
+        id: "connuser", // Sets the stats for the user
+        val: localStorage.getItem("connuser") || "",
       },
     ];
 
