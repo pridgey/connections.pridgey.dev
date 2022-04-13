@@ -74,7 +74,7 @@ export const Board: Component = () => {
     // Grab day's puzzle
     grabTodaysPuzzle(setPuzzleWords);
 
-    Logging().forceLog("Test", "This is a test");
+    Logging().log("Test", "This is a test");
   });
 
   // Show debug info
