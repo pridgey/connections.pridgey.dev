@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import Airtable from "airtable";
 
-const handler = (req: NextApiRequest, res: NextApiResponse) => {
+const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   // Parse the body
   const body = JSON.parse(req.body);
 
@@ -21,6 +21,12 @@ const handler = (req: NextApiRequest, res: NextApiResponse) => {
         records?.[0]?.get("Value")
       );
 
+      console.log("Can Log:", {
+        canLog,
+        Area: body.Area,
+        Value: records?.[0]?.get("Value"),
+      });
+
       // Check if we are supposed to log
       if (canLog || body.Override) {
         // Get Date/Time in Denver
@@ -29,6 +35,16 @@ const handler = (req: NextApiRequest, res: NextApiResponse) => {
             timeZone: "America/Denver",
           })
         );
+
+        // Delete anything one week or older
+        base("Logs")
+          .select({
+            filterByFormula: `DATETIME_DIFF(TODAY(),Date,'d') >= 7`,
+          })
+          .all()
+          .then((records) => {
+            base("Logs").destroy(records.map((rec) => rec.id));
+          });
 
         // Log the thing
         return base("Logs")
@@ -44,6 +60,8 @@ const handler = (req: NextApiRequest, res: NextApiResponse) => {
           ])
           .then(() => res.status(200).send(true))
           .catch((err) => res.status(500).send(err));
+      } else {
+        res.status(202).send(true);
       }
     })
     .catch((err) => res.status(500).send(err));

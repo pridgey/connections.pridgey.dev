@@ -2,7 +2,7 @@ import { Storage } from "./../Utilities";
 
 const getUser = () => {
   // Get user string
-  let user = Storage.get("connuser");
+  let user = Storage.get("connuser", true);
 
   if (!user) {
     // No user id, so create one
@@ -18,16 +18,18 @@ const getUser = () => {
 
 const log = (Area: string, Event: string, Override = false) => {
   // Do the thing
-  const user = getUser();
-  fetch("/api/log", {
-    method: "post",
-    body: JSON.stringify({
-      User: user,
-      Area,
-      Event,
-      Override,
-    }),
-  }).catch(console.error);
+  if (Area && Event) {
+    const user = getUser();
+    fetch("/api/log", {
+      method: "post",
+      body: JSON.stringify({
+        User: user,
+        Area,
+        Event,
+        Override,
+      }),
+    }).catch(console.error);
+  }
 };
 
 export const Logging = () => ({

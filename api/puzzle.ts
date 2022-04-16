@@ -129,7 +129,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Styx", "Nix", "Kerberos", "Hydra"],
     },
   ],
-  "4/12": [
+  "4/15": [
     {
       Category: "Collective Nouns",
       Words: ["Clowder", "Swarm", "School", "Pride"],

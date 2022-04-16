@@ -1,30 +1,32 @@
 import { Logging } from "./Logging";
 
 export const Storage = {
-  get: (key: string) => {
+  get: (key: string, skipLog: boolean = false) => {
     const { log } = Logging();
 
     // Get the item from storage
     const store = localStorage.getItem(key);
-    log("Storage", store || "");
+    if (store) {
+      !skipLog && log("Storage-Full", `**${key}**: ${store || ""}`);
 
-    // Clean that string (basically just checks for common errors)
-    let clean = cleanString(store || "");
-    log("Storage", clean);
+      // Clean that string (basically just checks for common errors)
+      let clean = cleanString(store || "");
+      !skipLog && log("Storage-Full", `**${key}**: ${clean}`);
 
-    // Decode the string to its actual value
-    const decoded = window.atob(clean || "");
-    log("Storage", decoded);
+      // Decode the string to its actual value
+      const decoded = window.atob(clean || "");
+      !skipLog && log("Storage-Full", `**${key}**: ${decoded}`);
 
-    // Clean it one more time, juuuuust in case
-    const final = cleanString(decoded);
-    log("Storage", final);
+      // Clean it one more time, juuuuust in case
+      const final = cleanString(decoded);
+      !skipLog && log("Storage-Full", `**${key}**: ${final}`);
 
-    // If we have a value at this point, parse it
-    if (final) {
-      const parsed = JSON.parse(final);
-      log("Storage", parsed);
-      return parsed;
+      // If we have a value at this point, parse it
+      if (final) {
+        const parsed = JSON.parse(final);
+        !skipLog && log("Storage", `**${key}**: ${parsed}`);
+        return parsed;
+      }
     }
 
     return undefined;
@@ -35,7 +37,7 @@ export const Storage = {
     // Encode the value
     const endcodedItem = window.btoa(encodeURIComponent(JSON.stringify(value)));
 
-    log("Storage", endcodedItem);
+    log("Storage", `**${key}**: ${endcodedItem}`);
 
     localStorage.setItem(key, endcodedItem);
   },
@@ -60,7 +62,10 @@ export const Storage = {
       },
     ];
 
-    log("Storage", persist.toString());
+    log(
+      "Storage",
+      `persist: ${persist.map((p) => `${p.id}: ${p.val}`).join(", ")}`
+    );
 
     // Clear everything
     localStorage.clear();

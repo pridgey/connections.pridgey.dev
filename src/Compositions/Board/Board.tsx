@@ -90,7 +90,45 @@ export const Board: Component = () => {
       boardWords: boardWords(),
     };
 
-    log("State:", state.toString());
+    log(
+      "State",
+      `**puzzleWords**: ${puzzleWords()
+        .map((i) => `**${i.Category}**: ${i.Words.join(", ")}`)
+        .join(",")}`
+    );
+    if (currentGuesses().length) {
+      log(
+        "State",
+        `**currentGuesses**: ${currentGuesses()
+          .map((i) => `**${i.Category}**: ${i.Word}`)
+          .join(",")}`
+      );
+    }
+    if (correctGuesses().length) {
+      log(
+        "State",
+        `**correctGuesses**: ${correctGuesses()
+          .map((i) => `**${i.Category}**: ${i.Words.join(", ")}`)
+          .join(",")}`
+      );
+    }
+    log("State", `numOfGuesses: ${numOfGuesses()}`);
+    if (incorrectGuesses().length) {
+      log(
+        "State",
+        `**incorrectGuesses**: ${incorrectGuesses()
+          .map((i) => `**${i.Category}**: ${i.Word}`)
+          .join(",")}`
+      );
+    }
+    if (boardWords().length) {
+      log(
+        "State",
+        `**boardWords**: ${boardWords()
+          .map((i) => `**${i.Category}**: ${i.Words.join(", ")}`)
+          .join(",")}`
+      );
+    }
   }, []);
 
   // Reference to the incorrect animation timeout, used to ensure timeout doesn't continue on unmount
