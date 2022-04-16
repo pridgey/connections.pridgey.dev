@@ -1,5 +1,5 @@
 import { LastSevenDaysProps } from "@types";
-import { Storage } from "@utilities";
+import { Storage, Logging } from "@utilities";
 
 export const organizeStats = (stats: LastSevenDaysProps[]) => {
   // Type that we will return
@@ -9,6 +9,9 @@ export const organizeStats = (stats: LastSevenDaysProps[]) => {
     Percentage: string;
   };
 
+  // Logging
+  const { log } = Logging();
+
   // Resulting array
   let results: SevenDayStats[] = [];
 
@@ -17,8 +20,6 @@ export const organizeStats = (stats: LastSevenDaysProps[]) => {
 
   // Iterate through array and pull out what we need
   stats.forEach((s) => {
-    // Determine debug
-    const debug = Storage.debug("stats");
     // This bar's value
     const val = s.guesses;
     // This bar's label
@@ -27,14 +28,16 @@ export const organizeStats = (stats: LastSevenDaysProps[]) => {
     const percentage =
       maxVal === 0 ? 0 : (Number(val) / Number(maxVal)) * 59 || 1;
     // Show debug info if requested
-    debug &&
-      console.log({
+    log(
+      "Stats",
+      {
         step: "Last Seven Days",
         datum: s,
         val,
         date,
         percentage,
-      });
+      }.toString()
+    );
 
     // Add to the array
     results.push({

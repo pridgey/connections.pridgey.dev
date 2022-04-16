@@ -1,6 +1,6 @@
 import { For, createSignal, onMount } from "solid-js";
 import styles from "./GuessGraph.module.css";
-import { Storage } from "@utilities";
+import { Storage, Logging } from "@utilities";
 import { GraphBar } from "@components";
 import { organizeDistribution } from "./GuessGraph.functions";
 
@@ -15,6 +15,9 @@ export const GuessGraph = (props: GuessGraphProps) => {
   const [maxVal, setMaxVal] = createSignal();
   // number of guesses this game
   const [numGuesses, setNumGuesses] = createSignal<number>();
+
+  // For logging
+  const { log } = Logging();
 
   // Grab the data onmount
   onMount(() => {
@@ -41,8 +44,6 @@ export const GuessGraph = (props: GuessGraphProps) => {
       <div class={distribution}>
         <For each={organizeDistribution(stats())}>
           {(i) => {
-            // Determine debug
-            const debug = Storage.debug("stats");
             // This bar's guesses
             const val = i.value;
             // This bar's label
@@ -51,15 +52,17 @@ export const GuessGraph = (props: GuessGraphProps) => {
             const percentage =
               maxVal() === 0 ? 0 : (Number(val) / Number(maxVal())) * 59 || 1;
             // Show debug if requested
-            debug &&
-              console.log({
+            log(
+              "Stats",
+              {
                 step: "Guess Distribution",
                 datum: i,
                 val,
                 label,
                 percentage,
                 guesses: numGuesses(),
-              });
+              }.toString()
+            );
 
             // render the graph bar
             return (

@@ -1,62 +1,48 @@
+import { Logging } from "./Logging";
+
 export const Storage = {
-  debug: (key?: string) => {
-    // Determines if we have a storage item telling us to log stuff
-    return true; // Boolean([key, "all"].includes(localStorage.getItem("debug") || ""));
-  },
   get: (key: string) => {
-    // Check storage for debug key to show debug logs
-    const debug = true;
-    // Boolean(
-    //   ["all", "storage"].includes(localStorage.getItem("debug") || "")
-    // );
+    const { log } = Logging();
 
     // Get the item from storage
     const store = localStorage.getItem(key);
-    debug && console.log({ store });
+    log("Storage", store || "");
 
     // Clean that string (basically just checks for common errors)
     let clean = cleanString(store || "");
-    debug && console.log({ clean });
+    log("Storage", clean);
 
     // Decode the string to its actual value
     const decoded = window.atob(clean || "");
-    debug && console.log({ decoded });
+    log("Storage", decoded);
 
     // Clean it one more time, juuuuust in case
     const final = cleanString(decoded);
-    debug && console.log({ final });
+    log("Storage", final);
 
     // If we have a value at this point, parse it
     if (final) {
       const parsed = JSON.parse(final);
-      debug && console.log({ parsed });
+      log("Storage", parsed);
       return parsed;
     }
 
     return undefined;
   },
   set: (key: string, value: any) => {
-    // Check storage for debug key to show debug logs
-    const debug = true;
-    // Boolean(
-    //   ["all", "storage"].includes(localStorage.getItem("debug") || "")
-    // );
+    const { log } = Logging();
 
     // Encode the value
     const endcodedItem = window.btoa(encodeURIComponent(JSON.stringify(value)));
 
-    debug && console.log({ endcodedItem });
+    log("Storage", endcodedItem);
 
     localStorage.setItem(key, endcodedItem);
   },
   clear: () => {
-    // Check storage for debug key to show debug logs
-    const debug = true;
-    // Boolean(
-    //   ["all", "storage"].includes(localStorage.getItem("debug") || "")
-    // );
+    const { log } = Logging();
 
-    debug && console.log("Clear Storage");
+    log("Storage", "Clear Storage");
 
     // Grab the things that should persist day to day
     let persist = [
@@ -74,7 +60,7 @@ export const Storage = {
       },
     ];
 
-    debug && console.log({ persist });
+    log("Storage", persist.toString());
 
     // Clear everything
     localStorage.clear();

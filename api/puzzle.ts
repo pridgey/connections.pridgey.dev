@@ -147,6 +147,222 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Call of Duty", "Overwatch", "Destiny", "Apex"],
     },
   ],
+  "4/16": [
+    {
+      Category: "Batman Characters",
+      Words: ["Riddler", "Robin", "Catwoman", "Poison Ivy"],
+    },
+    {
+      Category: "Flightless Birds",
+      Words: ["Penguin", "Ostrich", "Emu", "Kiwi"],
+    },
+    {
+      Category: "Fruit You Don't Peel",
+      Words: ["Peach", "Plum", "Apple", "Pear"],
+    },
+    {
+      Category: "Poisonous Plants",
+      Words: ["Jimsonweed", "Oleander", "Mistletoe", "Nightshade"],
+    },
+  ],
+  "4/17": [
+    {
+      Category: "Short For William",
+      Words: ["Bill", "Will", "Liam", "Willie"],
+    },
+    {
+      Category: "Slang For Money",
+      Words: ["Bucks", "Dough", "Green", "Loot"],
+    },
+    {
+      Category: "NBA Eastern Conference Teams",
+      Words: ["Nets", "Heat", "Bulls", "Knicks"],
+    },
+    {
+      Category: "MLB West Coast Teams",
+      Words: ["Dodgers", "Padres", "Giants", "Mariners"],
+    },
+  ],
+  "4/18": [
+    {
+      Category: "Sweeteners",
+      Words: ["Stevia", "Aspartame", "Agave", "Sorbitol"],
+    },
+    {
+      Category: "Metallica Songs",
+      Words: ["Black End", "Fuel", "Enter Sandman", "Battery"],
+    },
+    {
+      Category: "Speakers of the House",
+      Words: ["Foley", "Gingrich", "Pelosi", "Bochner"],
+    },
+    {
+      Category: "Desert Plants",
+      Words: ["Yucca", "Saguaro", "Joshua Trees", "Prickly Pear"],
+    },
+  ],
+  "4/19": [
+    {
+      Category: "Layers of the Rainforest",
+      Words: ["Emergent", "Canopy", "Understory", "Forest Floor"],
+    },
+    {
+      Category: "Types of Clouds",
+      Words: ["Cirrus", "Stratus", "Cummulonimbus", "Nimbostratus"],
+    },
+    {
+      Category: "Harry Potter Brooms",
+      Words: ["Nimbus", "Cleansweep", "Comet", "Firebolt"],
+    },
+    {
+      Category: "Dungeons & Dragons Spells",
+      Words: ["Thunderclap", "Prestidigitation", "Arcane Eye", "Frostbite"],
+    },
+  ],
+  "4/20": [
+    {
+      Category: "European Capitals",
+      Words: ["Helsinki", "Berlin", "Rome", "Paris"],
+    },
+    {
+      Category: "Romeo & Juliet Characters",
+      Words: ["Tybalt", "Mercutio", "Benvolio", "Friar Lawrence"],
+    },
+    {
+      Category: "Nato Alphabet",
+      Words: ["Romeo", "Yankee", "Whiskey", "Foxtrot"],
+    },
+    {
+      Category: "Types of Dance",
+      Words: ["Waltz", "Samba", "Flamenco", "Swing"],
+    },
+  ],
+  "4/21": [
+    {
+      Category: "Types of Triangles",
+      Words: ["Isosceles", "Acute", "Scalene", "Obtuse"],
+    },
+    {
+      Category: "Words For Small",
+      Words: ["Modest", "Meager", "Paltry", "Slight"],
+    },
+    {
+      Category: "DC Superheroes",
+      Words: ["Zatanna", "Nightwing", "Shazam", "Starfire"],
+    },
+    {
+      Category: "Publishers",
+      Words: ["Random House", "HarperCollins", "Penguin", "Pearson"],
+    },
+  ],
+  "4/22": [
+    {
+      Category: "World Deserts",
+      Words: ["Mojave", "Arabian", "Gobi", "Sahara"],
+    },
+    {
+      Category: "Guitar Brands",
+      Words: ["Gibson", "Fender", "Takamine", "Ibanze"],
+    },
+    {
+      Category: "Regions of Japan",
+      Words: ["Hokkaido", "Kyushu", "Honshu", "Okinawa"],
+    },
+    {
+      Category: "Regions in Pokemon",
+      Words: ["Kanto", "Alola", "Sinnoh", "Kalos"],
+    },
+  ],
+  "4/23": [
+    {
+      Category: "Beatles Songs",
+      Words: ["Let It Be", "Yesterday", "Love Me Do", "Hey Jude"],
+    },
+    {
+      Category: "Modern Aircraft",
+      Words: ["Blackbird", "Super Hornet", "Goshawk", "Raptor"],
+    },
+    {
+      Category: "Corvids",
+      Words: ["Crow", "Blue Jay", "Magpie", "Raven"],
+    },
+    {
+      Category: "Edgar Allen Poe Stories",
+      Words: ["The Black Cat", "Lenore", "Annabel Lee", "The Tell Tale Heart"],
+    },
+  ],
+  "4/24": [
+    {
+      Category: "Women Authors",
+      Words: ["Austen", "Woolf", "Bronte", "Shelly"],
+    },
+    {
+      Category: "English Poets",
+      Words: ["Wordsworth", "Byron", "Keets", "Blake"],
+    },
+    {
+      Category: "Types of Rabbit",
+      Words: ["Holland Lop", "Flemish Giant", "Cottontail", "Cashmere"],
+    },
+    {
+      Category: "States of India",
+      Words: ["Kerala", "Rajathan", "Orissa", "Uttar Pradesh"],
+    },
+  ],
+  "4/25": [
+    {
+      Category: "Rivers in Asia",
+      Words: ["Yangtze", "Indus", "Ganges", "Tigris"],
+    },
+    {
+      Category: "Gods related to Water",
+      Words: ["Euphrates", "Anuket", "Poseidon", "Lir"],
+    },
+    {
+      Category: "Replaced by the Euro",
+      Words: ["Franc", "Lira", "Guilder", "Drachma"],
+    },
+    {
+      Category: "National Flowers of in Europe",
+      Words: ["Cornflower", "Iris", "Tulip", "Saxifage"],
+    },
+  ],
+  "4/26": [
+    {
+      Category: "Flowers That Symbolize Death",
+      Words: ["Spider Lily", "Marigolds", "Chrysanthemum", "Red Poppy"],
+    },
+    {
+      Category: "Love Dieties",
+      Words: ["Freyja", "Cupid", "Aphrodite", "Yue-Lao"],
+    },
+    {
+      Category: "Foo Fighters Songs",
+      Words: ["Everlong", "Run", "Best of You", "My Hero"],
+    },
+    {
+      Category: "Final Fantasy IX Characters",
+      Words: ["Zidane", "Vivi", "Kuja", "Beatrix"],
+    },
+  ],
+  "4/27": [
+    {
+      Category: "Temptations Albums",
+      Words: ["Legacy", "Wing of Love", "Cloud Nine", "Puzzle People"],
+    },
+    {
+      Category: "Subaru Models",
+      Words: ["Impreza", "Ascent", "Forester", "Outback"],
+    },
+    {
+      Category: "Casual Dining Restaurants",
+      Words: ["Applebees", "Chili's", "J. Alexander", "Olive Garden"],
+    },
+    {
+      Category: "Famous Ships",
+      Words: ["Santa Maria", "Mayflower", "Lusitania", "Titanic"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {

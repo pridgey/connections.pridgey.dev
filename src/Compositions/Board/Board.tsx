@@ -74,21 +74,23 @@ export const Board: Component = () => {
     // Grab day's puzzle
     grabTodaysPuzzle(setPuzzleWords);
 
-    Logging().log("Test", "This is a test");
+    Logging().log("Mount", "Page Mounted");
   });
 
   // Show debug info
   createEffect(() => {
-    const debug = Storage.debug("state");
-    debug &&
-      console.log("State:", {
-        puzzleWords: puzzleWords(),
-        currentGuesses: currentGuesses(),
-        correctGuesses: correctGuesses(),
-        numOfGuesses: numOfGuesses(),
-        incorrectGuesses: incorrectGuesses(),
-        boardWords: boardWords(),
-      });
+    const { log } = Logging();
+
+    const state = {
+      puzzleWords: puzzleWords(),
+      currentGuesses: currentGuesses(),
+      correctGuesses: correctGuesses(),
+      numOfGuesses: numOfGuesses(),
+      incorrectGuesses: incorrectGuesses(),
+      boardWords: boardWords(),
+    };
+
+    log("State:", state.toString());
   }, []);
 
   // Reference to the incorrect animation timeout, used to ensure timeout doesn't continue on unmount

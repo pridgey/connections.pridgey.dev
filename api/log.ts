@@ -17,7 +17,9 @@ const handler = (req: NextApiRequest, res: NextApiResponse) => {
     })
     .all()
     .then((records) => {
-      const canLog = records?.[0]?.get("Value") === "true";
+      const canLog = ["true", "all", body.Area].includes(
+        records?.[0]?.get("Value")
+      );
 
       // Check if we are supposed to log
       if (canLog || body.Override) {
