@@ -33,6 +33,7 @@ export const grabTodaysPuzzle = (setPuzzle: any) => {
   if (storage) {
     // We got the puzzle from storage
     setPuzzle(storage);
+    return false;
   } else {
     // We couldn't find a puzzle for today, must be a new day
     Storage.clear();
@@ -56,6 +57,7 @@ export const grabTodaysPuzzle = (setPuzzle: any) => {
         setPuzzle(puzzle);
       })
       .catch((err) => console.error("Error:", err));
+    return true;
   }
 };
 

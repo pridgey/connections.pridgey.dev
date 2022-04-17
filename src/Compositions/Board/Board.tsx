@@ -71,8 +71,14 @@ export const Board: Component = () => {
 
   // Startup
   onMount(() => {
-    // Grab day's puzzle
-    grabTodaysPuzzle(setPuzzleWords);
+    // Grab day's puzzle, returns false true if new puzzle loaded
+    if (grabTodaysPuzzle(setPuzzleWords)) {
+      setNumOfGuesses(0);
+      setCorrectGuesses([]);
+      setCurrentGuesses([]);
+      setIncorrectGuesses([]);
+      setBoardWords([]);
+    }
 
     Logging().log("Mount", "Page Mounted");
   });
