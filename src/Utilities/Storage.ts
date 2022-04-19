@@ -31,13 +31,13 @@ export const Storage = {
 
     return undefined;
   },
-  set: (key: string, value: any) => {
+  set: (key: string, value: any, skipLog: boolean = false) => {
     const { log } = Logging();
 
     // Encode the value
     const endcodedItem = window.btoa(encodeURIComponent(JSON.stringify(value)));
 
-    log("Storage", `**${key}**: ${endcodedItem}`);
+    !skipLog && log("Storage", `**${key}**: ${endcodedItem}`);
 
     localStorage.setItem(key, endcodedItem);
   },

@@ -10,7 +10,7 @@ const getUser = () => {
       Noun[Math.floor(Math.random() * Noun.length)]
     }`;
     user = id;
-    Storage.set("connuser", id);
+    Storage.set("connuser", id, true);
   }
 
   return user;
