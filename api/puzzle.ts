@@ -363,6 +363,70 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Santa Maria", "Mayflower", "Lusitania", "Titanic"],
     },
   ],
+  "4/28": [
+    {
+      Category: "Fictional Camps",
+      Words: ["Wannaweep", "Campbell", "Tikihama", "Chippewa"],
+    },
+    {
+      Category: "Native American Tribes",
+      Words: ["Cherokee", "Iroquois", "Mojave", "Pawnee"],
+    },
+    {
+      Category: "Red Dead Redemption States",
+      Words: ["Ambarino", "New Hanover", "Lemoyne", "New Austin"],
+    },
+    {
+      Category: "Types of Jeeps",
+      Words: ["Renegade", "Gladiator", "Wrangler", "Compass"],
+    },
+  ],
+  "4/29": [
+    {
+      Category: "TV Shows with Trios",
+      Words: ["Beetleborgs", "Pajama Masks", "Ed, Edd & Eddy", "PB&J Otter"],
+    },
+    {
+      Category: "Children's Shows",
+      Words: [
+        "Bananas in Pajamas",
+        "Rugrats",
+        "Teletubbies",
+        "Bear in the Big Blue House",
+      ],
+    },
+    {
+      Category: "Point & Click Video Games",
+      Words: ["Pajama Sam", "Papers, Please", "Myst", "Sam & Max"],
+    },
+    {
+      Category: "Full-Bodied Muppet",
+      Words: [
+        "Big Bird",
+        "The Gorgs",
+        "Ghost of Christmas Yet to Come",
+        "Mr. Snuffleupagus",
+      ],
+    },
+  ],
+  "4/30": [
+    {
+      Category: "Modern Slang Words",
+      Words: ["Cap", "Bet", "Based", "Wig"],
+    },
+    {
+      Category: "Parts of a Flower",
+      Words: ["Stem", "Petal", "Pistil", "Stamen"],
+    },
+    {
+      Category: 'Preceded By "Ear"',
+      Words: ["Buds", "Worm", "Wax", "Plugs"],
+    },
+    {
+      Category: "Byproducts of Insects",
+      Words: ["Silk", "Honey", "Shellac", "Cochineal"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
