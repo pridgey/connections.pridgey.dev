@@ -427,6 +427,47 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Silk", "Honey", "Shellac", "Cochineal"],
     },
   ],
+  "5/1": [
+    {
+      Category: "Characters from Friends",
+      Words: ["Rachel", "Ross", "Chandler", "Monica"],
+    },
+    {
+      Category: "Baby Animals",
+      Words: ["Joey", "Cub", "Gosling", "Piglet"],
+    },
+    {
+      Category: "Winnie-The-Pooh Characters",
+      Words: ["Tigger", "Rabbit", "Eeyore", "Kanga"],
+    },
+    {
+      Category: "Last Four World Series Champions",
+      Words: ["Braves", "Dodgers", "Nationals", "Red Sox"],
+    },
+  ],
+  "5/2": [
+    {
+      Category: "Common Words for Dumplings",
+      Words: ["Jiaozi", "Gyoza", "Potsticker", "Dumpling"],
+    },
+    {
+      Category: "Lady Gaga Songs",
+      Words: ["Applause", "Bad Romance", "Just Dance", "Paparazzi"],
+    },
+    {
+      Category: "Rhythm Games",
+      Words: [
+        "Guitar Hero",
+        "Dance Dance Revolution",
+        "PaRappa the Rapper",
+        "Osu!",
+      ],
+    },
+    {
+      Category: "Voiced by Christopher Sabat",
+      Words: ["Yamcha", "All Might", "Alex Louis Armstrong", "Piccolo"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
