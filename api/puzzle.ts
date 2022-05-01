@@ -468,6 +468,24 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Yamcha", "All Might", "Alex Louis Armstrong", "Piccolo"],
     },
   ],
+  "5/3": [
+    {
+      Category: "Latin Ligatures",
+      Words: ["ß", "ꝏ", "W", "Æ"],
+    },
+    {
+      Category: "Latin Vowels",
+      Words: ["A", "E", "I", "U"],
+    },
+    {
+      Category: "Elder Futhark Runes",
+      Words: ["ᚠ", "ᚢ", "ᚱ", "ᛒ"],
+    },
+    {
+      Category: "Unicode Dingbats",
+      Words: ["❏", "❦", "➰", "❡"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
