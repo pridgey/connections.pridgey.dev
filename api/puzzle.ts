@@ -470,20 +470,25 @@ const puzzles: { [key: string]: Category[] } = {
   ],
   "5/3": [
     {
-      Category: "Latin Ligatures",
-      Words: ["ß", "ꝏ", "W", "Æ"],
+      Category: "Fictional Sports",
+      Words: ["Baseketball", "Quidditch", "Blernsball", "Calvinball"],
     },
     {
-      Category: "Latin Vowels",
-      Words: ["A", "E", "I", "U"],
+      Category: "Featuring Trey Parker",
+      Words: [
+        "South Park",
+        "Despicable Me 3",
+        "Team America: World Police",
+        "Orgazmo",
+      ],
     },
     {
-      Category: "Elder Futhark Runes",
-      Words: ["ᚠ", "ᚢ", "ᚱ", "ᛒ"],
+      Category: "Philosophers",
+      Words: ["Hobbes", "Kant", "Nietzsche", "Plato"],
     },
     {
-      Category: "Unicode Dingbats",
-      Words: ["❏", "❦", "➰", "❡"],
+      Category: "Fast & Furious Characters",
+      Words: ["Shaw", "Toretto", "Yashar", "Parker"],
     },
   ],
 };
