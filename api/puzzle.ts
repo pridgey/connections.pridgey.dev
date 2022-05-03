@@ -491,6 +491,47 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Shaw", "Toretto", "Yashar", "Parker"],
     },
   ],
+  "5/4": [
+    {
+      Category: "Banjo-Kazooie Characters",
+      Words: ["Banjo", "Kazooie", "Mumbo Jumbo", "Gruntilda"],
+    },
+    {
+      Category: "Folk Instruments",
+      Words: ["Fiddle", "Harmonica", "Accordion", "Guitar"],
+    },
+    {
+      Category: "Gibberish Words",
+      Words: ["Blabber", "Prattle", "Gobbledygook", "Rigmarole"],
+    },
+    {
+      Category: "Language Learning Services",
+      Words: ["Babbel", "Rosetta Stone", "Duolingo", "Memrise"],
+    },
+  ],
+  "5/5": [
+    {
+      Category: "Mexican Holidays Relating to Military Battles",
+      Words: [
+        "Cinco De Mayo",
+        "Niños Héroes",
+        "Heroica Defensa de Veracruz",
+        "Dia de la Armada de Mexico",
+      ],
+    },
+    {
+      Category: "Character's from Coco",
+      Words: ["de la Cruz", "Rivera", "Héctor", "Dante"],
+    },
+    {
+      Category: "Circles of Hell in Dante's Inferno",
+      Words: ["Heresy", "Wrath", "Fraud", "Treachery"],
+    },
+    {
+      Category: "2D side-scrolling Video Games",
+      Words: ["Limbo", "Hollow Knight", "Ori and the Blind Forest", "Braid"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
