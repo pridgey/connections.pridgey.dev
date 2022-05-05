@@ -532,6 +532,42 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Limbo", "Hollow Knight", "Ori and the Blind Forest", "Braid"],
     },
   ],
+  "5/6": [
+    {
+      Category: "Types of Sharks",
+      Words: ["Hammerhead", "Blue", "Lemon", "Pyjama"],
+    },
+    {
+      Category: "Subtractive Color Model keys",
+      Words: ["Cyan", "Magenta", "Yellow", "Key"],
+    },
+    {
+      Category: "Slang for Defective Items",
+      Words: ["Bust", "Dud", "Clunker", "Flop"],
+    },
+    {
+      Category: "Parts of a Door",
+      Words: ["Jamb", "Latch", "Handle", "Hinge"],
+    },
+  ],
+  "5/7": [
+    {
+      Category: "Pixar Movies Main Characters",
+      Words: ["Luca", "Woody", "Lightning", "Remy"],
+    },
+    {
+      Category: "NHL Teams",
+      Words: ["Senators", "Avalanche", "Stars", "Red Wings"],
+    },
+    {
+      Category: "Government Titles",
+      Words: ["Ambassador", "Secretary", "Governor", "Mayor"],
+    },
+    {
+      Category: "Natural Disasters",
+      Words: ["Tornadoes", "Earthquakes", "Wildfires", "Tsunami"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
