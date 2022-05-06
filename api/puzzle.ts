@@ -568,6 +568,62 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Tornadoes", "Earthquakes", "Wildfires", "Tsunami"],
     },
   ],
+  "5/8": [
+    {
+      Category: "Game Show Hosts",
+      Words: ["Drew Carey", "Alex Trebek", "Pat Sajak", "Bob Barker"],
+    },
+    {
+      Category: "Titular TV Sitcom",
+      Words: [
+        "Jerry Seinfeld",
+        "Roseanne Barr",
+        "Raven-Symoné",
+        "Lucille Ball",
+      ],
+    },
+    {
+      Category: "Actors That Changed Their Names",
+      Words: ["Vin Diesel", "Ice Cube", "Charlie Sheen", "Ben Kingsley"],
+    },
+    {
+      Category: "Animal Characters",
+      Words: ["Hooch", "Mr. Ed", "Lassie", "Willy"],
+    },
+  ],
+  "5/9": [
+    {
+      Category: "To Rid Fairies",
+      Words: [
+        "Wear clothes inside out",
+        "St John's Wort",
+        "Bells",
+        "Four-Leaf Clovers",
+      ],
+    },
+    {
+      Category: 'Things preceded by "Flying"',
+      Words: ["Buttress", "Dutchman", "Spaghetti Monster", "Blind"],
+    },
+    {
+      Category: "Pirates of the Caribbean Ships",
+      Words: [
+        "HMS Interceptor",
+        "The Black Pearl",
+        "The Empress",
+        "Queen Anne's Revenge",
+      ],
+    },
+    {
+      Category: "Possessive Media Titles",
+      Words: [
+        "The Emperor's New Groove",
+        "Jennifer's Body",
+        "Wayne's World",
+        "The Queen's Gambit",
+      ],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
