@@ -624,6 +624,47 @@ const puzzles: { [key: string]: Category[] } = {
       ],
     },
   ],
+  "5/10": [
+    {
+      Category: "Words for Ghost",
+      Words: ["Specter", "Spirit", "Spook", "Ghoul"],
+    },
+    {
+      Category: "Types of Liquor",
+      Words: ["Brandy", "Gin", "Rum", "Whiskey"],
+    },
+    {
+      Category: "Creatures found in the Fallout Games",
+      Words: ["Deathclaw", "Radscorpion", "Super Mutant", "Centaur"],
+    },
+    {
+      Category: "Greek Mythological Creatures",
+      Words: ["Cyclops", "Gorgon", "Harpy", "Sphinx"],
+    },
+  ],
+  "5/11": [
+    {
+      Category: "Named Greek Beasts",
+      Words: ["Echidna", "Orthrus", "Typhon", "Cerberus"],
+    },
+    {
+      Category: "Hades geography",
+      Words: ["Styx", "Elysium", "Tartarus", "Asphodel"],
+    },
+    {
+      Category: "Animated Disney Movies",
+      Words: [
+        "Hercules",
+        "Lion King",
+        "The Hunchback of Notre Dame",
+        "Lilo & Stitch",
+      ],
+    },
+    {
+      Category: "Duo TV Shows",
+      Words: ["Rick & Morty", "Starsky & Hutch", "Kenan & Kel", "Will & Grace"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
