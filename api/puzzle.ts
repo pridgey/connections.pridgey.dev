@@ -665,6 +665,47 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Rick & Morty", "Starsky & Hutch", "Kenan & Kel", "Will & Grace"],
     },
   ],
+  "5/12": [
+    {
+      Category: "Music Genres",
+      Words: ["Blues", "Funk", "Country", "Punk"],
+    },
+    {
+      Category: "Region of Jurisdiction",
+      Words: ["Province", "State", "County", "City"],
+    },
+    {
+      Category: "Parts of a Golf Course",
+      Words: ["Greens", "Fairway", "Rough", "Sand Traps"],
+    },
+    {
+      Category: "Synonyms for Mafia",
+      Words: ["Crew", "Gang", "Ring", "Syndicate"],
+    },
+  ],
+  "5/13": [
+    {
+      Category: "Brass Instruments",
+      Words: ["French", "Bugle", "Tuba", "Trombone"],
+    },
+    {
+      Category: "Types of Mustard",
+      Words: ["Dijon", "Yellow", "Honey", "Beer"],
+    },
+    {
+      Category: "Fictional Newspapers",
+      Words: [
+        "Daily Planet",
+        "The Gotham Gazette",
+        "The Daily Prophet",
+        "The Arlen Bystander",
+      ],
+    },
+    {
+      Category: "Things to be King of",
+      Words: ["The Hill", "England", "Kings", "The Jungle"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
