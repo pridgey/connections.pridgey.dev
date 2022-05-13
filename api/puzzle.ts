@@ -706,6 +706,100 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["The Hill", "England", "Kings", "The Jungle"],
     },
   ],
+  "5/14": [
+    {
+      Category: "U.S. National Parks",
+      Words: ["Arches", "Badlands", "Grand Canyon", "Yosemite"],
+    },
+    {
+      Category: "Mountain Monuments",
+      Words: [
+        "Mengshan Giant Buddha",
+        "Mount Rushmore",
+        "Leshan Giant Buddha",
+        "Crazy Horse Memorial",
+      ],
+    },
+    {
+      Category: "Dr. Horrible's Sing-Along Blog Characters",
+      Words: ["Bad Horse", "Billy", "Penny", "Moist"],
+    },
+    {
+      Category: "Words relating to a Penny Coin",
+      Words: ["Pence", "Cent", "p", "Tuppence"],
+    },
+  ],
+  "5/15": [
+    {
+      Category: "Chronicles",
+      Words: [
+        "Scotichronicon",
+        "Chronicon Scotorum",
+        "Wielkopolska Chronicle",
+        "Croyland Chronicle",
+      ],
+    },
+    {
+      Category: "Fictional Books in Books",
+      Words: [
+        "Necronomicon",
+        "The Princess Bride",
+        "Hamster Huey & The Gooey Kablooie",
+        "Fillory and Further",
+      ],
+    },
+    {
+      Category: "Conventions",
+      Words: ["Comic Con", "Comiket", "Crypticon", "PAX"],
+    },
+    {
+      Category: "Children's Books",
+      Words: [
+        "Chicka Chicka Boom Boom",
+        "Llama Llama Red Pajama",
+        "The Very Hungry Caterpillar",
+        "Where the Wild Things Are",
+      ],
+    },
+  ],
+  "5/16": [
+    {
+      Category: "Jennifer Lawrence Movies",
+      Words: [
+        "X-Men: First Class",
+        "Silver Linings Playbook",
+        "The Hunger Games",
+        "Don't Look Up",
+      ],
+    },
+    {
+      Category: "YA Novels",
+      Words: [
+        "Twilight",
+        "The Golden Compass",
+        "Turtles All the Way Down",
+        "Chain of Gold",
+      ],
+    },
+    {
+      Category: "MCU Movies",
+      Words: [
+        "Captain America: Civil War",
+        "Shang-Chi and the Legend of the Ten Rings",
+        "Spider-Man: Homecoming",
+        "Avengers: Age of Ultron",
+      ],
+    },
+    {
+      Category: "90's Cartoons",
+      Words: [
+        "Teenage Mutant Ninja Turtles",
+        "Darkwing Duck",
+        "Talespin",
+        "Gargoyles",
+      ],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
