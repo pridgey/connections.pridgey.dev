@@ -800,6 +800,47 @@ const puzzles: { [key: string]: Category[] } = {
       ],
     },
   ],
+  "5/17": [
+    {
+      Category: "Fictional Schools",
+      Words: [
+        "Riverdale High",
+        "Wagstaff School",
+        "Greendale",
+        "The Academy of Unseen Arts",
+      ],
+    },
+    {
+      Category: 'Relating to "Prime"',
+      Words: ["Optimus", "Number", "Amazon", "Time"],
+    },
+    {
+      Category: "Transformers Characters",
+      Words: ["Megatron", "Bumblebee", "Starscream", "Grimlock"],
+    },
+    {
+      Category: 'Words containing "Lock"',
+      Words: ["Hemlock", "Anti-Lock", "Lockdown", "Dreadlock"],
+    },
+  ],
+  "5/18": [
+    {
+      Category: "Last 4 States Admitted Into the Union",
+      Words: ["New Mexico", "Arizona", "Alaska", "Hawaii"],
+    },
+    {
+      Category: "Places named after People / Places",
+      Words: ["New Zealand", "New York", "New Orleans", "New Brunswick"],
+    },
+    {
+      Category: "U.S. Airlines",
+      Words: ["Delta", "Southwest", "Spirit", "United"],
+    },
+    {
+      Category: "Countries that share a name with their Capital City",
+      Words: ["Mexico", "Monaco", "Panama", "San Marino"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
