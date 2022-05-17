@@ -841,6 +841,106 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Mexico", "Monaco", "Panama", "San Marino"],
     },
   ],
+  "5/19": [
+    {
+      Category: "State Flowers",
+      Words: ["Columbine", "Peony", "Violet", "Magnolia"],
+    },
+    {
+      Category: "Cities in Johto",
+      Words: ["Goldenrod", "Ecruteak", "Cherrygrove", "Olivine"],
+    },
+    {
+      Category: "Types of Waves",
+      Words: ["Radio", "Ultraviolet", "Infrared", "Gamma"],
+    },
+    {
+      Category: "Ways to get Superpowers",
+      Words: ["Spider Bite", "Radiation", "Artifact ", "Chemical Exposure"],
+    },
+  ],
+  "5/20": [
+    {
+      Category: "London Tube Stations",
+      Words: ["Blackfriars", "Picadilly", "Seven Sisters", "Baker Street"],
+    },
+    {
+      Category: "Constellations",
+      Words: ["Cassiopia", "Orion", "Ursa Mjor", "Canis Major"],
+    },
+    {
+      Category: "Fictional Streets",
+      Words: ["Jump Street", "Wisteria Lane", "Sesame Street", "Avenue Q"],
+    },
+    {
+      Category: "Musicals",
+      Words: ["Chorus Line", "Phantom of the Opera", "Cats", "Wicked"],
+    },
+  ],
+  "5/21": [
+    {
+      Category: "Famous Classical Art",
+      Words: [
+        "Mona Lisa",
+        "Birth of Venus",
+        "Guernica",
+        "Girl with the Pearl Earing",
+      ],
+    },
+    {
+      Category: "British Super Heroes",
+      Words: ["Night Hawk", "Captain Britain", "Bananaman", "Betsy Braddock"],
+    },
+    {
+      Category: "Expatriate Newspapers",
+      Words: ["Union Jack", "Gringo Gazette", "Le Millitant", "Amerika Woche"],
+    },
+    {
+      Category: "Names for the US Flag",
+      Words: [
+        "Stars and Bars",
+        "Old Glory",
+        "Star Spangled Banner",
+        "Stars and Stripes",
+      ],
+    },
+  ],
+  "5/22": [
+    {
+      Category: "Preceded by 'Red'",
+      Words: ["Flag", "Herring", "Ink", "Letter Day"],
+    },
+    {
+      Category: "Idioms for Anger",
+      Words: ["Red Mist", "Blow Up", "Rage Quit", "Blow a Fuse"],
+    },
+    {
+      Category: "Kick-Ass Characters",
+      Words: ["Hit Girl", "Big Daddy", "Johnny G", "Skull and Bones"],
+    },
+    {
+      Category: "Secret Societies ",
+      Words: ["Bohemian Club", "Freemasons", "Illuminati", "Knights Templar"],
+    },
+  ],
+  "5/23": [
+    {
+      Category: "Foods with different names in UK",
+      Words: ["Biscuit", "Chips", "Crisps", "Aubergine"],
+    },
+    {
+      Category: "Gordon Ramsey Restaurants ",
+      Words: ["Amaryllis ", "Bread Street", "Foxtrot Oscar", "Murano"],
+    },
+    {
+      Category: "Islands in Venice",
+      Words: ["Chioggia", "Burano", "Tronchetto", "Troncello"],
+    },
+    {
+      Category: "Flowering Bulbs",
+      Words: ["Tulips", "Lily", "Crocus", "Daffodils"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
