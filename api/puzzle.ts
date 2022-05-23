@@ -941,6 +941,42 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Tulips", "Lily", "Crocus", "Daffodils"],
     },
   ],
+  "5/24": [
+    {
+      Category: "Teen Titans Characters",
+      Words: ["Raven", "Cyborg", "Kid Flash", "Starfire"],
+    },
+    {
+      Category: "Phone Operating Systems",
+      Words: ["Android", "iPhone", "Windows Mobile", "Ubuntu Touch"],
+    },
+    {
+      Category: "Resembling Humans",
+      Words: ["Automaton", "Humanoid", "Robot", "Homunculus"],
+    },
+    {
+      Category: "Corvidae Birds",
+      Words: ["Crow", "Blue Jay", "Magpie", "Rook"],
+    },
+  ],
+  "5/25": [
+    {
+      Category: "Chess Pieces",
+      Words: ["King", "Bishop", "Rook", "Knight"],
+    },
+    {
+      Category: "Relating to Knighthood",
+      Words: ["Banneret", "Page", "Squire", "Chivalry"],
+    },
+    {
+      Category: "Inception Actors",
+      Words: ["DiCaprio", "Gordon-Levitt", "Watanabe", "Hardy"],
+    },
+    {
+      Category: "Christian Religious Titles",
+      Words: ["Priest", "Abbot", "Nun", "Patriarch"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
