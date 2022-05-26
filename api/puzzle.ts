@@ -977,6 +977,24 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Priest", "Abbot", "Nun", "Patriarch"],
     },
   ],
+  "5/26": [
+    {
+      Category: "Architecture Terms",
+      Words: ["Portico", "Veranda", "Louvers", "Mezzanine"],
+    },
+    {
+      Category: "Dragon Ball Z Characters",
+      Words: ["Piccolo", "Raditz", "Frieza", "Marron"],
+    },
+    {
+      Category: "Plurals ending in -i",
+      Words: ["Octopi", "Platypi", "Cacti", "Alumni"],
+    },
+    {
+      Category: "Babies are called a calf",
+      Words: ["Elephant", "Moose", "Giraffe", "Cow"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
