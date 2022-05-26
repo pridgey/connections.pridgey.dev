@@ -995,6 +995,39 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Elephant", "Moose", "Giraffe", "Cow"],
     },
   ],
+  "5/27": [
+    {
+      Category: 'Proceeded by "Cake"',
+      Words: ["Cup", "Pan", "Cheese", "Fish"],
+    },
+    {
+      Category: "Aesop's Fables",
+      Words: [
+        "The Boy Who Cried Wolf",
+        "The Lion, The Bear, and the Fox",
+        "The Fox, The Flies, and the Hedgehog",
+        "The Tortoise and The Hare",
+      ],
+    },
+    {
+      Category: "Hand-Drawn Disney Movies",
+      Words: [
+        "The Lion King",
+        "The Fox and The Hound",
+        "The Princess and The Frog",
+        "Aladdin",
+      ],
+    },
+    {
+      Category: "Books of The Chronicles of Narnia",
+      Words: [
+        "The Lion, The Witch, and the Wardrobe",
+        "The Silver Chair",
+        "The Horse and His Boy",
+        "The Magician's Nephew",
+      ],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
