@@ -1028,6 +1028,57 @@ const puzzles: { [key: string]: Category[] } = {
       ],
     },
   ],
+  "5/28": [
+    {
+      Category: "Italian City-States of the Middle Ages and the Renaissance",
+      Words: ["Florence", "Milan", "Ferrara", "Urbino"],
+    },
+    {
+      Category: "Demonyms of the United States",
+      Words: ["Usonia", "United Stater", "Columbian", "Colonican"],
+    },
+    {
+      Category: "United States Bioregions",
+      Words: ["Cascadia", "Prairies", "Laurentia", "California"],
+    },
+    {
+      Category: "US State Flags Featuring Birds",
+      Words: ["Illinois", "Iowa", "Louisiana", "North Dakota"],
+    },
+  ],
+  "5/29": [
+    {
+      Category: "Songs from the Longest Running Broadway Musicals",
+      Words: [
+        "The Music of The Night",
+        "Cell Block Tango",
+        "Be Prepared",
+        "Old Deuteronomy",
+      ],
+    },
+    {
+      Category: "Songs Performed by Hugh Jackman",
+      Words: [
+        "The Greatest Show",
+        "Who Am I?",
+        "I Go To Rio",
+        "Once Before I Go",
+      ],
+    },
+    {
+      Category: "Biographical Films",
+      Words: ["Hamilton", "I, Tonya", "Stardust", "Goodbye Christopher Robin"],
+    },
+    {
+      Category: "Films Featuring Margot Robbie",
+      Words: [
+        "About Time",
+        "Birds of Prey",
+        "The Suicide Squad",
+        "Peter Rabbit",
+      ],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
