@@ -1079,6 +1079,24 @@ const puzzles: { [key: string]: Category[] } = {
       ],
     },
   ],
+  "5/30": [
+    {
+      Category: "Roles in Baseball",
+      Words: ["Pitcher", "Umpire", "Outfielder", "Pinch Hitter"],
+    },
+    {
+      Category: "Foods Made from Grains",
+      Words: ["Cereal", "Tortillas", "Pasta", "Bread"],
+    },
+    {
+      Category: 'Starts with "Dream"',
+      Words: ["Catcher", "Cast", "Walker", "Job"],
+    },
+    {
+      Category: "Types of Westerns",
+      Words: ["Spaghetti", "Space", "Australian", "Chili"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
