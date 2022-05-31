@@ -1097,6 +1097,24 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Spaghetti", "Space", "Australian", "Chili"],
     },
   ],
+  "5/31": [
+    {
+      Category: 'Preceding "Wolf"',
+      Words: ["Big Bad", "Were", "Dire", "Timber"],
+    },
+    {
+      Category: "Synonyms of Wood",
+      Words: ["Lumber", "Kindling", "Logs", "Planks"],
+    },
+    {
+      Category: "Causing Fear",
+      Words: ["Foreboding", "Dreadful", "Hair-Raising", "Fightful"],
+    },
+    {
+      Category: "Adjectives involving Body Parts",
+      Words: ["Thick-Skinned", "Toe-Tapping", "Hard Headed", "Tight-Lipped"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
