@@ -1115,6 +1115,57 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Thick-Skinned", "Toe-Tapping", "Hard Headed", "Tight-Lipped"],
     },
   ],
+  "6/1": [
+    {
+      Category: '"Untranslatable" Words',
+      Words: ["Tartle", "L’appel Du Vide", "Kilig", "Gluggaveður"],
+    },
+    {
+      Category: "Words That Can Be Plural or Singular",
+      Words: ["Moose", "Bison", "Deer", "Offspring"],
+    },
+    {
+      Category: "California Rock Bands",
+      Words: ["The Eagles", "The Beach Boys", "Van Halen", "Journey"],
+    },
+    {
+      Category: 'Referenced in the Song "We Didn’t Start the Fire"',
+      Words: ["Bardot", "Budapest", "Alabama", "Krushchev"],
+    },
+  ],
+  "6/2": [
+    {
+      Category: "Ages of European Development",
+      Words: [
+        "Age of Discovery",
+        "Age of Enlightenment",
+        "Age of Absolutism",
+        "Age of Revolution",
+      ],
+    },
+    {
+      Category: "More Well Known by Their Initials",
+      Words: [
+        "Joanne Kathleen Rowling",
+        "Jeffrey Jacob Abrams",
+        "Howard Phillips Lovecraft",
+        "Jonathan Kimble Simmons",
+      ],
+    },
+    {
+      Category: "Famous Directors",
+      Words: [
+        "Wes Anderson",
+        "Steven Spielberg",
+        "Christopher Nolan",
+        "Guillermo del Toro",
+      ],
+    },
+    {
+      Category: "Games from the Age of Empires Series",
+      Words: ["Age of Empires", "Age of Kings", "Mythologies", "The Titans"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
