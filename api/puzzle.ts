@@ -1118,7 +1118,7 @@ const puzzles: { [key: string]: Category[] } = {
   "6/1": [
     {
       Category: '"Untranslatable" Words',
-      Words: ["Tartle", "L’appel Du Vide", "Kilig", "Gluggaveður"],
+      Words: ["Tartle", "L'appel Du Vide", "Kilig", "Gluggavedur"],
     },
     {
       Category: "Words That Can Be Plural or Singular",
