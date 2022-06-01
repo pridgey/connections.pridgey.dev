@@ -1129,7 +1129,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["The Eagles", "The Beach Boys", "Van Halen", "Journey"],
     },
     {
-      Category: 'Referenced in the Song "We Didn’t Start the Fire"',
+      Category: `Referenced in the Song "We Didn't Start the Fire"`,
       Words: ["Bardot", "Budapest", "Alabama", "Krushchev"],
     },
   ],
@@ -1180,6 +1180,8 @@ const handler = (req: NextApiRequest, res: NextApiResponse) => {
   const puzzle: Category[] = puzzles[puzzleKey];
 
   const stringed = JSON.stringify(puzzle);
+
+  console.log({ stringed });
 
   const resBody = {
     Woah: "What you're doing right now is called cheating",
