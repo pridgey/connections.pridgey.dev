@@ -1166,6 +1166,42 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Age of Empires", "Age of Kings", "Mythologies", "The Titans"],
     },
   ],
+  "6/3": [
+    {
+      Category: "Same Row on a Qwerty Keyboard",
+      Words: ["Z", "V", "B", "N"],
+    },
+    {
+      Category: "Standard Base Tuning",
+      Words: ["E", "D", "A", "G"],
+    },
+    {
+      Category: "Pokemon Games",
+      Words: ["X", "Y", "Sun", "Moon"],
+    },
+    {
+      Category: "Solar System Objects",
+      Words: ["Phobos", "Mercury", "Io", "Titan"],
+    },
+  ],
+  "6/4": [
+    {
+      Category: "Ikea Furniture Names",
+      Words: ["Runnen", "Billy", "Kallax", "Hemnes"],
+    },
+    {
+      Category: "Characters from The Lorax",
+      Words: ["Lorax", "Ted Wiggins", "Audrey", "Aloysius O'Hare"],
+    },
+    {
+      Category: "Produced By Bees",
+      Words: ["Honey", "Beeswax", "Bee Bread", "Royal Jelly"],
+    },
+    {
+      Category: "Characters from Billy Elliot",
+      Words: ["Jackie", "Tony", "Michael", "Sandra"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
