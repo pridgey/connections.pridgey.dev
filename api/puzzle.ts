@@ -1202,6 +1202,62 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Jackie", "Tony", "Michael", "Sandra"],
     },
   ],
+  "6/5": [
+    {
+      Category: "Love Dieties",
+      Words: ["Laka", "Rati", "Hathor", "Freyja"],
+    },
+    {
+      Category: "Santa's Reindeer",
+      Words: ["Dasher", "Dancer", "Cupid", "Prancer"],
+    },
+    {
+      Category: "Edible Weeds",
+      Words: ["Dandelion", "Purslane", "Wood Sorrel", "Garlic Mustard"],
+    },
+    {
+      Category: "Condiments on Chicago Hot Dog",
+      Words: [
+        "Sweet Relish",
+        "White Onions",
+        "Celery Salt",
+        "Pickled Sport Peppers",
+      ],
+    },
+  ],
+  "6/6": [
+    {
+      Category: "Hosted SNL more than 5 times",
+      Words: ["Bill Murray", "Elliot Gould", "Christopher Walken", "Tom Hanks"],
+    },
+    {
+      Category: "Successful child stars",
+      Words: [
+        "Drew Barrymore",
+        "Neil Patrick Harris",
+        "Leonardo Dicaprio",
+        "Natalie Portman",
+      ],
+    },
+    {
+      Category: "Non-Alcoholic Drinks",
+      Words: [
+        "Shirley Temple",
+        "Arnold Palmer",
+        "Virgin Mary",
+        "Safe Sex on the Beach",
+      ],
+    },
+    {
+      Category: "Ladies of the Bible",
+      Words: [
+        "Deborah the Judge",
+        "Huldah ",
+        "Miriam the Prophetess",
+        "Ruth the Moabite",
+      ],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
