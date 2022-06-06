@@ -1258,6 +1258,24 @@ const puzzles: { [key: string]: Category[] } = {
       ],
     },
   ],
+  "6/7": [
+    {
+      Category: "Relating to Financial Markets",
+      Words: ["Bear", "Bull", "Limit Order", "Short"],
+    },
+    {
+      Category: "Animals of the Constellations",
+      Words: ["Crab", "Big Dog", "Little Dog", "Ram"],
+    },
+    {
+      Category: "NBA Player Nicknames",
+      Words: ["Iceman", "Air Jordan", "Big Honey", "Black Mamba"],
+    },
+    {
+      Category: "Relating to Electricity",
+      Words: ["Fuse", "Ground", "Current", "Surge"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
