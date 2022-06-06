@@ -1276,6 +1276,29 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Fuse", "Ground", "Current", "Surge"],
     },
   ],
+  "6/8": [
+    {
+      Category: "Famous World Fountains",
+      Words: ["The Trevi", "The Apollo", "The Cascada", "The Stravinsky"],
+    },
+    {
+      Category: "Harlem Landmarks",
+      Words: [
+        "Mother Zion",
+        "Hotel Theresa",
+        "Harlem YMCA",
+        "Minton's Playhouse",
+      ],
+    },
+    {
+      Category: "Famous Music Venues",
+      Words: ["Radio City", "The Bluebird", "The Fillmore", "Red Rocks"],
+    },
+    {
+      Category: "National Parks",
+      Words: ["Arches", "Grand Canyon", "Bryce Canyon", "Badlands"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
