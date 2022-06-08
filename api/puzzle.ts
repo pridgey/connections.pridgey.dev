@@ -1299,6 +1299,24 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Arches", "Grand Canyon", "Bryce Canyon", "Badlands"],
     },
   ],
+  "6/9": [
+    {
+      Category: 'US Cities Beginning with "San"',
+      Words: ["Diego", "Antonio", "Francisco", "Jose"],
+    },
+    {
+      Category: "Characters from Dora The Explorer",
+      Words: ["Dora", "Boots", "Swiper", "Backpack"],
+    },
+    {
+      Category: "Common School Supplies",
+      Words: ["No. 2 Pencils", "Highlighters", "Spiral Notebook", "Folders"],
+    },
+    {
+      Category: "Characters from Encanto",
+      Words: ["Julieta", "Agustin", "Pedro", "Dolores"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
