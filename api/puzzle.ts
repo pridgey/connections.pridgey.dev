@@ -1317,6 +1317,24 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Julieta", "Agustin", "Pedro", "Dolores"],
     },
   ],
+  "6/10": [
+    {
+      Category: "Preceded by Solar",
+      Words: ["Eclipse", "Panel", "Wind", "Telescope"],
+    },
+    {
+      Category: "Avatar: The Last Airbender Elements",
+      Words: ["Fire", "Earth", "Water", "Air"],
+    },
+    {
+      Category: 'Solar System Bodies That Start With "M"',
+      Words: ["Moon", "Mars", "Mercury", "Mimas"],
+    },
+    {
+      Category: "Neighborhood Abbreviations",
+      Words: ["SoHo", "Tribeca", "Dumbo", "Nolita"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
