@@ -1335,6 +1335,24 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["SoHo", "Tribeca", "Dumbo", "Nolita"],
     },
   ],
+  "6/11": [
+    {
+      Category: "Monogamous Animals",
+      Words: ["Vole", "Beaver", "Wolf", "Coyote"],
+    },
+    {
+      Category: "Synonyms of Spy",
+      Words: ["Mole", "Double Agent", "Inside Man", "Infiltrator"],
+    },
+    {
+      Category: "Types of Teeth",
+      Words: ["Molar", "Premolars", "Canines", "Incisors"],
+    },
+    {
+      Category: 'Words for "Dog"',
+      Words: ["Pooch", "Hound", "Mutt", "Fido"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
