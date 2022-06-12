@@ -1353,6 +1353,24 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Pooch", "Hound", "Mutt", "Fido"],
     },
   ],
+  "6/12": [
+    {
+      Category: "Homonyms",
+      Words: ["Carat", "Karat", "Caret", "Carrot"],
+    },
+    {
+      Category: "Named Symbols on the  Keyboard",
+      Words: ["Ampersand", "Asterisk", "Tilde", "Pipe"],
+    },
+    {
+      Category: "Relating to Gemstones",
+      Words: ["Faceting", "Hardness", "Clarity", "Lustre"],
+    },
+    {
+      Category: "New World Plants",
+      Words: ["Tomato", "Potato", "Corn", "Blueberry"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
