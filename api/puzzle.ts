@@ -1371,6 +1371,24 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Tomato", "Potato", "Corn", "Blueberry"],
     },
   ],
+  "6/13": [
+    {
+      Category: "British Rock Bands",
+      Words: ["The Police", "Led Zeppelin", "Pink Floyd", "Black Sabbath"],
+    },
+    {
+      Category: 'Famous "Who"\'s',
+      Words: ["The Who", "Doctor Who", "Whoville", "World Health Organization"],
+    },
+    {
+      Category: "Non-Numbered Playing Cards",
+      Words: ["Queen", "King", "Jack", "Ace"],
+    },
+    {
+      Category: "Mother Goose Characters",
+      Words: ["Mary", "Peter", "Miss Muffet", "Bo Peep"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
