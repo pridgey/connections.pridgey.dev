@@ -1389,6 +1389,24 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Mary", "Peter", "Miss Muffet", "Bo Peep"],
     },
   ],
+  "6/14": [
+    {
+      Category: "Types of Turtles",
+      Words: ["Painted", "Box", "Snapping", "Pond"],
+    },
+    {
+      Category: "Types of Horses",
+      Words: ["Arabian", "Friesian", "Appaloosa", "Mustang"],
+    },
+    {
+      Category: "Provinces of The Netherlands",
+      Words: ["Drenthe", "Flevoland", "Gelderland", "Utrecht"],
+    },
+    {
+      Category: "Bodies of Water",
+      Words: ["Lake", "Puddle", "Ocean", "Sea"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
