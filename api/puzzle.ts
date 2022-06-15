@@ -1407,6 +1407,24 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Lake", "Puddle", "Ocean", "Sea"],
     },
   ],
+  "6/15": [
+    {
+      Category: 'Things with "Eyes"',
+      Words: ["Potatoes", "Hurricane", "Needle", "Tornado"],
+    },
+    {
+      Category: 'Vegetables in the dish "Ratatouille"',
+      Words: ["Eggplants", "Tomatoes", "Yellow Squashes", "Zucchinis"],
+    },
+    {
+      Category: "Natural Disasters",
+      Words: ["Earthquake", "Tsunami", "Flood", "Landslide"],
+    },
+    {
+      Category: "Sewing Tools",
+      Words: ["Scissors", "Chalk", "Pins", "Thread"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
