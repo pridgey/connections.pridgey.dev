@@ -1425,6 +1425,24 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Scissors", "Chalk", "Pins", "Thread"],
     },
   ],
+  "6/16": [
+    {
+      Category: '"Spheres" of the Earth',
+      Words: ["Atmosphere", "Hydrosphere", "Geosphere", "Biosphere"],
+    },
+    {
+      Category: "Units of Measurement",
+      Words: ["Pascal", "Bar", "Farenheit", "Newton"],
+    },
+    {
+      Category: "Notable Figures During The Enlightenment",
+      Words: ["Bacon", "Hobbes", "Locke", "Voltaire"],
+    },
+    {
+      Category: 'Synonyms of "Bar"',
+      Words: ["Pub", "Tavern", "Cafe", "Saloon"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
