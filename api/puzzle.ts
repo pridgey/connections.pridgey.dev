@@ -1461,6 +1461,60 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["What Dreams May Come", "Flubber", "Patch Adams", "Robots"],
     },
   ],
+  "6/18": [
+    {
+      Category: 'Types of "Lines"',
+      Words: ["Bottom", "Tree", "Fault", "Air"],
+    },
+    {
+      Category: "Elements in the Chinese Zodiac",
+      Words: ["Metal", "Fire", "Wood", "Earth"],
+    },
+    {
+      Category: 'Synonyms of "Fault"',
+      Words: ["Blunder", "Fumble", "Slipup", "Mistake"],
+    },
+    {
+      Category: "American Football Terminology",
+      Words: ["Huddle", "Blitz", "Safety", "Scrimmage"],
+    },
+  ],
+  "6/19": [
+    {
+      Category: "Famous Dragons",
+      Words: ["Fafnir", "Shenron", "Smaug", "Discord"],
+    },
+    {
+      Category: "Team Chat Applications",
+      Words: ["Slack", "Teams", "Skype", "Mattermost"],
+    },
+    {
+      Category: "Rock Type Pokemon",
+      Words: ["Golem", "Onyx", "Boldore", "Tyranitar"],
+    },
+    {
+      Category: "Lord of the Rings Characters",
+      Words: ["Gandalf", "Arwen", "Celeborn", "Elendil"],
+    },
+  ],
+  "6/20": [
+    {
+      Category: "Dr. Who Enemies",
+      Words: ["Daleks", "Davros", "The Silence", "Weeping Angels"],
+    },
+    {
+      Category: "Dragonball Z Alien Races",
+      Words: ["Saibamen", "Namekian", "Saiyan", "Makyan"],
+    },
+    {
+      Category: "Alfred Hitchcock Movies",
+      Words: ["The Birds", "Rope", "Psycho", "Suspicion"],
+    },
+    {
+      Category: 'Preceded by "American"',
+      Words: ["Dream", "Woman", "Pie", "Cheese"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
