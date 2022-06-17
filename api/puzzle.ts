@@ -1443,6 +1443,24 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Pub", "Tavern", "Cafe", "Saloon"],
     },
   ],
+  "6/17": [
+    {
+      Category: "Types of Bags",
+      Words: ["Punching", "Shopping", "Hand", "Duffle"],
+    },
+    {
+      Category: "Types of Punches",
+      Words: ["Haymaker", "Jab", "Cross", "Hook"],
+    },
+    {
+      Category: "Parts of a Fishing Rod",
+      Words: ["Pole", "Reel", "Line", "Guide"],
+    },
+    {
+      Category: "Robin Williams Movies",
+      Words: ["What Dreams May Come", "Flubber", "Patch Adams", "Robots"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
