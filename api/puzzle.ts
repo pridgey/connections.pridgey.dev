@@ -1515,6 +1515,24 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Dream", "Woman", "Pie", "Cheese"],
     },
   ],
+  "6/21": [
+    {
+      Category: "Infinity Stones",
+      Words: ["Space", "Mind", "Time", "Soul"],
+    },
+    {
+      Category: "Pokemon Evolution Stones",
+      Words: ["Thunder", "Fire", "Moon", "Water"],
+    },
+    {
+      Category: "Non-Character Keyboard Keys",
+      Words: ["Tab", "Shift", "Alt", "Enter"],
+    },
+    {
+      Category: "Discontinued Soft Drinks",
+      Words: ["Crystal Pepsi", "Storm", "Cherry Coke", "Jazz"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
