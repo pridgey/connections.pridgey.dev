@@ -1533,6 +1533,24 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Crystal Pepsi", "Storm", "Cherry Coke", "Jazz"],
     },
   ],
+  "6/22": [
+    {
+      Category: "Eukaryotic Cells",
+      Words: ["Animal", "Plant", "Fungi", "Protist"],
+    },
+    {
+      Category: "Muppets",
+      Words: ["Gonzo", "Fozzie", "Scooter", "Honeydew"],
+    },
+    {
+      Category: "Types of Melons",
+      Words: ["Watermelon", "Cantaloupe", "Winter", "Bitter"],
+    },
+    {
+      Category: "Human Powered Vehicles",
+      Words: ["Skateboard", "Bicycle", "Rollerblades", "Handcar"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
