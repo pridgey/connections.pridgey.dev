@@ -1551,6 +1551,96 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Skateboard", "Bicycle", "Rollerblades", "Handcar"],
     },
   ],
+  "6/23": [
+    {
+      Category: "Neil Gaiman Characters",
+      Words: ["Lucifer Morningstar", "Crowley", "Coraline", "Death"],
+    },
+    {
+      Category: "Named Angels",
+      Words: ["Arakiel", "Gabriel", "Sandalphon", "Michael"],
+    },
+    {
+      Category: "Horsemen of the Apocolypse",
+      Words: ["War", "Famine", "Pollution", "Pestilence"],
+    },
+    {
+      Category: "Clay Animated Characters",
+      Words: ["Wallace", "Zero", 'Edgar "E" Gore', "Norman"],
+    },
+  ],
+  "6/24": [
+    {
+      Category: "Famous Black Cats",
+      Words: ["Binx", "Jiji", "Salem", "Snowball II"],
+    },
+    {
+      Category: "US State Capitols",
+      Words: ["Springfield", "Topeka", "Austin", "Madison"],
+    },
+    {
+      Category: "Fictional Cartoon Cities",
+      Words: ["Arlen", "Beach City", "Duckburg", "Gravity Falls"],
+    },
+    {
+      Category: "Digimon Adventure Characters",
+      Words: ["Tai", "Matt", "Joe", "Mimi"],
+    },
+  ],
+  "6/25": [
+    {
+      Category: "Fictional Grandmothers",
+      Words: ["Fa", "Tala", "Gertie", "Endora"],
+    },
+    {
+      Category: "Characters from The Nanny",
+      Words: ["Fran", "Maxwell", "Yetta", "Sylvia"],
+    },
+    {
+      Category: "Legendary Old Women",
+      Words: ["Day", "Parton", "Fonda", "White"],
+    },
+    {
+      Category: 'Ways to Say "Grandma"',
+      Words: ["Nonna", "Farmor", "Oma", "Lola"],
+    },
+  ],
+  "6/26": [
+    {
+      Category: "Areas of Chakra",
+      Words: ["Root", "Throat", "Heart", "Crown"],
+    },
+    {
+      Category: "Nerve Plexuses",
+      Words: ["Solar", "Cervical", "Brachial", "Lumbar"],
+    },
+    {
+      Category: "Types of Renewable Energy",
+      Words: ["Wind", "Hydro", "Geothermal", "Biomass"],
+    },
+    {
+      Category: "Historical Currency",
+      Words: ["Florin", "Mark", "Farthing", "Ducat"],
+    },
+  ],
+  "6/27": [
+    {
+      Category: "Mario Sports Games",
+      Words: ["Golf", "Tennis", "Strikers", "Kart"],
+    },
+    {
+      Category: "Soccer Positions",
+      Words: ["Forward", "Midfielder", "Defender", "Goalkeeper"],
+    },
+    {
+      Category: "Types of Protectors",
+      Words: ["Guardian", "Sentry", "Patrol", "Watchdog"],
+    },
+    {
+      Category: 'Ending in "ward"',
+      Words: ["Backward", "Wayward", "Skyward", "Awkward"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
