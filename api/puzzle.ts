@@ -1641,6 +1641,29 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Backward", "Wayward", "Skyward", "Awkward"],
     },
   ],
+  "6/28": [
+    {
+      Category: "Grades in Harry Potter",
+      Words: ["Outstanding", "Acceptable", "Dreadful", "Troll"],
+    },
+    {
+      Category: "Mythological Creatures",
+      Words: ["Ogre", "Griffin", "Minotaur", "Banshee"],
+    },
+    {
+      Category: "Characters from Shrek",
+      Words: ["Donkey", "Dragon", "Gingerbread Man", "Fiona"],
+    },
+    {
+      Category: "Italian Folk Tales",
+      Words: [
+        "Pinocchio",
+        "Puss In Boots",
+        "Bella Venezia",
+        "Penta of the Chopped-off Hands",
+      ],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
