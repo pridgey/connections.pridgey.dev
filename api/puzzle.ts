@@ -1664,6 +1664,34 @@ const puzzles: { [key: string]: Category[] } = {
       ],
     },
   ],
+  "6/29": [
+    {
+      Category: "Trophies Named After Athletes",
+      Words: [
+        "Kobe Bryant",
+        "Rodman Wannamaker",
+        "John Heisman",
+        "Clarence Campbell",
+      ],
+    },
+    {
+      Category: "Founders of Self-Named Brands",
+      Words: [
+        "Giorgio Armani",
+        "William Boeing",
+        "William Colgate",
+        "Pietro Ferrero",
+      ],
+    },
+    {
+      Category: "Skater Characters in Tony Hawk's Pro Skater",
+      Words: ["Tony Hawk", "Rodney Mullen", "Bob Burnquist", "Kareem Campbell"],
+    },
+    {
+      Category: "Alliterative Celebrities",
+      Words: ["Amy Adams", "Federico Fellini", "Hugh Hefner", "Marilyn Monroe"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
