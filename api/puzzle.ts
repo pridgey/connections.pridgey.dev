@@ -1692,6 +1692,24 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Amy Adams", "Federico Fellini", "Hugh Hefner", "Marilyn Monroe"],
     },
   ],
+  "6/30": [
+    {
+      Category: "Last Four Stanley Cup Winners",
+      Words: ["Colorado", "Tampa Bay", "St. Louis", "Washington"],
+    },
+    {
+      Category: "Cities that Cross State Borders",
+      Words: ["Texarkana", "Kansas City", "Bristol", "Union City"],
+    },
+    {
+      Category: "Presidents on US Currency",
+      Words: ["Jefferson", "Madison", "Lincoln", "Taft"],
+    },
+    {
+      Category: "Peanuts Characters",
+      Words: ["Franklin", "Pig-Pen", "Peppermint Patty", "Lucy"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
