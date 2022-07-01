@@ -1710,6 +1710,80 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Franklin", "Pig-Pen", "Peppermint Patty", "Lucy"],
     },
   ],
+  "7/1": [
+    {
+      Category: "Semiaquatic Mammals",
+      Words: ["Platypus", "Beaver", "Capybara", "Mink"],
+    },
+    {
+      Category: "Animals in Sonic the Hedgehog",
+      Words: ["Hedgehog", "Echidna", "Bat", "Fox"],
+    },
+    {
+      Category: "Monotypic Taxon Animals",
+      Words: [
+        "Beluga Whale",
+        "Dugong",
+        "Narwhal",
+        "Cream-Spotted Cardinal Fish",
+      ],
+    },
+    {
+      Category: "Venomous Mammals",
+      Words: [
+        "Short Tailed Shrew",
+        "Vampire Bats",
+        "Slow Loris",
+        "European Mole",
+      ],
+    },
+  ],
+  "7/2": [
+    {
+      Category: "Songs Over 10 Minutes",
+      Words: [
+        "Coma",
+        "Rise of the Ancient Mariner",
+        "Rosetta Stoned",
+        "Voodoo Chile",
+      ],
+    },
+    {
+      Category: "Poems by Samual Taylor Coleridge",
+      Words: [
+        "Christabel",
+        "Kubla Khan",
+        "Frost at Midnight",
+        "Fears in Solitude",
+      ],
+    },
+    {
+      Category: "Types of Chili Peppers",
+      Words: ["Pot Chili", "Aji Chili", "Ancho Chili", "Bird's Eye Chili"],
+    },
+    {
+      Category: "Language Programs",
+      Words: ["Duolingo", "Babbel", "Pimsleur", "Lingoda"],
+    },
+  ],
+  "7/3": [
+    {
+      Category: "Plants Poisonous to Touch",
+      Words: ["Manchineel", "Stinging Nettle", "Hog Weed", "Tread-Softly"],
+    },
+    {
+      Category: "Remote Access Trojan Viruses",
+      Words: ["PoisonIvy", "Beast", "Blackshades", "DarkComet"],
+    },
+    {
+      Category: "Mythical Bridges",
+      Words: ["Chinvat", "Gjallarbru", "Silat", "Bifrost"],
+    },
+    {
+      Category: "Furry Superheroes",
+      Words: ["Krypto", "Lockjaw", "Rocket Racoon", "Tigra"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
