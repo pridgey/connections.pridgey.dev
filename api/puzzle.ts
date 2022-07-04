@@ -1784,6 +1784,24 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Krypto", "Lockjaw", "Rocket Racoon", "Tigra"],
     },
   ],
+  "7/4": [
+    {
+      Category: "Fictional Fruit",
+      Words: ["Rowa", "Paupu", "Wumpa", "Mutfruit"],
+    },
+    {
+      Category: "Islands of Samoa",
+      Words: ["Upolu", "Manono", "Apolima", "Fanuatapu"],
+    },
+    {
+      Category: "Video Game Cities",
+      Words: ["Rapture", "Novigrad", "Linblum", "Pelican"],
+    },
+    {
+      Category: "Extreme Happiness",
+      Words: ["Ecstasy", "Euphoria", "Bliss", "Delectation"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
