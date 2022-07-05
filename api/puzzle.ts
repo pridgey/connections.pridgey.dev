@@ -1802,6 +1802,44 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Ecstasy", "Euphoria", "Bliss", "Delectation"],
     },
   ],
+  "7/5": [
+    {
+       "Category": "Things that are \"right\"",
+       "Words": [
+          "The Price",
+          "The Customer",
+          "A Broken Clock",
+          "Mr"
+       ]
+    },
+    {
+       "Category": "Things on a Product Sticker",
+       "Words": [
+          "Barcode",
+          "The Weight",
+          "Company Branding",
+          "Expiration Date"
+       ]
+    },
+    {
+       "Category": "Common Idioms",
+       "Words": [
+          "A Wild Goose Chase",
+          "The Cold Shoulder",
+          "Break a Leg",
+          "On The Ball"
+       ]
+    },
+    {
+       "Category": "Common Honorifics",
+       "Words": [
+          "Mrs",
+          "Dr",
+          "Madam",
+          "Esq"
+       ]
+    }
+ ]
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
