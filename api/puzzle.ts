@@ -1804,42 +1804,50 @@ const puzzles: { [key: string]: Category[] } = {
   ],
   "7/5": [
     {
-       "Category": "Things that are \"right\"",
-       "Words": [
-          "The Price",
-          "The Customer",
-          "A Broken Clock",
-          "Mr"
-       ]
+      Category: 'Things that are "right"',
+      Words: ["The Price", "The Customer", "A Broken Clock", "Mr"],
     },
     {
-       "Category": "Things on a Product Sticker",
-       "Words": [
-          "Barcode",
-          "The Weight",
-          "Company Branding",
-          "Expiration Date"
-       ]
+      Category: "Things on a Product Sticker",
+      Words: ["Barcode", "The Weight", "Company Branding", "Expiration Date"],
     },
     {
-       "Category": "Common Idioms",
-       "Words": [
-          "A Wild Goose Chase",
-          "The Cold Shoulder",
-          "Break a Leg",
-          "On The Ball"
-       ]
+      Category: "Common Idioms",
+      Words: [
+        "A Wild Goose Chase",
+        "The Cold Shoulder",
+        "Break a Leg",
+        "On The Ball",
+      ],
     },
     {
-       "Category": "Common Honorifics",
-       "Words": [
-          "Mrs",
-          "Dr",
-          "Madam",
-          "Esq"
-       ]
-    }
- ]
+      Category: "Common Honorifics",
+      Words: ["Mrs", "Dr", "Madam", "Esq"],
+    },
+  ],
+  "7/6": [
+    {
+      Category: 'Rhymes with "Ladder"',
+      Words: ["Bladder", "Adder", "Matter", "Batter"],
+    },
+    {
+      Category: "Ingredients in Haggis",
+      Words: ["Heart", "Liver", "Lungs", "Onion"],
+    },
+    {
+      Category: "Types of Snakes",
+      Words: ["Garter", "Copperhead", "Viper", "Cottonmouth"],
+    },
+    {
+      Category: "Side Effects of Marijuana",
+      Words: [
+        "Drowsiness",
+        "Headaches",
+        "Disorientation",
+        "Increased Appetite",
+      ],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
