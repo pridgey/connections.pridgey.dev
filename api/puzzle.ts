@@ -1848,6 +1848,34 @@ const puzzles: { [key: string]: Category[] } = {
       ],
     },
   ],
+  "7/7": [
+    {
+      Category: "Executed by guillotine",
+      Words: [
+        "Marie Antoinette",
+        "Louis XVI",
+        "Maximilien Robespierre",
+        "Eugen Weidmann",
+      ],
+    },
+    {
+      Category: "Current Ruling Monarchs",
+      Words: [
+        "Elizabeth II",
+        "Carl XVI Gustaf",
+        "Vajiralongkorn",
+        "Mohammed VI",
+      ],
+    },
+    {
+      Category: "Fictional Kings",
+      Words: ["North Kai", "Triton", "Louie", "Edmund Pevensie"],
+    },
+    {
+      Category: 'Containing "King"',
+      Words: ["Burger King", "The King and I", "Kingsman", "The Lion King"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
