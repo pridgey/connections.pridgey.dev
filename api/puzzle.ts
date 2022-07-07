@@ -1876,6 +1876,18 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Burger King", "The King and I", "Kingsman", "The Lion King"],
     },
   ],
+  "7/8": [
+    {
+      Category: "Worn Around The Neck",
+      Words: ["Lei", "Foulard", "Collar", "Tie"],
+    },
+    {
+      Category: "Parts of a Railroad",
+      Words: ["Rail", "Ballast", "Spike", "Plate"],
+    },
+    { Category: "Slang for Jewelry", Words: ["Ice", "Bling", "Rock", "Grill"] },
+    { Category: "Cooking Methods", Words: ["Broil", "Roast", "Bake", "Poach"] },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
