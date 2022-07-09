@@ -1888,6 +1888,18 @@ const puzzles: { [key: string]: Category[] } = {
     { Category: "Slang for Jewelry", Words: ["Ice", "Bling", "Rock", "Grill"] },
     { Category: "Cooking Methods", Words: ["Broil", "Roast", "Bake", "Poach"] },
   ],
+  "7/9": [
+    { Category: "Vitamins", Words: ["B12", "C", "K", "A"] },
+    {
+      Category: "Plant Based Meat Ingredients",
+      Words: ["Peas", "Potato Starch", "Beet Juice", "Coconut Oil"],
+    },
+    { Category: "K-Pop Bands", Words: ["BTS", "2NE1", "Blackpink", "Exo"] },
+    {
+      Category: "Coca-Cola Brand Juice",
+      Words: ["Hi-C", "Fanta", "Lift", "Maaza"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
