@@ -1900,6 +1900,29 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Hi-C", "Fanta", "Lift", "Maaza"],
     },
   ],
+  "7/10": [
+    {
+      Category: "Immediate Family of Barack Obama",
+      Words: ["Michelle", "Malia", "Sasha", "Marian"],
+    },
+    {
+      Category: "First Ladies",
+      Words: [
+        "Martha Washington",
+        "Louisa Adams",
+        "Emily Donelson",
+        "Ellen Arthur",
+      ],
+    },
+    {
+      Category: "Character's from Charlotte's Web",
+      Words: ["Wilbur", "Charlotte", "Templeton", "Dr. Dorian"],
+    },
+    {
+      Category: "Scrubs Characters",
+      Words: ["Dr. Reid", "Dr. Turk", "Espinosa", "Buckland, Esq."],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
