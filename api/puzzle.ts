@@ -1923,6 +1923,26 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Dr. Reid", "Dr. Turk", "Espinosa", "Buckland, Esq."],
     },
   ],
+  "7/11": [
+    {
+      Category: "Titles with Street Names",
+      Words: ["21 Jump", "Q", "Nightmare on Elm", "Sesame"],
+    },
+    {
+      Category: "James Bond Recurring Characters",
+      Words: ["James Bond", "M", "Miss MoneyPenny", "Felix Leiter"],
+    },
+    {
+      Category: "Beginnings of Famous Addresses",
+      Words: [
+        "221B Baker",
+        "1313 Mockingbird",
+        "1600 Pennsylvania",
+        "62 West Wallaby",
+      ],
+    },
+    { Category: "Seeds", Words: ["Flax", "Poppy", "Chia", "Pumpkin"] },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
