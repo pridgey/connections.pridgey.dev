@@ -1943,6 +1943,24 @@ const puzzles: { [key: string]: Category[] } = {
     },
     { Category: "Seeds", Words: ["Flax", "Poppy", "Chia", "Pumpkin"] },
   ],
+  "7/12": [
+    {
+      Category: 'All "Land"s',
+      Words: ["Portland", "Cleveland", "Finland", "Iceland"],
+    },
+    {
+      Category: "Countries in the UK",
+      Words: ["England", "Scotland", "Wales", "Northern Ireland"],
+    },
+    {
+      Category: "African Countries with Red, Yellow & Green Flags",
+      Words: ["Mali", "Guinea", "Republic of Congo", "Benin"],
+    },
+    {
+      Category: "Island Nations with 10,000,000+ Population",
+      Words: ["Cuba", "Java", "Taiwan", "New Guinea"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
