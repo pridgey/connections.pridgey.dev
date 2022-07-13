@@ -1979,6 +1979,21 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Rose", "Rory", "Clara", "Nyssa"],
     },
   ],
+  "7/14": [
+    {
+      Category: "Exonyms of London",
+      Words: ["Londres", "Londino", "Londen", "Lontoo"],
+    },
+    {
+      Category: "Dragons in the Legend of Zelda Series",
+      Words: ["Valoo", "Dinraal", "Farosh", "Naydra"],
+    },
+    {
+      Category: "Voiced by Phil Harris",
+      Words: ["Baloo", "Little John", "Patou", "O'Malley"],
+    },
+    { Category: "", Words: ["Naboo", "Tatooine", "Bespin", "Lah'mu"] },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
