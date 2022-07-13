@@ -1961,6 +1961,24 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Cuba", "Java", "Taiwan", "New Guinea"],
     },
   ],
+  "7/13": [
+    {
+      Category: "Boating Occupations",
+      Words: ["Skipper", "Coxswain", "Helmsman", "Deck Cadet"],
+    },
+    {
+      Category: "Types of Sailing Vessels",
+      Words: ["Schooner", "Brig", "Brigantine", "Clipper"],
+    },
+    {
+      Category: "Characters from Gravity Falls",
+      Words: ["Dipper", "Mabel", "Soos", "Bill"],
+    },
+    {
+      Category: "Dr. Who Companions",
+      Words: ["Rose", "Rory", "Clara", "Nyssa"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
