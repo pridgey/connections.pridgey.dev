@@ -1997,6 +1997,34 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Naboo", "Tatooine", "Bespin", "Lah'mu"],
     },
   ],
+  "7/15": [
+    {
+      Category: "Destructured Portmanteaus",
+      Words: [
+        "Golden Retriever Poodle",
+        "Animation Electronics",
+        "Zoo Utopia",
+        "Britain Exit",
+      ],
+    },
+    {
+      Category: "Godzilla Monsters",
+      Words: ["Hedorah", "King Caesar", "Anguirus", "King Kong"],
+    },
+    {
+      Category: "Kaiju in Pacific Rim",
+      Words: ["Trespasser", "Slattern", "Leatherback", "Knifehead"],
+    },
+    {
+      Category: "English Pubs",
+      Words: [
+        "Jolly Taxpayer",
+        "Poosie Nansies",
+        "Skiving Scholar",
+        "Pyrotechnists Arms",
+      ],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
