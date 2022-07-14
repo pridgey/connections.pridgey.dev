@@ -1992,7 +1992,10 @@ const puzzles: { [key: string]: Category[] } = {
       Category: "Voiced by Phil Harris",
       Words: ["Baloo", "Little John", "Patou", "O'Malley"],
     },
-    { Category: "", Words: ["Naboo", "Tatooine", "Bespin", "Lah'mu"] },
+    {
+      Category: "Planets in the Star Wars Universe",
+      Words: ["Naboo", "Tatooine", "Bespin", "Lah'mu"],
+    },
   ],
 };
 
