@@ -2025,6 +2025,29 @@ const puzzles: { [key: string]: Category[] } = {
       ],
     },
   ],
+  "7/16": [
+    {
+      Category: "Arthropods",
+      Words: ["Ant", "Barnacle", "Daddy Longlegs", "Mantis"],
+    },
+    {
+      Category: "Chinese Animal Style Martial Arts",
+      Words: ["Tiger", "Snake", "Dragon", "Crane"],
+    },
+    {
+      Category: "Diseases in Spongebob Squarepants",
+      Words: [
+        "Grouchy Snailitis",
+        "Suds",
+        "Mad Snail Disease",
+        "Head-Go-Boom-Boom-Itis",
+      ],
+    },
+    {
+      Category: "Over the Garden Wall Characters",
+      Words: ["Auntie Whispers", "Wirt", "Dog", "Fred"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
