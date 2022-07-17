@@ -2048,6 +2048,29 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Auntie Whispers", "Wirt", "Dog", "Fred"],
     },
   ],
+  "7/17": [
+    {
+      Category: "Scored by John Williams",
+      Words: ["Tom Sawyer", "Dracula", "Jurassic Park", "Return of the Jedi"],
+    },
+    {
+      Category: "Christina Ricci Movies",
+      Words: ["Penelope", "Casper", "Sleepy Hollow", "Speed Racer"],
+    },
+    {
+      Category: "Movies Based on Short Stories",
+      Words: [
+        "The Killers",
+        "The Secret Life of Walter Mitty",
+        "The Curious Case of Benjamin Button",
+        "Rashomon",
+      ],
+    },
+    {
+      Category: "Named Vampires",
+      Words: ["Lestat", "Edward Cullen", "Angel", "Jean-Claude"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
