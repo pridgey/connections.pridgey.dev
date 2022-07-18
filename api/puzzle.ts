@@ -2071,6 +2071,24 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Lestat", "Edward Cullen", "Angel", "Jean-Claude"],
     },
   ],
+  "7/18": [
+    {
+      Category: "US States with Panhandles",
+      Words: ["Florida", "Texas", "Oklahoma", "Idaho"],
+    },
+    {
+      Category: "Countries that Border the Black Sea",
+      Words: ["Georgia", "Turkey", "Bulgaria", "Romania"],
+    },
+    {
+      Category: "North American Birds",
+      Words: ["Flamingo", "Pelican", "Woodcock", "Bald Eagle"],
+    },
+    {
+      Category: "Fictional Butlers",
+      Words: ["Woodhouse", "Pennyworth", "Cogsworth", "Belvedere"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
