@@ -2112,6 +2112,29 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Freddy Krueger", "Chucky", "Bughuul", "Clover"],
     },
   ],
+  "7/20": [
+    {
+      Category: "Named Creatures That Went to Space",
+      Words: ["Albert II", "Tsygan & Dezik", "Gordo", "Yuri Gagarin"],
+    },
+    {
+      Category: "Stop-Motion Animation Studios",
+      Words: ["Mackinnon and Saunders", "Laika", "Cosgrove Hall", "Aardman"],
+    },
+    {
+      Category: "Lizzie McGuire Characters",
+      Words: ["Lizzie", "Miranda", "Kate", "Matt"],
+    },
+    {
+      Category: 'Contains "Hall"',
+      Words: [
+        "Carnegie Hall",
+        "Arsenio Hall",
+        "The Monty Hall Problem",
+        "National Baseball Hall of Fame",
+      ],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
