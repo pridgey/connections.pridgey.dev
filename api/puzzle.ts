@@ -2089,6 +2089,29 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Woodhouse", "Pennyworth", "Cogsworth", "Belvedere"],
     },
   ],
+  "7/19": [
+    {
+      Category: "Words That Contain Currency",
+      Words: ["Pennywise", "Nickelback", "Headquarters", "Dimeter"],
+    },
+    {
+      Category: "Foreign Lines in English Songs",
+      Words: [
+        "Unos, dos, tres, catorce",
+        "Mazal Tov! L'chayim",
+        "Bismillah",
+        "Hasta Manjana",
+      ],
+    },
+    {
+      Category: "Various Names for the Sand Dollar Sea Urchin",
+      Words: ["Sand Dollar", "Sea Cookie", "Snapper Biscuit", "Pansy Shell"],
+    },
+    {
+      Category: "Horror Movie Monsters",
+      Words: ["Freddy Krueger", "Chucky", "Bughuul", "Clover"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
