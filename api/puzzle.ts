@@ -2135,6 +2135,36 @@ const puzzles: { [key: string]: Category[] } = {
       ],
     },
   ],
+  "7/21": [
+    { Category: "Leap Years", Words: ["2068", "2072", "1920", "1988"] },
+    {
+      Category: "Dystopian Literature",
+      Words: [
+        "1984",
+        "Brave New World",
+        "Fahrenheit 451",
+        "The Handmaid's Tale",
+      ],
+    },
+    {
+      Category: '"Brave"',
+      Words: [
+        "The Brave Little Toaster",
+        "The Brave and the Bold",
+        "Atlanta Braves",
+        "Brave",
+      ],
+    },
+    {
+      Category: "Cartoon Hangover Cartoons",
+      Words: [
+        "Bravest Warriors",
+        "Bee and PuppyCat",
+        "Fin Punch",
+        "Shadowstone Park",
+      ],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
