@@ -2165,7 +2165,59 @@ const puzzles: { [key: string]: Category[] } = {
       ],
     },
   ],
-  "7/22": [{"Category":"Types of Chef Knives","Words":["Paring","Bread","Cleaver","Salmon"]},{"Category":"Sushi Rolls","Words":["Rainbow","California","Spicy Tuna","Spider"]},{"Category":"Compound Words","Words":["Bookcase","Jellyfish","Butterfly","Shipyard"]},{"Category":"Baked Goods","Words":["Brownie","Pie","Torte","Bagel"]}]
+  "7/22": [
+    {
+      Category: "Types of Chef Knives",
+      Words: ["Paring", "Bread", "Cleaver", "Salmon"],
+    },
+    {
+      Category: "Sushi Rolls",
+      Words: ["Rainbow", "California", "Spicy Tuna", "Spider"],
+    },
+    {
+      Category: "Compound Words",
+      Words: ["Bookcase", "Jellyfish", "Butterfly", "Shipyard"],
+    },
+    { Category: "Baked Goods", Words: ["Brownie", "Pie", "Torte", "Bagel"] },
+  ],
+  "7/23": [
+    {
+      Category: "Stranger Things Characters",
+      Words: [
+        "Will Byers",
+        "Steve Harrington",
+        "Nancy Wheeler",
+        "Robin Buckley",
+      ],
+    },
+    {
+      Category: "Pirates of the Caribbean Characters",
+      Words: [
+        "Jack Sparrow",
+        "Hector Barbossa",
+        "Davy Jones",
+        "Elizabeth Swan",
+      ],
+    },
+    {
+      Category: "Yu-Gi-Oh! Characters",
+      Words: [
+        "Joey Wheeler",
+        "Tristan Taylor",
+        "Maximillion Pegasus",
+        "Serenity Wheeler",
+      ],
+    },
+    {
+      Category: "How I Met Your Mother Characters",
+      Words: [
+        "Robin Scherbatsky",
+        "Quinn Garvey",
+        "Sandy Rivers",
+        "Tracy McConnell",
+      ],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
