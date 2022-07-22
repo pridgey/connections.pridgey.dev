@@ -2165,6 +2165,7 @@ const puzzles: { [key: string]: Category[] } = {
       ],
     },
   ],
+  "7/22": [{"Category":"Types of Chef Knives","Words":["Paring","Bread","Cleaver","Salmon"]},{"Category":"Sushi Rolls","Words":["Rainbow","California","Spicy Tuna","Spider"]},{"Category":"Compound Words","Words":["Bookcase","Jellyfish","Butterfly","Shipyard"]},{"Category":"Baked Goods","Words":["Brownie","Pie","Torte","Bagel"]}]
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
