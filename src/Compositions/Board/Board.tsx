@@ -7,7 +7,7 @@ import {
   onMount,
   Show,
 } from "solid-js";
-import { Button, Card, IconButton } from "@components";
+import { Button, Card, IconButton, Toast } from "@components";
 import {
   CategoryCard,
   NeedsMoreSelectionsDialog,
@@ -15,8 +15,16 @@ import {
 } from "@compositions";
 import styles from "./Board.module.css";
 import shuffle from "lodash.shuffle";
-import { splitWords, grabTodaysPuzzle, logWin } from "./Board.functions";
+import {
+  splitWords,
+  grabTodaysPuzzle,
+  logWin,
+  generateGuessHint,
+} from "./Board.functions";
 import { Logging, Storage } from "@utilities";
+
+// Configuration
+const attemptsUntilHint = 15;
 
 // Represents a category and its corresponding words
 export type Category = {
@@ -53,6 +61,8 @@ export const Board: Component = () => {
   const [showGuessesDialog, setShowGuessesDialog] = createSignal(false);
   // Show winner dialog
   const [showWin, setShowWin] = createSignal(false);
+  // Toast hints
+  const [toastMessage, setToastMessage] = createSignal("");
 
   // Grab CSS from styles object
   const { board, fourcol, threecol } = styles;
@@ -279,7 +289,15 @@ export const Board: Component = () => {
               }
             } else {
               // Incorrect, deselect words
-              // Could be cool to add something here like a shake effect as a nice feedback
+
+              // Show hint if struggling
+              if (numOfGuesses() >= attemptsUntilHint) {
+                setToastMessage(generateGuessHint(currentGuesses()));
+                setTimeout(() => {
+                  setToastMessage("");
+                }, 4100);
+              }
+
               setIncorrectGuesses(guesses);
               setCurrentGuesses([]);
               Storage.set("concg", []);
@@ -295,6 +313,9 @@ export const Board: Component = () => {
       </Show>
       <Show when={showWin()}>
         <WinDialog OnClose={() => setShowWin(false)} />
+      </Show>
+      <Show when={toastMessage().length > 0}>
+        <Toast Text={toastMessage()} />
       </Show>
     </>
   );

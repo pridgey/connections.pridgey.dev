@@ -100,3 +100,27 @@ export const logWin = (numOfGuesses: number) => {
     resolve();
   });
 };
+
+// Determine level of correctness for guessed words
+export const generateGuessHint = (userGuesses: CategoryWord[]) => {
+  // We will display a number of correct guesses that belong to a specific category
+  const matchingCategories: number[] = [];
+
+  Array.from(new Set(userGuesses.map((g) => g.Category))).forEach((c) => {
+    matchingCategories.push(userGuesses.filter((g) => g.Category === c).length);
+  });
+
+  switch (matchingCategories.length) {
+    case 0:
+    default:
+      return "How did you do that?";
+    case 1:
+      return "Those are all correct. So you shouldn't be seeing this";
+    case 2:
+      return "You got 2 in one Category, and 2 in another";
+    case 3:
+      return "You have 2 in one Category, and split the other 2";
+    case 4:
+      return "All four of those guesses belong to different categories";
+  }
+};
