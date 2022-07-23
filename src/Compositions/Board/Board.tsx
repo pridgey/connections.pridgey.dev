@@ -8,11 +8,7 @@ import {
   Show,
 } from "solid-js";
 import { Button, Card, IconButton, Toast } from "@components";
-import {
-  CategoryCard,
-  NeedsMoreSelectionsDialog,
-  WinDialog,
-} from "@compositions";
+import { CategoryCard, WinDialog } from "@compositions";
 import styles from "./Board.module.css";
 import shuffle from "lodash.shuffle";
 import {
@@ -57,8 +53,6 @@ export const Board: Component = () => {
   const [incorrectGuesses, setIncorrectGuesses] = createSignal<CategoryWord[]>(
     []
   );
-  // Show/hide guesses dialog
-  const [showGuessesDialog, setShowGuessesDialog] = createSignal(false);
   // Show winner dialog
   const [showWin, setShowWin] = createSignal(false);
   // Toast hints
@@ -303,14 +297,14 @@ export const Board: Component = () => {
               Storage.set("concg", []);
             }
           }}
-          OnDisabledClick={() => setShowGuessesDialog(true)}
+          OnDisabledClick={() => {
+            setToastMessage(
+              "You've selected too few items. You must select 4 cards."
+            );
+            setTimeout(() => setToastMessage(""), 4100);
+          }}
         />
       </div>
-      <Show when={showGuessesDialog()}>
-        <NeedsMoreSelectionsDialog
-          OnClose={() => setShowGuessesDialog(false)}
-        />
-      </Show>
       <Show when={showWin()}>
         <WinDialog OnClose={() => setShowWin(false)} />
       </Show>
