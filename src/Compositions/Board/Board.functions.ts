@@ -117,7 +117,9 @@ export const generateGuessHint = (userGuesses: CategoryWord[]) => {
     case 1:
       return "Those are all correct. So you shouldn't be seeing this";
     case 2:
-      return "You got 2 in one Category, and 2 in another";
+      return matchingCategories.includes(3)
+        ? "You got 3 in one Category, and 1 in another"
+        : "You got 2 in one Category, and 2 in another";
     case 3:
       return "You have 2 in one Category, and split the other 2";
     case 4:
