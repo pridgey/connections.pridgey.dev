@@ -226,6 +226,9 @@ export const Board: Component = () => {
           Disabled={currentGuesses().length !== puzzleWords()[0]?.Words.length}
           Text="SUBMIT"
           OnClick={() => {
+            // Reset Toast
+            setToastMessage("");
+
             // Increment guess counter
             const timesGuessed = numOfGuesses() + 1;
             setNumOfGuesses(timesGuessed);
