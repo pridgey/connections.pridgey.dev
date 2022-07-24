@@ -285,7 +285,7 @@ export const Board: Component = () => {
                   .catch(console.error);
               }
             } else {
-              // Incorrect, deselect words
+              // Incorrect
 
               // Show hint if struggling
               if (numOfGuesses() >= attemptsUntilHint) {
@@ -295,6 +295,7 @@ export const Board: Component = () => {
                 }, 4100);
               }
 
+              // Deselect guessed words
               setIncorrectGuesses(guesses);
               setCurrentGuesses([]);
               Storage.set("concg", []);
