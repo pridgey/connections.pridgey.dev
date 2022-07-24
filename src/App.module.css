@@ -17,9 +17,9 @@
 .header {
   width: 100%;
   display: grid;
-  grid-template-columns: 14px 1fr 14px 14px;
+  grid-template-columns: 1fr 14px 14px 14px;
   grid-template-rows: min-content;
-  grid-template-areas: "i1 title i2 i3";
+  grid-template-areas: "title i1 i2 i3";
   align-items: center;
   justify-items: center;
   padding: 15px;
