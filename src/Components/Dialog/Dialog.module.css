@@ -19,6 +19,7 @@
   max-width: 90vw;
   max-height: 90vh;
   box-sizing: border-box;
+  overflow: auto;
 }
 
 .header {
