@@ -8,6 +8,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
+  overflow: auto;
 }
 
 .dialog {
@@ -17,9 +19,8 @@
   padding: 15px 30px 30px 30px;
   width: 45vw;
   max-width: 90vw;
-  max-height: 90vh;
   box-sizing: border-box;
-  overflow: auto;
+  margin: 10vh 0px;
 }
 
 .header {
