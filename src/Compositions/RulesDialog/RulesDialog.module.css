@@ -9,6 +9,14 @@
 .example {
   display: grid;
   grid-template-columns: 1fr min-content;
+  grid-template-rows: 1fr;
   gap: 30px;
   justify-items: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .example {
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content min-content;
+  }
 }
