@@ -9,4 +9,5 @@ export * from "./LastSevenWinsGraph";
 export * from "./Leaderboard";
 export * from "./NeedMoreSelectionsDialog";
 export * from "./RulesDialog";
+export * from "./SettingsDialog";
 export * from "./WinDialog";

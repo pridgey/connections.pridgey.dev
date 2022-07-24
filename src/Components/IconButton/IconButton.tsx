@@ -3,10 +3,11 @@ import styles from "./IconButton.module.css";
 import { TropheyIcon } from "./TropheyIcon";
 import { LawIcon } from "./LawIcon";
 import { ShuffleIcon } from "./ShuffleIcon";
+import { SettingsIcon } from "./SettingsIcon";
 
 type IconButtonProps = {
   OnClick: () => void;
-  Icon: "trophy" | "law" | "shuffle";
+  Icon: "trophy" | "law" | "shuffle" | "settings";
 };
 
 export const IconButton = (props: IconButtonProps) => (
@@ -20,6 +21,9 @@ export const IconButton = (props: IconButtonProps) => (
       </Match>
       <Match when={props.Icon === "shuffle"}>
         <ShuffleIcon />
+      </Match>
+      <Match when={props.Icon === "settings"}>
+        <SettingsIcon />
       </Match>
     </Switch>
   </button>

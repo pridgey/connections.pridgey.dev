@@ -17,9 +17,9 @@
 .header {
   width: 100%;
   display: grid;
-  grid-template-columns: 14px 1fr 14px;
+  grid-template-columns: 14px 1fr 14px 14px;
   grid-template-rows: min-content;
-  grid-template-areas: "i1 title i2";
+  grid-template-areas: "i1 title i2 i3";
   align-items: center;
   justify-items: center;
   padding: 15px;
@@ -33,6 +33,10 @@
 
 .stats {
   grid-area: i1;
+}
+
+.settings {
+  grid-area: i3;
 }
 
 @media only screen and (max-width: 600px) {
