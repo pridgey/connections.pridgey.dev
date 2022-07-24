@@ -2218,6 +2218,44 @@ const puzzles: { [key: string]: Category[] } = {
       ],
     },
   ],
+  "7/24": [
+    {
+      Category: "Roman Emperors",
+      Words: [
+        "Caesar Augustus",
+        "Tiberius",
+        "Vespasian",
+        "Constantine the Great",
+      ],
+    },
+    {
+      Category: "Shakespeare Plays",
+      Words: [
+        "Julius Caesar",
+        "Antony and Cleopatra",
+        "Troilus and Cressida",
+        "Othello",
+      ],
+    },
+    {
+      Category: 'The "Great"s',
+      Words: [
+        "Catherine the Great",
+        "Alexander the Great",
+        "Gertrude the Great",
+        "Hanno the Great",
+      ],
+    },
+    {
+      Category: "TV Duos",
+      Words: [
+        "Troy and Abed",
+        "Bert and Ernie",
+        "Crowley and Aziraphale",
+        "Turk and J.D.",
+      ],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
