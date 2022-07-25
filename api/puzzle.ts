@@ -2256,6 +2256,21 @@ const puzzles: { [key: string]: Category[] } = {
       ],
     },
   ],
+  "7/25": [
+    {
+      Category: "Handheld Video Game Devices",
+      Words: ["Game Gear", "Game Boy", "Nomad", "PSP"],
+    },
+    {
+      Category: "Mobile Music Device",
+      Words: ["Walkman", "iPod", "Zune", "Zen"],
+    },
+    { Category: "NBA Acronyms", Words: ["MVP", "PPG", "PER", "RAPTOR"] },
+    {
+      Category: "Fictional Video Game Currencies",
+      Words: ["Zeni", "Bells", "Rupee", "Munny"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
