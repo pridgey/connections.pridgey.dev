@@ -2271,6 +2271,15 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Zeni", "Bells", "Rupee", "Munny"],
     },
   ],
+  "7/26": [
+    {
+      Category: "Types of Skating",
+      Words: ["Ice", "Inline", "Roller", "Speed"],
+    },
+    { Category: "Scalars", Words: ["Volume", "Density", "Mass", "Time"] },
+    { Category: "Rhymes", Words: ["Brass", "Grass", "Pass", "Lass"] },
+    { Category: "Pokemon Types", Words: ["Dark", "Fire", "Flying", "Water"] },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
