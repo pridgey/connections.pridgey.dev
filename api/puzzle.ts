@@ -2280,6 +2280,24 @@ const puzzles: { [key: string]: Category[] } = {
     { Category: "Rhymes", Words: ["Brass", "Grass", "Pass", "Lass"] },
     { Category: "Pokemon Types", Words: ["Dark", "Fire", "Flying", "Water"] },
   ],
+  "7/27": [
+    {
+      Category: "YouTube Creator Play Button Awards",
+      Words: ["Silver", "Gold", "Diamond", "Red Diamond"],
+    },
+    {
+      Category: "Dungeons & Dragons Coins",
+      Words: ["Copper", "Electrum", "Iron", "Platinum"],
+    },
+    {
+      Category: "Igneous Rocks",
+      Words: ["Obsidian", "Diorite", "Granite", "Pumice"],
+    },
+    {
+      Category: "Minecraft Minerals",
+      Words: ["Redstone", "Lapis lazuli", "Emerald", "Nether Quartz"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
