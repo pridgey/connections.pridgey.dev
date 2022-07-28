@@ -2298,6 +2298,24 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Redstone", "Lapis lazuli", "Emerald", "Nether Quartz"],
     },
   ],
+  "7/28": [
+    {
+      Category: "Polynesian Gods",
+      Words: ["Maui", "Motoro", "Kohara", "Ulupoka"],
+    },
+    {
+      Category: "Islands of Hawaii",
+      Words: ["Kauai", "Lanai", "O'ahu", "Hawaii"],
+    },
+    {
+      Category: "Characters from Moana",
+      Words: ["Moana", "Tamatoa", "Hei Hei", "Tala"],
+    },
+    {
+      Category: "Lilo & Stitch Characters",
+      Words: ["Lilo", "Stitch", "Jumba", "Gantu"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
