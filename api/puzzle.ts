@@ -2316,6 +2316,24 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Lilo", "Stitch", "Jumba", "Gantu"],
     },
   ],
+  "7/29": [
+    {
+      Category: "Types of Pokeballs in Pokemon",
+      Words: ["Great", "Ultra", "Master", "Luxury"],
+    },
+    {
+      Category: "Digivolution Levels in Digimon",
+      Words: ["Rookie", "Champion", "Ultimate", "Mega"],
+    },
+    {
+      Category: "Years of High School / College",
+      Words: ["Freshman", "Sophomore", "Junior", "Senior"],
+    },
+    {
+      Category: "Rotten Tomatoes Rating Systems",
+      Words: ["Fresh", "Certified Fresh", "Rotten", "No Score"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
