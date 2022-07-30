@@ -2334,6 +2334,24 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Fresh", "Certified Fresh", "Rotten", "No Score"],
     },
   ],
+  "7/30": [
+    {
+      Category: "Teletubbies",
+      Words: ["Tinky-Winky", "Dipsy", "Laa-Laa", "Po"],
+    },
+    {
+      Category: "Played by Jack Black",
+      Words: ["Dewey Finn", "Nacho", "Barry Judd", "Carl Denham"],
+    },
+    {
+      Category: "Types of Chips",
+      Words: ["Corn", "Potato", "Pita", "Tortilla"],
+    },
+    {
+      Category: "Ashlee Simpson Songs",
+      Words: ["Pieces of Me", "Boyfriend", "Shadow", "Ragdoll"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
