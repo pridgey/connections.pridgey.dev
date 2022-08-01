@@ -2352,6 +2352,30 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Pieces of Me", "Boyfriend", "Shadow", "Ragdoll"],
     },
   ],
+  "7/31": [],
+  "8/1": [
+    {
+      Category: "Beard Styles",
+      Words: ["Mutton Chops", "Goatee", "Ducktail", "Anchor"],
+    },
+    {
+      Category: "Cuts of Pork",
+      Words: ["Pork Chop", "Hock", "Ham", "Pork Belly"],
+    },
+    {
+      Category: "Fictional / Mislabeled Martial Arts Techniques",
+      Words: [
+        "Buddha Palm",
+        "Five point Palm Exploding Heart",
+        "Crane Kick",
+        "Karate Chop",
+      ],
+    },
+    {
+      Category: "Used to Keep Things in Place",
+      Words: ["Bike Lock", "Wheel Chocks", "Deadman", "Tie Rod"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
