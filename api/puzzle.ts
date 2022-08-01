@@ -2352,7 +2352,30 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Pieces of Me", "Boyfriend", "Shadow", "Ragdoll"],
     },
   ],
-  "7/31": [],
+  "7/31": [
+    {
+      Category: "International Multi-Sport Competitions",
+      Words: [
+        "Commonwealth Games",
+        "Francophone Games",
+        "Lusophony Games",
+        "Pan Arab Games",
+      ],
+    },
+    {
+      Category: "Video Game Studios",
+      Words: ["4A Games", "Telltale Games", "Niantic", "Rare"],
+    },
+    {
+      Category: "Stages of Doneness",
+      Words: ["Blue", "Medium", "Well Done", "Medium Well"],
+    },
+    {
+      Category: "Synonyms of Psychic",
+      Words: ["Channeler", "Spiritist", "Clairvoyant", "Mentalist"],
+    },
+  ],
+
   "8/1": [
     {
       Category: "Beard Styles",
@@ -2374,6 +2397,24 @@ const puzzles: { [key: string]: Category[] } = {
     {
       Category: "Used to Keep Things in Place",
       Words: ["Bike Lock", "Wheel Chocks", "Deadman", "Tie Rod"],
+    },
+  ],
+  "8/2": [
+    {
+      Category: "Types of  Mustaches",
+      Words: ["Handlebar", "Dali", "Walrus", "Pencil"],
+    },
+    {
+      Category: "Surrealist Artists",
+      Words: ["Breton", "Arp", "Ernst", "Tanguy"],
+    },
+    {
+      Category: "Animals Mentioned in Beatles Song Titles",
+      Words: ["Blackbird", "Pony", "Bulldog", "Octopus"],
+    },
+    {
+      Category: "Common School Supplies",
+      Words: ["Highlighter", "Three-ring Binder", "Eraser", "Index Card"],
     },
   ],
 };
