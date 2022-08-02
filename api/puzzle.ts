@@ -2417,6 +2417,24 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Highlighter", "Three-ring Binder", "Eraser", "Index Card"],
     },
   ],
+  "8/3": [
+    {
+      Category: "Native Names of Countries",
+      Words: ["Nippon", "Hellas", "Suomi", "Sverige"],
+    },
+    {
+      Category: "Cthulhu Mythos Great Old Ones",
+      Words: ["Cthulhu", "Aylith", "Han", "Ithaqua"],
+    },
+    {
+      Category: "Chinese Ethnic Groups",
+      Words: ["Zhuang", "Uyghurs", "Hui", "Manchu"],
+    },
+    {
+      Category: "Alkali metal",
+      Words: ["Lithium", "Sodium", "Francium", "Caesium"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
