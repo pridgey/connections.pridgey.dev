@@ -2435,6 +2435,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Lithium", "Sodium", "Francium", "Caesium"],
     },
   ],
+"8/4": [{"Category":"Adjectives Preceding Famous Birds","Words":["Angry","Flappy","Big","Song"]},{"Category":"Places Named Twice","Words":["Sing Sing","Bora Bora","New York, New York ","Circus Circus "]},{"Category":"Musical Children's TV Shows","Words":["Gullah Gullah Island ","Yo Gabba Gabba","The Wiggles ","The Doodlebops"]},{"Category":"TV Shows set on Islands","Words":["Love Island ","Gilligan's Island ","Survivor ","Lost"]}],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
