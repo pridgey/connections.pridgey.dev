@@ -2435,7 +2435,57 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Lithium", "Sodium", "Francium", "Caesium"],
     },
   ],
-"8/4": [{"Category":"Adjectives Preceding Famous Birds","Words":["Angry","Flappy","Big","Song"]},{"Category":"Places Named Twice","Words":["Sing Sing","Bora Bora","New York, New York ","Circus Circus "]},{"Category":"Musical Children's TV Shows","Words":["Gullah Gullah Island ","Yo Gabba Gabba","The Wiggles ","The Doodlebops"]},{"Category":"TV Shows set on Islands","Words":["Love Island ","Gilligan's Island ","Survivor ","Lost"]}],
+  "8/4": [
+    {
+      Category: "Adjectives Preceding Famous Birds",
+      Words: ["Angry", "Flappy", "Big", "Song"],
+    },
+    {
+      Category: "Places Named Twice",
+      Words: [
+        "Sing Sing",
+        "Bora Bora",
+        "New York, New York ",
+        "Circus Circus ",
+      ],
+    },
+    {
+      Category: "Musical Children's TV Shows",
+      Words: [
+        "Gullah Gullah Island ",
+        "Yo Gabba Gabba",
+        "The Wiggles ",
+        "The Doodlebops",
+      ],
+    },
+    {
+      Category: "TV Shows set on Islands",
+      Words: ["Love Island ", "Gilligan's Island ", "Survivor ", "Lost"],
+    },
+  ],
+  "8/5": [
+    {
+      Category: "Types of Grass",
+      Words: ["Bent", "Bermuda", "Kentucky Blue", "Centipede"],
+    },
+    {
+      Category: "Islands of the Caribbean",
+      Words: ["Barbados", "Grenada", "Honduras", "Panama"],
+    },
+    {
+      Category: "Contains Metric Prefixes",
+      Words: ["Microphone", "Gigabyte", "Decibel", "PETA"],
+    },
+    {
+      Category: "World Canals",
+      Words: [
+        "Beijing-Hangzhou Grand",
+        "Suez",
+        "Corinth",
+        "White Sea-Baltic Sea",
+      ],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
