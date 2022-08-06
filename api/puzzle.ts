@@ -2486,6 +2486,34 @@ const puzzles: { [key: string]: Category[] } = {
       ],
     },
   ],
+  "8/6": [
+    {
+      Category: "Workouts in Rocky Movies",
+      Words: [
+        "Running With Bricks in Your Hands",
+        "Distance Running",
+        "Punching Meat",
+        "Chasing a Chicken",
+      ],
+    },
+    {
+      Category: "Olympic Events",
+      Words: ["Rhythmic Gymnastics", "Swimming", "Judo", "Weightlifting"],
+    },
+    {
+      Category: "Martial Arts",
+      Words: ["Karate", "Taekwondo", "Kickboxing", "Kung Fu"],
+    },
+    {
+      Category: "Chasing Idioms",
+      Words: [
+        "A Goose Chase",
+        "Don't Go Chasing Waterfalls",
+        "Chasing Your Tail",
+        "Ambulance Chasing",
+      ],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
