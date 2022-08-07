@@ -2514,6 +2514,24 @@ const puzzles: { [key: string]: Category[] } = {
       ],
     },
   ],
+  "8/7": [
+    {
+      Category: "Root Tubers",
+      Words: ["Sweet Potato", "Cassava", "Dahlia", "Carrot"],
+    },
+    {
+      Category: "Foods That Can Generate Electricity",
+      Words: ["Potato", "Orange", "Lemon", "Pickle"],
+    },
+    {
+      Category: "Common Aztec Crops",
+      Words: ["Maize", "Beans", "Squash", "Tomato"],
+    },
+    {
+      Category: "Food Idioms",
+      Words: ["Piece of Cake", "Bread and Butter", "Cup of Tea", "Cheesy"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
