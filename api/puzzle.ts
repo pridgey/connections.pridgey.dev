@@ -2532,6 +2532,24 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Piece of Cake", "Bread and Butter", "Cup of Tea", "Cheesy"],
     },
   ],
+  "8/8": [
+    {
+      Category: "Plants That Have Animals in Their Names",
+      Words: ["Salmonberry", "Elephant Garlic", "Gooseberry", "Kiwi"],
+    },
+    {
+      Category: "National Flowers",
+      Words: ["Thyme", "Dogwood Tree Flower", "Maple Leaf", "Rose"],
+    },
+    {
+      Category: "Featured on Flags",
+      Words: ["Stars", "Crescents", "Sun", "Coat of Arms"],
+    },
+    {
+      Category: "Types of Patterns",
+      Words: ["Stripes", "Argyle", "Plaid", "Polka Dot"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
