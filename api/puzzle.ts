@@ -2550,6 +2550,39 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Stripes", "Argyle", "Plaid", "Polka Dot"],
     },
   ],
+  "8/9": [
+    {
+      Category: "Common Amusement Park Rides",
+      Words: ["Ferris Wheel", "Bumper Cars", "Carousel", "Pirate Ship"],
+    },
+    {
+      Category: "Annual Music Festivals",
+      Words: [
+        "Rollercoaster",
+        "Coachella",
+        "Electric Daisy Carnival",
+        "Tomorrowland",
+      ],
+    },
+    {
+      Category: 'Contains "Electric"',
+      Words: [
+        "Electric Light Orchestra",
+        "Do Androids Dream of Electric Sheep?",
+        "Electric Avenue",
+        "Electric Eel",
+      ],
+    },
+    {
+      Category: "Disneyland Lands",
+      Words: [
+        "Adventureland",
+        "Star Wars: Galaxy's Edge",
+        "Main Street, U.S.A.",
+        "Frontierland",
+      ],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
