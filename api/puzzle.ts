@@ -2583,6 +2583,24 @@ const puzzles: { [key: string]: Category[] } = {
       ],
     },
   ],
+  "8/10": [
+    {
+      Category: "Types of Cheese",
+      Words: ["Cheddar", "American", "Bleu", "Munster"],
+    },
+    {
+      Category: "Yankee Candle Company Scents",
+      Words: ["Edelweiss", "Dogwood", "Moroccan", "Cactus"],
+    },
+    {
+      Category: "District-Free German Cities",
+      Words: ["Frankfurt", "Berlin", "Dresden", "Cologne"],
+    },
+    {
+      Category: "U.S. Sitcom Families",
+      Words: ["Addams", "Brady", "Bundy", "Cleaver"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
