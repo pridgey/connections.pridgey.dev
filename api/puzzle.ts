@@ -2601,6 +2601,29 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Addams", "Brady", "Bundy", "Cleaver"],
     },
   ],
+  "8/11": [
+    {
+      Category: "TV Show Titles That Use a Single Letter",
+      Words: ["A-Team", "X-Files", "Dragon Ball Z", "K-On!"],
+    },
+    {
+      Category: "Shows aired by Fox Kids",
+      Words: ["7th Heaven", "Robot Wars", "X-Men", "Sailor Moon"],
+    },
+    {
+      Category: "Science Fiction Anthology TV Shows",
+      Words: [
+        "The Twilight Zone",
+        "Tales of Tomorrow",
+        "Science Fiction Theatre",
+        "Black Mirror",
+      ],
+    },
+    {
+      Category: "Robot Combat Competitions",
+      Words: ["BattleBots", "Robotica", "RoboGames", "RoboMaster"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
