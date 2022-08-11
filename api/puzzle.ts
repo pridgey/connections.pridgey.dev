@@ -2624,6 +2624,24 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["BattleBots", "Robotica", "RoboGames", "RoboMaster"],
     },
   ],
+  "8/12": [
+    {
+      Category: "Members of the Olive Oyl Family",
+      Words: ["Olive", "Castor", "Cole", "Diesel"],
+    },
+    {
+      Category: "Types of Oil",
+      Words: ["Flaxseed", "Sesame", "Coconut", "Canola"],
+    },
+    {
+      Category: "Liquid Fuels",
+      Words: ["Kerosene", "Liquefied Petroleum", "Ethanol", "Butanol"],
+    },
+    {
+      Category: 'Preceded by "Open"',
+      Words: ["Book", "House", "Armed", "Minded"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
