@@ -2642,6 +2642,44 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Book", "House", "Armed", "Minded"],
     },
   ],
+  "8/13": [
+    {
+      Category: "Played Jim Hawkins in Treasure Island Movie Adaptations",
+      Words: [
+        "Francis Carpenter",
+        "Kevin Bishop",
+        "Joseph Gordon-Levitt",
+        "Bobby Driscoll",
+      ],
+    },
+    {
+      Category: "Golden Globe Award Winner for Best Actor",
+      Words: [
+        "Andrew Garfield",
+        "Sacha Baron Cohen",
+        "Taron Egerton",
+        "Christian Bale",
+      ],
+    },
+    {
+      Category: "Actors who played an Avenger",
+      Words: [
+        "Tom Holland",
+        "Robert Downey Jr",
+        "Scarlett Johansson",
+        "Jeremy Renner",
+      ],
+    },
+    {
+      Category: "Cast of Pleasantville",
+      Words: [
+        "Tobey Maguire",
+        "Reese Witherspoon",
+        "Jeff Daniels",
+        "Paul Walker",
+      ],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
