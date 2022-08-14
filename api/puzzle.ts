@@ -2680,6 +2680,34 @@ const puzzles: { [key: string]: Category[] } = {
       ],
     },
   ],
+  "8/14": [
+    {
+      Category: "EGOT Winners",
+      Words: ["John Legend", "Jennifer Hudson", "Mel Brooks", "Audrey Hepburn"],
+    },
+    {
+      Category: "America's Got Talent Judges",
+      Words: ["Terry Crews", "Simon Cowell", "Sofía Vergara", "Howie Mandel"],
+    },
+    {
+      Category: "Brooklyn 99 Cast Members",
+      Words: [
+        "Andy Samberg",
+        "Melissa Fumero",
+        "Andre Braugher",
+        "Jason Mantzoukas",
+      ],
+    },
+    {
+      Category: "In The Heights Cast Members",
+      Words: [
+        "Stephanie Beatriz",
+        "Melissa Barrera",
+        "Anthony Ramos",
+        "Lin-Manuel Miranda",
+      ],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
