@@ -2726,6 +2726,29 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Coquina", "Oolite", "Shelly Limestone", "Tufa"],
     },
   ],
+  "8/16": [
+    {
+      Category: "Famous Stones",
+      Words: [
+        "Blarney Stone",
+        "Rosetta Stone",
+        "Stone of Destiny",
+        "London Stone",
+      ],
+    },
+    {
+      Category: "WWE Wrestler Ring Names",
+      Words: ["Stone Cold", "Macho Man", "Dr. Death", "The Dragon"],
+    },
+    {
+      Category: "Marvel Villains",
+      Words: ["Doctor Doom", "Galactus", "Red Skull", "Juggernaut"],
+    },
+    {
+      Category: "Village People Songs",
+      Words: ["Y.M.C.A.", "In The Navy", "Action Man", "Fire Island"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
