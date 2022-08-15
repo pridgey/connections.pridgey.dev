@@ -2708,6 +2708,24 @@ const puzzles: { [key: string]: Category[] } = {
       ],
     },
   ],
+  "8/15": [
+    {
+      Category: "Crypto Currencies",
+      Words: ["Ethereum", "Tether", "Dogecoin", "Bitcoin"],
+    },
+    {
+      Category: "Climbing Equipment",
+      Words: ["Harness", "Carabiner", "Quickdraw", "Chalk"],
+    },
+    {
+      Category: "Hanna Barbera Characters",
+      Words: ["Birdman", "Captain Caveman", "Dick Dastardly", "Droopy"],
+    },
+    {
+      Category: "Generic Types of Limestone",
+      Words: ["Coquina", "Oolite", "Shelly Limestone", "Tufa"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
