@@ -2749,6 +2749,18 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Y.M.C.A.", "In The Navy", "Action Man", "Fire Island"],
     },
   ],
+  "8/17": [
+    {
+      Category: "Fictional Lands of Hyrule",
+      Words: ["Hebra", "Gerudo", "Lanayru", "Central Hyrule"],
+    },
+    {
+      Category: "Striped Animals",
+      Words: ["Zebra", "Okapi", "Tiger", "Bumblebee"],
+    },
+    { Category: "Zodiac Signs", Words: ["Libra", "Scorpio", "Leo", "Taurus"] },
+    { Category: "Famous Lions", Words: ["Cecil", "Simba", "Aslan", "Alex"] },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
