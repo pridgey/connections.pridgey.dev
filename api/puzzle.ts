@@ -2761,6 +2761,34 @@ const puzzles: { [key: string]: Category[] } = {
     { Category: "Zodiac Signs", Words: ["Libra", "Scorpio", "Leo", "Taurus"] },
     { Category: "Famous Lions", Words: ["Cecil", "Simba", "Aslan", "Alex"] },
   ],
+  "8/18": [
+    {
+      Category: "Songs Featuring Colors",
+      Words: [
+        "Black Magic",
+        "Yellow Submarine",
+        "Brown Eyed Girl",
+        "Goodbye Yellow Brick Road",
+      ],
+    },
+    {
+      Category: "Stereotypically Evil Magic",
+      Words: ["Necromancy", "Voodoo", "Maleficium", "Ya Sang"],
+    },
+    {
+      Category: "Characters from The Wizard of Oz",
+      Words: ["The Wizard", "Tin Man", "Lion", "Toto"],
+    },
+    {
+      Category: "Movies with Facial Features in the Title",
+      Words: [
+        "Hairspray",
+        "Read My Lips",
+        "Rudolph the red-nosed Reindeer",
+        "Eyes Wide Shut",
+      ],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
