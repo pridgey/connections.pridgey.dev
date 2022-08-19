@@ -2789,6 +2789,24 @@ const puzzles: { [key: string]: Category[] } = {
       ],
     },
   ],
+  "8/19": [
+    {
+      Category: "Types of Archery Bows",
+      Words: ["Short", "Long", "Compound", "Cross"],
+    },
+    {
+      Category: "Types of Butter",
+      Words: ["Clarified", "Brown", "Salted", "Irish"],
+    },
+    {
+      Category: "Religious Symbols",
+      Words: ["Star and Crescent", "Eye of Horus", "Mjolnir", "Torii"],
+    },
+    {
+      Category: "Associated with Luck",
+      Words: ["Horeshoe", "Black Cat", "Broken Glass", "4 Leaf Clover"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
