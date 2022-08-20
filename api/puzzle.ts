@@ -2807,6 +2807,29 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Horeshoe", "Black Cat", "Broken Glass", "4 Leaf Clover"],
     },
   ],
+  "8/20": [
+    {
+      Category: "Hot Sauces Featured on Hot Ones",
+      Words: ["Island Wings", "Collards n Ghost", "Tyrfing's Curse", "Da Bomb"],
+    },
+    {
+      Category: "Dungeons & Dragons Adventures",
+      Words: [
+        "Lost Mine of Phandelver",
+        "Curse of Strahd",
+        "Ghosts of Saltmarsh",
+        "Locathan Rising",
+      ],
+    },
+    {
+      Category: "Commonly Considered Outdated Slang",
+      Words: ["Phat", "Home Skillet", "Fugly", "Shiz"],
+    },
+    {
+      Category: "Often Eaten Off a Stick",
+      Words: ["Popsicle", "Kebab", "Caramel Apple", "Marshmallow"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
