@@ -2830,6 +2830,24 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Popsicle", "Kebab", "Caramel Apple", "Marshmallow"],
     },
   ],
+  "8/21": [
+    {
+      Category: "Mario Kart 64 Items",
+      Words: ["Green Shell", "Red Shell", "Triple Mushroom", "Thunderbolt"],
+    },
+    {
+      Category: "Video Game Invincibility Items",
+      Words: ["Power Pellet", "Starman", "Golden Feather", "Laurel"],
+    },
+    {
+      Category: "Greek Mythological Items",
+      Words: ["Golden Fleece", "Winged Helmet", "Caduceus", "Cornucopia"],
+    },
+    {
+      Category: 'Songs About a "Man"',
+      Words: ["Rocket Man", "Sugar Man", "Piano Man", "Preacher Man"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
