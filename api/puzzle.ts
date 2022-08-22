@@ -2848,6 +2848,24 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Rocket Man", "Sugar Man", "Piano Man", "Preacher Man"],
     },
   ],
+  "8/22": [
+    {
+      Category: "Cups with Handles",
+      Words: ["Coffee Cup", "Measuring Cup", "Sippy Cup", "Loving Cup"],
+    },
+    {
+      Category: "Types of Poodles",
+      Words: ["Teacup", "Toy", "Miniature", "Klein"],
+    },
+    {
+      Category: "International Competitions",
+      Words: ["World Cup", "World Twenty20", "Masters", "Grands Prix"],
+    },
+    {
+      Category: "Bands with Numbers in their Names",
+      Words: ["3 Doors Down", "Eiffel 65", "Five for Fighting", "Apartment 26"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
