@@ -2866,6 +2866,26 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["3 Doors Down", "Eiffel 65", "Five for Fighting", "Apartment 26"],
     },
   ],
+  "8/23": [
+    { Category: "Fa-So-La-Ti", Words: ["Faugh", "Sow", "Law", "Tea"] },
+    {
+      Category: "MLB Team Names in Movie Titles",
+      Words: [
+        "Christmas in the Rockies",
+        "We're No Angels",
+        "Pirates of the Caribbean",
+        "Twins",
+      ],
+    },
+    {
+      Category: "Of Related to Farming",
+      Words: ["Plow", "Grow", "Tillage", "Reap"],
+    },
+    {
+      Category: "Professions That Require a License",
+      Words: ["Dentistry", "Architecture", "Plumbing", "Nursing"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
