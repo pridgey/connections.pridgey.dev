@@ -2886,6 +2886,72 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Dentistry", "Architecture", "Plumbing", "Nursing"],
     },
   ],
+  "8/24": [
+    {
+      Category: "Chapter Names in Harry Potter Books",
+      Words: ["The Boy Who Lived", "Nicholas Flamel", "Aragog", "The Cave"],
+    },
+    {
+      Category: "Characters from The Inheritance Cycle Series",
+      Words: ["Eragon", "Saphira", "Arya", "Nasuada"],
+    },
+    {
+      Category: "Lord of the Rings: Members of the Elendil Family",
+      Words: ["Aragorn", "Elendil", "Elwing", "Arwen"],
+    },
+    {
+      Category: "Connected to Immortality via Myth or Legend",
+      Words: [
+        "Count of St. Germain",
+        "Merlin",
+        "Olumba Olumba",
+        "John the Apostle",
+      ],
+    },
+  ],
+  "8/25": [
+    {
+      Category: "Characters from Sleepy Hollow",
+      Words: ["Ichabod Crane", "Abbie Mills", "Jenny Mills", "Frank Irving"],
+    },
+    {
+      Category: "Fictional Characters Named Crane",
+      Words: ["Frasier Crane", "Seneca Crane", "Master Crane", "Scarecrow"],
+    },
+    {
+      Category: "Headless Characters",
+      Words: [
+        "Headless Horseman",
+        "The Blemmyes",
+        "Agnew",
+        "Sir Patrick Delaney-Podmore",
+      ],
+    },
+    {
+      Category: "Characters from The Hunger Games",
+      Words: [
+        "Peeta Mellark",
+        "Rue",
+        "Haymitch Abernathy",
+        "Caesar Flickerman",
+      ],
+    },
+  ],
+  "8/26": [
+    { Category: "Capitonyms", Words: ["Cancer", "Hamlet", "March", "Polish"] },
+    {
+      Category: "Constellations",
+      Words: ["Centaurus", "Draco", "Ursa Major", "Serpens"],
+    },
+    {
+      Category: "Shakespeare Characters",
+      Words: ["Polonius", "Macduff", "Lysander", "Puck"],
+    },
+    {
+      Category: "Months of the Year",
+      Words: ["May", "August", "October", "June"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
