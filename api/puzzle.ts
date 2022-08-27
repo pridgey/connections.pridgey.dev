@@ -2970,6 +2970,34 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Ron Burgundy", "Mugatu", "Jackie Moon", "Liebkind"],
     },
   ],
+  "8/28": [
+    {
+      Category: "Alliterative US Presidents",
+      Words: [
+        "Calvin Coolidge",
+        "Herbert Hoover",
+        "Woodrow Wilson",
+        "Ronald Reagan",
+      ],
+    },
+    {
+      Category: "Silent Film Stars",
+      Words: ["Greta Garbo", "Max Linder", "Charlie Chaplin", "Harold Lloyd"],
+    },
+    {
+      Category: "Famous Charles",
+      Words: [
+        "Charles Darwin",
+        "Le Corbusier",
+        "Chuck Berry",
+        "Charles Dickens",
+      ],
+    },
+    {
+      Category: "Bird Names",
+      Words: ["Robin Williams", "Jay Leno", "Larry Bird", "Russell Crowe"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
