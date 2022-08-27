@@ -2952,6 +2952,24 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["May", "August", "October", "June"],
     },
   ],
+  "8/27": [
+    {
+      Category: "Landlocked Countries",
+      Words: ["Switzerland", "Afghanistan", "Nepal", "South Sudan"],
+    },
+    {
+      Category: "Red & White Country Flags",
+      Words: ["Denmark", "Bahrain", "Canada", "Indonesia"],
+    },
+    {
+      Category: "Dreamworks Films",
+      Words: ["Madagascar", "Trolls", "Megamind", "Shrek"],
+    },
+    {
+      Category: "Played Will Ferrell",
+      Words: ["Ron Burgundy", "Mugatu", "Jackie Moon", "Liebkind"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
