@@ -2998,6 +2998,24 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Robin Williams", "Jay Leno", "Larry Bird", "Russell Crowe"],
     },
   ],
+  "8/29": [
+    {
+      Category: "Digital Assistants",
+      Words: ["Rover", "Clippy", "Alexa", "Siri"],
+    },
+    {
+      Category: 'Preceded by "Red"',
+      Words: ["Panda", "Bull", "Dwarf", "Hot Chili Peppers"],
+    },
+    {
+      Category: "Types of Peppers",
+      Words: ["Bell Pepper", "Jalapeno", "Habanero", "Poblano"],
+    },
+    {
+      Category: "Races in Lord of the Rings",
+      Words: ["Elf", "Ent", "Hobbit", "Goblin"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
