@@ -3016,6 +3016,42 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Elf", "Ent", "Hobbit", "Goblin"],
     },
   ],
+  "8/30": [
+    {
+      Category: "Longest Rivers in their Respective Countries",
+      Words: ["Mackenzie", "Nile", "Loire", "Shinano"],
+    },
+    {
+      Category: "Most Subway Riders in their Respective Countries",
+      Words: ["Shanghai", "Tokyo", "Seoul", "Moscow"],
+    },
+    {
+      Category: "Host cities of Commonwealth Games",
+      Words: ["Delhi", "Birmingham", "Gold Coast", "Glasgow"],
+    },
+    {
+      Category: "Curiosity Rover's Drill Sites on Gale Crater, Mars",
+      Words: ["Cumberland", "Mojave", "Big Sky", "Duluth"],
+    },
+  ],
+  "8/31": [
+    {
+      Category: "Scott Pilgrim Characters",
+      Words: ["Pilgrim", "Wells", "Chau", "Stills"],
+    },
+    {
+      Category: "Characters who have been Spider-Man",
+      Words: ["Octavius", "Morales", "Stacy", "Parker"],
+    },
+    {
+      Category: "Cartoon Family Surnames",
+      Words: ["Pines", "Duck", "Thornberry", "Shortman"],
+    },
+    {
+      Category: "Disney Channel Original Movie Main Characters",
+      Words: ["Brinker", "Griffin", "Kapahala", "Thompson"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
