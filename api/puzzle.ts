@@ -3052,6 +3052,29 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Brinker", "Griffin", "Kapahala", "Thompson"],
     },
   ],
+  "9/1": [
+    {
+      Category: "Styles of Pizza",
+      Words: ["Margherita", "Deep Dish", "Sicilian", "New York"],
+    },
+    {
+      Category: "Alcoholic Cocktails",
+      Words: ["Cosmopolitan", "Mojito", "Martini", "Manhattan"],
+    },
+    {
+      Category: "New York Neighborhoods",
+      Words: ["Harlem", "Port Morris", "Hell's Kitchen", "Astoria"],
+    },
+    {
+      Category: "Gordon Ramsay TV Shows",
+      Words: [
+        "MasterChef",
+        "Kitchen Nightmares",
+        "Hotel Hell",
+        "Gordon Behind Bars",
+      ],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
