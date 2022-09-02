@@ -3075,6 +3075,39 @@ const puzzles: { [key: string]: Category[] } = {
       ],
     },
   ],
+  "9/2": [
+    {
+      Category: "Characters with Traveling Houses",
+      Words: [
+        "Howl Pendragon",
+        "Baba Yaga",
+        "Carl Fredricksen",
+        "Zachary Comstock",
+      ],
+    },
+    {
+      Category: "Russian Fairy Tales",
+      Words: [
+        "Kikimora",
+        "The Frog Princess",
+        "Father Frost",
+        "Vasilisa the Beautiful",
+      ],
+    },
+    {
+      Category: "Characters from Rise of the Guardians",
+      Words: [
+        "Pitch Black",
+        "Nicholas St. North",
+        "E. Aster Bunnymund",
+        "Toothiana",
+      ],
+    },
+    {
+      Category: "Characters from Up",
+      Words: ["Dug", "Alpha", "Russell", "Ellie Fredricksen"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
