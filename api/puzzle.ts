@@ -3108,6 +3108,24 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Dug", "Alpha", "Russell", "Ellie Fredricksen"],
     },
   ],
+  "9/3": [
+    {
+      Category: "Preceded by Weeping",
+      Words: ["Angel", "Willow", "Crucifix", "Water, NE"],
+    },
+    {
+      Category: "Papal Garments",
+      Words: ["Mozzetta", "Camauro", "White Cassock", "Red Mantle"],
+    },
+    {
+      Category: "Buffy the Vampire Slayer Characters",
+      Words: ["Buffy", "Xander", "Spike", "Dawn"],
+    },
+    {
+      Category: "Most Populous Cities in Nebraska",
+      Words: ["Omaha, NE", "Lincoln, NE", "Bellevue, NE", "Grand Island, NE"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
