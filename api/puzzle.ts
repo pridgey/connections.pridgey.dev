@@ -3126,6 +3126,29 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Omaha, NE", "Lincoln, NE", "Bellevue, NE", "Grand Island, NE"],
     },
   ],
+  "9/4": [
+    {
+      Category: "Sprouts",
+      Words: ["Brussels", "Mung Bean", "Broccoli", "Alfalfa"],
+    },
+    {
+      Category: "Most Populous Cities in Belgium",
+      Words: ["Antwerp", "Ghent", "Charleroi", "Liege"],
+    },
+    {
+      Category: "Words that Repeat Themselves",
+      Words: ["Couscous", "Murmur", "Dodo", "Tartar"],
+    },
+    {
+      Category: "Extinct Animals",
+      Words: [
+        "Sabre-tooth Cat",
+        "Woolly Mammoth",
+        "Great Auk",
+        "Tasmanian Tiger",
+      ],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
