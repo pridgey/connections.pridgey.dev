@@ -3149,6 +3149,42 @@ const puzzles: { [key: string]: Category[] } = {
       ],
     },
   ],
+  "9/5": [
+    {
+      Category: "Types of Planes",
+      Words: ["Aero", "Hydro", "Astral", "Geometric"],
+    },
+    {
+      Category: "Chocolate Bars",
+      Words: ["Tony's", "Kinder", "Milka", "Hershey's"],
+    },
+    {
+      Category: "Fictional Business Owners",
+      Words: ["Wonka", "McDuck", "Hawthorne", "Burns"],
+    },
+    {
+      Category: "Characters from The Simpsons",
+      Words: ["Simpson", "Flanders", "Houten", "Wiggum"],
+    },
+  ],
+  "9/6": [
+    {
+      Category: "Fictional Clowns",
+      Words: ["Krusty", "McDonald", "Pennywise", "The Joker"],
+    },
+    {
+      Category: "Fast-Food Franchises",
+      Words: ["Burger King", "Wendy's", "Chick-Fil-A", "Subway"],
+    },
+    {
+      Category: "4, 5, 6, 7",
+      Words: ["Five Guys", "Four Seasons", "Motel 6", "7-11"],
+    },
+    {
+      Category: "Common Hotel Brands",
+      Words: ["Days Inn", "Hyatt", "Hampton", "Sheraton"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
