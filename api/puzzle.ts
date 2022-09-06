@@ -3185,6 +3185,29 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Days Inn", "Hyatt", "Hampton", "Sheraton"],
     },
   ],
+  "9/7": [
+    {
+      Category: "Fictional Hotels",
+      Words: [
+        "The Tipton",
+        "The Brandenham",
+        "The Grand Budapest",
+        "The Great Northern",
+      ],
+    },
+    {
+      Category: "Played by Brenda Song",
+      Words: ["Wendy Wu", "Anne Boonchuy", "Madison Maxwell", "Christy"],
+    },
+    {
+      Category: "Asian-American Cartoon Characters",
+      Words: ["Jake Long", "Juniper Lee", "Hiro Hamada", "Phoebe Heyerdahl"],
+    },
+    {
+      Category: "Famous Companies' Original Names",
+      Words: ["TheFacebook", "Firebird", "Stag Party", "BackRub"],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
