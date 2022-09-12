@@ -3208,6 +3208,26 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["TheFacebook", "Firebird", "Stag Party", "BackRub"],
     },
   ],
+  "9/12": [
+    { Category: "Notable Jedi", Words: ["Yoda", "Dooku", "Jinn", "Tano"] },
+    {
+      Category: "Wishing Granting Creatures",
+      Words: [
+        "Genie",
+        "Leprechaun",
+        "The Fisherman's Fish",
+        "The Eternal Dragon",
+      ],
+    },
+    {
+      Category: "Played by Frank Oz",
+      Words: ["Cookie Monster", "Bert", "Miss Piggy", "Subconcious Guard Dave"],
+    },
+    {
+      Category: "Puppeteered Characters in Movies",
+      Words: ["Gremlins", "Audrey II", "Terror Dogs", "E.T."],
+    },
+  ],
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
