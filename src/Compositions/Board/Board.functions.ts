@@ -44,8 +44,7 @@ export const grabTodaysPuzzle = (setPuzzle: any) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        // Comes in encoded, decode it
-        const puzzleString = window.atob(data.body.puzzle);
+        const puzzleString = data.body.puzzle;
 
         // Parse it
         const puzzle = JSON.parse(puzzleString);

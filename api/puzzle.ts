@@ -3246,7 +3246,7 @@ const handler = (req: NextApiRequest, res: NextApiResponse) => {
 
   const resBody = {
     Woah: "What you're doing right now is called cheating",
-    puzzle: btoa(stringed),
+    puzzle: stringed,
   };
 
   res.status(200).json({
