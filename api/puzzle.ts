@@ -3239,7 +3239,7 @@ const handler = (req: NextApiRequest, res: NextApiResponse) => {
   );
   const puzzleKey = `${today.getMonth() + 1}/${today.getDate()}`;
 
-  const puzzle: Category[] = puzzles[puzzleKey];
+  const puzzle: Category[] = puzzles["4/4"];
 
   const stringed = JSON.stringify(puzzle);
 
