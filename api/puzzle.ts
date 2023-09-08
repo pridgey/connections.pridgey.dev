@@ -1,6 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { Category } from "@compositions";
-import btoa from "btoa";
 
 const puzzles: { [key: string]: Category[] } = {
   "4/4": [
@@ -3237,7 +3236,7 @@ const handler = (req: NextApiRequest, res: NextApiResponse) => {
       timeZone: "America/Denver",
     })
   );
-  const puzzleKey = `${today.getMonth() + 1}/${today.getDate()}`;
+  //const puzzleKey = `${today.getMonth() + 1}/${today.getDate()}`;
 
   const puzzle: Category[] = puzzles["4/4"];
 
