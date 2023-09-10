@@ -64,19 +64,20 @@ export const Board: Component = () => {
   // Anytime puzzleWords or correctGuesses updates, we need to refresh the board
   createEffect(() => {
     //Remove any words already guessed
-    const updatedWords = puzzleWords().filter(
-      (c) =>
-        !correctGuesses()
-          .map((g) => g.Category)
-          .includes(c.Category)
-    );
+    const updatedWords =
+      puzzleWords()?.filter(
+        (c) =>
+          !correctGuesses()
+            .map((g) => g.Category)
+            .includes(c.Category)
+      ) ?? [];
     setBoardWords([...updatedWords]);
   });
 
   // Startup
-  onMount(() => {
-    // Grab day's puzzle, returns false true if new puzzle loaded
-    if (grabTodaysPuzzle(setPuzzleWords)) {
+  onMount(async () => {
+    // Grab day's puzzle, returns true if new puzzle loaded
+    if (await grabTodaysPuzzle(setPuzzleWords)) {
       setNumOfGuesses(0);
       setCorrectGuesses([]);
       setCurrentGuesses([]);
@@ -103,7 +104,7 @@ export const Board: Component = () => {
     log(
       "State",
       `**puzzleWords**: ${puzzleWords()
-        .map((i) => `**${i.Category}**: ${i.Words.join(", ")}`)
+        ?.map((i) => `**${i.Category}**: ${i.Words.join(", ")}`)
         .join(",")}`
     );
     if (currentGuesses().length) {
@@ -176,8 +177,8 @@ export const Board: Component = () => {
       <div
         classList={{
           [board]: true,
-          [fourcol]: puzzleWords()[0]?.Words.length === 4,
-          [threecol]: puzzleWords()[0]?.Words.length === 3,
+          [fourcol]: puzzleWords()?.[0]?.Words.length === 4,
+          [threecol]: puzzleWords()?.[0]?.Words.length === 3,
         }}
       >
         <For each={shuffle(splitWords(boardWords()))}>
@@ -223,7 +224,9 @@ export const Board: Component = () => {
           OnClick={() => setBoardWords([...shuffle(boardWords())])}
         />
         <Button
-          Disabled={currentGuesses().length !== puzzleWords()[0]?.Words.length}
+          Disabled={
+            currentGuesses().length !== puzzleWords()?.[0]?.Words.length
+          }
           Text="SUBMIT"
           OnClick={() => {
             // Increment guess counter

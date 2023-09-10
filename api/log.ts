@@ -5,66 +5,51 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   // Parse the body
   const body = JSON.parse(req.body);
 
-  // Create the Airtable connection
-  const base = new Airtable({ apiKey: process.env.AIRTABLE_KEY || "" }).base(
-    process.env.AIRTABLE_BASE || ""
-  );
+  // Should we be logging?
+  const shouldLog = process.env.LOG === "true";
 
-  // Check if we should log
-  base("Controls")
-    .select({
-      filterByFormula: `Setting = "Log"`,
-    })
-    .all()
-    .then((records) => {
-      const canLog = ["true", "all", body.Area].includes(
-        records?.[0]?.get("Value")
-      );
+  console.log("log", { shouldLog });
 
-      console.log("Can Log:", {
-        canLog,
-        Area: body.Area,
-        Value: records?.[0]?.get("Value"),
-      });
+  if (shouldLog) {
+    // Create the Airtable connection
+    const base = new Airtable({ apiKey: process.env.AIRTABLE_KEY || "" }).base(
+      process.env.AIRTABLE_BASE || ""
+    );
 
-      // Check if we are supposed to log
-      if (canLog || body.Override) {
-        // Get Date/Time in Denver
-        const today = new Date(
-          new Date().toLocaleString("en-US", {
-            timeZone: "America/Denver",
-          })
-        );
+    // Get Date/Time in Denver
+    const today = new Date(
+      new Date().toLocaleString("en-US", {
+        timeZone: "America/Denver",
+      })
+    );
 
-        // Delete anything one week or older
-        base("Logs")
-          .select({
-            filterByFormula: `DATETIME_DIFF(TODAY(),Date,'d') >= 7`,
-          })
-          .all()
-          .then((records) => {
-            base("Logs").destroy(records.map((rec) => rec.id));
-          });
+    try {
+      // Delete anything one week or older
+      const oneWeekAndOlder = await base("Logs")
+        .select({
+          filterByFormula: `DATETIME_DIFF(TODAY(),Date,'d') >= 7`,
+        })
+        .all();
 
-        // Log the thing
-        return base("Logs")
-          .create([
-            {
-              fields: {
-                Date: today.toString(),
-                User: body.User,
-                Area: body.Area,
-                Event: body.Event,
-              },
-            },
-          ])
-          .then(() => res.status(200).send(true))
-          .catch((err) => res.status(500).send(err));
-      } else {
-        res.status(202).send(true);
-      }
-    })
-    .catch((err) => res.status(500).send(err));
+      await base("Logs").destroy(oneWeekAndOlder.map((rec) => rec.id));
+
+      const create = await base("Logs").create([
+        {
+          fields: {
+            Date: today.toString(),
+            User: body.User,
+            Area: body.Area,
+            Event: body.Event,
+          },
+        },
+      ]);
+
+      return res.status(200).send(true);
+    } catch (err) {
+      return res.status(500).send(false);
+    }
+  }
+  return res.status(200).send(true);
 };
 
 export default handler;

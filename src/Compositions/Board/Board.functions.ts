@@ -1,5 +1,6 @@
 import { Category, CategoryWord } from "./Board";
 import { Storage } from "@utilities";
+import type { Setter } from "solid-js";
 
 // Splits the data into individual word-category pairs
 export const splitWords = (Categories: Category[]): CategoryWord[] => {
@@ -18,45 +19,93 @@ export const splitWords = (Categories: Category[]): CategoryWord[] => {
 };
 
 // Checks storage for todays data, or grabs it from the api
-export const grabTodaysPuzzle = (setPuzzle: any) => {
-  // Base it on Colorado time, for now
-  const today = new Date(
-    new Date().toLocaleString("en-US", {
-      timeZone: "America/Denver",
-    })
-  );
-  const dateKey = `${today.getFullYear()}${today.getMonth()}${today.getDate()}`;
+export const grabTodaysPuzzle = async (setPuzzle: Setter<Category[]>) => {
+  const storageKey = "connectionsPuzzle";
 
-  // Check storage first
-  const storage = Storage.get(dateKey);
+  const storageObject = Storage.get(storageKey);
 
-  if (storage) {
-    // We got the puzzle from storage
-    setPuzzle(storage);
+  console.log("Hello?", { storageObject });
+
+  // Function to call the api
+  const fetchPuzzle = async (puzzleIndex: number) => {
+    const res = await fetch("/api/puzzle", {
+      method: "post",
+      body: JSON.stringify({
+        puzzleIndex,
+      }),
+    });
+
+    if (res.status === 200) {
+      const data = await res.json();
+      const puzzleString = data.body.puzzle;
+      const parsedPuzzle = JSON.parse(puzzleString);
+
+      return parsedPuzzle;
+    }
+
+    return false;
+  };
+
+  // Function to set the puzzle and return
+  const applyPuzzle = (
+    puzzle: any,
+    currentPuzzleIndex: number,
+    lastPuzzleComplete: Date
+  ) => {
+    // Set puzzle to state
+    setPuzzle(puzzle);
+    // Update user storage
+    Storage.set(storageKey, {
+      currentPuzzleIndex,
+      lastPuzzleComplete,
+      puzzle,
+    });
+
+    return true;
+  };
+
+  // Logic for grabbing puzzle
+  if (!storageObject) {
+    // User doesn't have storage
+    const puzzle = await fetchPuzzle(0);
+
+    if (puzzle) {
+      return applyPuzzle(puzzle, 0, new Date());
+    }
     return false;
   } else {
-    // We couldn't find a puzzle for today, must be a new day
-    Storage.clear();
+    // Storage exists
+    const today = new Date();
+    const lastPuzzleComplete = storageObject.lastPuzzleComplete;
+    const currentPuzzle = storageObject.puzzle;
 
-    // No storage, grab from the API
-    fetch("/api/puzzle", {
-      method: "post",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        const puzzleString = data.body.puzzle;
+    // Check if the storage actually has a puzzle in it
+    if (!currentPuzzle) {
+      const currentPuzzleIndex = storageObject.currentPuzzleIndex ?? 0;
+      const lastPuzzleComplete = storageObject.lastPuzzleComplete ?? new Date();
+      const puzzle = await fetchPuzzle(currentPuzzleIndex);
 
-        // Parse it
-        const puzzle = JSON.parse(puzzleString);
+      if (puzzle) {
+        return applyPuzzle(puzzle, currentPuzzleIndex, lastPuzzleComplete);
+      }
+    }
 
-        // Store the string in storage
-        Storage.set(dateKey, puzzle);
+    if (today > lastPuzzleComplete) {
+      // Load the next puzzle
+      const puzzleIndex = storageObject.currentPuzzleIndex + 1;
 
-        // Update state
-        setPuzzle(puzzle);
-      })
-      .catch((err) => console.error("Error:", err));
-    return true;
+      const puzzle = await fetchPuzzle(puzzleIndex);
+
+      if (puzzle) {
+        return applyPuzzle(puzzle, puzzleIndex, new Date());
+      }
+
+      return false;
+    } else {
+      // It is likely the same day, use puzzle from storage
+      setPuzzle(storageObject.puzzle);
+      return false;
+    }
   }
 };
 
