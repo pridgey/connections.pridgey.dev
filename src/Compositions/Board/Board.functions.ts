@@ -72,11 +72,13 @@ export const grabTodaysPuzzle = async (setPuzzle: Setter<Category[]>) => {
     if (puzzle) {
       return applyPuzzle(puzzle, 0, new Date());
     }
+    // Return false to keep state
     return false;
   } else {
     // Storage exists
     const today = new Date();
-    const lastPuzzleComplete = storageObject.lastPuzzleComplete;
+    today.setHours(0, 0, 0, 0);
+    const lastPuzzleComplete = new Date(storageObject.lastPuzzleComplete);
     const currentPuzzle = storageObject.puzzle;
 
     // Check if the storage actually has a puzzle in it
@@ -100,10 +102,16 @@ export const grabTodaysPuzzle = async (setPuzzle: Setter<Category[]>) => {
         return applyPuzzle(puzzle, puzzleIndex, new Date());
       }
 
+      // Return false to keep state
       return false;
     } else {
       // It is likely the same day, use puzzle from storage
-      setPuzzle(storageObject.puzzle);
+      applyPuzzle(
+        storageObject.puzzle,
+        storageObject.currentPuzzleIndex,
+        storageObject.lastPuzzleComplete
+      );
+      // Return false to keep state
       return false;
     }
   }
