@@ -1,6 +1,7 @@
 import { Category, CategoryWord } from "./Board";
 import { Storage } from "@utilities";
 import type { Setter } from "solid-js";
+import type { StorageState } from "../../Types";
 
 // Splits the data into individual word-category pairs
 export const splitWords = (Categories: Category[]): CategoryWord[] => {
@@ -19,12 +20,10 @@ export const splitWords = (Categories: Category[]): CategoryWord[] => {
 };
 
 // Checks storage for todays data, or grabs it from the api
-export const grabTodaysPuzzle = async (setPuzzle: Setter<Category[]>) => {
+export const grabTodaysPuzzle = async () => {
   const storageKey = "connectionsPuzzle";
 
-  const storageObject = Storage.get(storageKey);
-
-  console.log("Hello?", { storageObject });
+  const storageObject: StorageState = Storage.get(storageKey);
 
   // Function to call the api
   const fetchPuzzle = async (puzzleIndex: number) => {
@@ -46,73 +45,87 @@ export const grabTodaysPuzzle = async (setPuzzle: Setter<Category[]>) => {
     return false;
   };
 
-  // Function to set the puzzle and return
-  const applyPuzzle = (
-    puzzle: any,
-    currentPuzzleIndex: number,
-    lastPuzzleComplete: Date
-  ) => {
-    // Set puzzle to state
-    setPuzzle(puzzle);
-    // Update user storage
-    Storage.set(storageKey, {
-      currentPuzzleIndex,
-      lastPuzzleComplete,
-      puzzle,
-    });
-
-    return true;
-  };
-
   // Logic for grabbing puzzle
   if (!storageObject) {
     // User doesn't have storage
     const puzzle = await fetchPuzzle(0);
 
     if (puzzle) {
-      return applyPuzzle(puzzle, 0, new Date());
+      const newPuzzleState: StorageState = {
+        board: puzzle,
+        correctGuesses: [],
+        currentGuesses: [],
+        currentPuzzleIndex: 0,
+        incorrectGuesses: [],
+        lastPuzzleStarted: new Date(),
+        numberOfGuesses: 0,
+        puzzle: puzzle,
+      };
+
+      return newPuzzleState;
     }
-    // Return false to keep state
+    // Return false for error
     return false;
   } else {
     // Storage exists
     const today = new Date();
     today.setHours(0, 0, 0, 0);
-    const lastPuzzleComplete = new Date(storageObject.lastPuzzleComplete);
+    const lastPuzzleComplete = storageObject.lastPuzzleComplete
+      ? new Date(storageObject.lastPuzzleComplete)
+      : undefined;
+    const lastPuzzleStarted = new Date(storageObject.lastPuzzleStarted);
     const currentPuzzle = storageObject.puzzle;
 
-    // Check if the storage actually has a puzzle in it
     if (!currentPuzzle) {
+      // Storage exists, but there is no puzzle
       const currentPuzzleIndex = storageObject.currentPuzzleIndex ?? 0;
       const lastPuzzleComplete = storageObject.lastPuzzleComplete ?? new Date();
       const puzzle = await fetchPuzzle(currentPuzzleIndex);
 
       if (puzzle) {
-        return applyPuzzle(puzzle, currentPuzzleIndex, lastPuzzleComplete);
+        const puzzleState: StorageState = {
+          board: puzzle,
+          correctGuesses: [],
+          currentGuesses: [],
+          currentPuzzleIndex: currentPuzzleIndex,
+          incorrectGuesses: [],
+          lastPuzzleStarted: lastPuzzleStarted,
+          lastPuzzleComplete: lastPuzzleComplete,
+          numberOfGuesses: 0,
+          puzzle: puzzle,
+        };
+
+        return puzzleState;
       }
     }
 
-    if (today > lastPuzzleComplete) {
-      // Load the next puzzle
+    // We have storage object and a puzzle
+    if (lastPuzzleComplete && today > lastPuzzleComplete) {
+      // It is the next day, load the next puzzle
       const puzzleIndex = storageObject.currentPuzzleIndex + 1;
 
       const puzzle = await fetchPuzzle(puzzleIndex);
 
       if (puzzle) {
-        return applyPuzzle(puzzle, puzzleIndex, new Date());
+        const puzzleState: StorageState = {
+          board: puzzle,
+          correctGuesses: [],
+          currentGuesses: [],
+          currentPuzzleIndex: puzzleIndex,
+          incorrectGuesses: [],
+          lastPuzzleStarted: new Date(),
+          numberOfGuesses: 0,
+          puzzle: puzzle,
+        };
+
+        return puzzleState;
       }
 
-      // Return false to keep state
+      // Return false for error
       return false;
     } else {
-      // It is likely the same day, use puzzle from storage
-      applyPuzzle(
-        storageObject.puzzle,
-        storageObject.currentPuzzleIndex,
-        storageObject.lastPuzzleComplete
-      );
-      // Return false to keep state
-      return false;
+      // It is the same day, we should use the state in storage
+      return storageObject;
     }
   }
 };
@@ -129,6 +142,11 @@ export const logWin = (numOfGuesses: number) => {
       lastSevenDays: [],
     };
   }
+
+  // Update date last completed
+  const storageObject: StorageState = Storage.get("connectionsPuzzle");
+  storageObject.lastPuzzleComplete = new Date();
+  Storage.set("connectionsPuzzle", storageObject);
 
   // Increment the win total per num of guesses
   const numOfWins = stats.winsByGuessNum[numOfGuesses] || 0;
