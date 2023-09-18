@@ -19,16 +19,19 @@ const getUser = () => {
 const log = (Area: string, Event: string, Override = false) => {
   // Do the thing
   if (Area && Event) {
-    const user = getUser();
-    fetch("/api/log", {
-      method: "post",
-      body: JSON.stringify({
-        User: user,
-        Area,
-        Event,
-        Override,
-      }),
-    }).catch(console.error);
+    const shouldLog = import.meta.env.VITE_LOG === "true";
+    if (shouldLog) {
+      const user = getUser();
+      fetch("/api/log", {
+        method: "post",
+        body: JSON.stringify({
+          User: user,
+          Area,
+          Event,
+          Override,
+        }),
+      }).catch(console.error);
+    }
   }
 };
 

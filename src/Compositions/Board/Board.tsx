@@ -18,6 +18,7 @@ import {
   generateGuessHint,
 } from "./Board.functions";
 import { Logging, Storage } from "@utilities";
+import { StorageState } from "../../Types";
 
 // Configuration
 const attemptsUntilHint = 15;
@@ -64,46 +65,72 @@ export const Board: Component = () => {
   // Anytime puzzleWords or correctGuesses updates, we need to refresh the board
   createEffect(() => {
     //Remove any words already guessed
-    const updatedWords = puzzleWords().filter(
-      (c) =>
-        !correctGuesses()
-          .map((g) => g.Category)
-          .includes(c.Category)
-    );
+    const updatedWords =
+      puzzleWords()?.filter(
+        (c) =>
+          !correctGuesses()
+            .map((g) => g.Category)
+            .includes(c.Category)
+      ) ?? [];
     setBoardWords([...updatedWords]);
   });
 
   // Startup
-  onMount(() => {
-    // Grab day's puzzle, returns false true if new puzzle loaded
-    if (grabTodaysPuzzle(setPuzzleWords)) {
-      setNumOfGuesses(0);
-      setCorrectGuesses([]);
-      setCurrentGuesses([]);
-      setIncorrectGuesses([]);
-      setBoardWords([]);
+  onMount(async () => {
+    // Grab day's puzzle, returns true if new puzzle loaded
+    const storageObj: StorageState | false = await grabTodaysPuzzle();
+
+    if (!storageObj) {
+      // Error
     }
+
+    // Must be an actual storage object
+    const storageState: StorageState = storageObj as StorageState;
+
+    console.log("Storage State:", { storageState });
+
+    // Set the source of truth
+    setPuzzleWords(storageState.puzzle);
+    // Set the number of guesses
+    setNumOfGuesses(storageState.numberOfGuesses);
+    // Set any correct guesses
+    setCorrectGuesses(storageState.correctGuesses);
+    // Set any current guesses
+    setCurrentGuesses(storageState.currentGuesses);
+    // Holds any incorrect guesses
+    setIncorrectGuesses(storageState.incorrectGuesses);
+    // Set the puzzle to be rendered on the board
+    setBoardWords(storageState.board);
 
     Logging().log("Mount", "Page Mounted");
   });
 
   // Show debug info
   createEffect(() => {
-    const { log } = Logging();
+    // Set storage state in storage
+    const currentStorage: StorageState = Storage.get("connectionsPuzzle");
 
-    const state = {
-      puzzleWords: puzzleWords(),
-      currentGuesses: currentGuesses(),
+    const storageState: StorageState = {
+      board: boardWords(),
       correctGuesses: correctGuesses(),
-      numOfGuesses: numOfGuesses(),
+      currentGuesses: currentGuesses(),
+      currentPuzzleIndex: currentStorage?.currentPuzzleIndex ?? 0,
       incorrectGuesses: incorrectGuesses(),
-      boardWords: boardWords(),
+      lastPuzzleStarted: currentStorage?.lastPuzzleStarted ?? new Date(),
+      lastPuzzleComplete: currentStorage?.lastPuzzleComplete,
+      numberOfGuesses: numOfGuesses(),
+      puzzle: puzzleWords(),
     };
+
+    Storage.set("connectionsPuzzle", storageState);
+
+    // Log stuff
+    const { log } = Logging();
 
     log(
       "State",
       `**puzzleWords**: ${puzzleWords()
-        .map((i) => `**${i.Category}**: ${i.Words.join(", ")}`)
+        ?.map((i) => `**${i.Category}**: ${i.Words.join(", ")}`)
         .join(",")}`
     );
     if (currentGuesses().length) {
@@ -139,7 +166,7 @@ export const Board: Component = () => {
           .join(",")}`
       );
     }
-  }, []);
+  });
 
   // Reference to the incorrect animation timeout, used to ensure timeout doesn't continue on unmount
   let incorrectAnimationTimeout: NodeJS.Timeout;
@@ -176,8 +203,8 @@ export const Board: Component = () => {
       <div
         classList={{
           [board]: true,
-          [fourcol]: puzzleWords()[0]?.Words.length === 4,
-          [threecol]: puzzleWords()[0]?.Words.length === 3,
+          [fourcol]: puzzleWords()?.[0]?.Words.length === 4,
+          [threecol]: puzzleWords()?.[0]?.Words.length === 3,
         }}
       >
         <For each={shuffle(splitWords(boardWords()))}>
@@ -223,13 +250,14 @@ export const Board: Component = () => {
           OnClick={() => setBoardWords([...shuffle(boardWords())])}
         />
         <Button
-          Disabled={currentGuesses().length !== puzzleWords()[0]?.Words.length}
+          Disabled={
+            currentGuesses().length !== puzzleWords()?.[0]?.Words.length
+          }
           Text="SUBMIT"
           OnClick={() => {
             // Increment guess counter
             const timesGuessed = numOfGuesses() + 1;
             setNumOfGuesses(timesGuessed);
-            Storage.set("conng", timesGuessed);
 
             // Check guess, see if it's correct
             const guesses = currentGuesses();
@@ -253,7 +281,6 @@ export const Board: Component = () => {
                 // Add the category to the correct list and update state
                 correct.push(guessedCategory);
                 setCorrectGuesses([...correct]);
-                Storage.set("conwg", [...correct]);
               } else {
                 // If we get here, I'm a bad dev
                 console.error("Not sure how, but couldn't find the guess data");
@@ -261,7 +288,6 @@ export const Board: Component = () => {
 
               // Reset guesses
               setCurrentGuesses([]);
-              Storage.set("concg", []);
               // If there's only one set left, it must be right
               if (correctGuesses().length === 3) {
                 // Grab all correct guesses
@@ -274,8 +300,6 @@ export const Board: Component = () => {
                 setCorrectGuesses([...currentCorrect]);
                 // Clear the board
                 setBoardWords([]);
-                // Persist changes
-                Storage.set("conwg", [...currentCorrect]);
                 // Update user stats and show win
                 logWin(numOfGuesses())
                   .then(() => setShowWin(true))
@@ -294,7 +318,6 @@ export const Board: Component = () => {
 
               setIncorrectGuesses(guesses);
               setCurrentGuesses([]);
-              Storage.set("concg", []);
             }
           }}
           OnDisabledClick={() => {

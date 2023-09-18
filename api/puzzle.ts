@@ -1,8 +1,8 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { Category } from "@compositions";
 
-const puzzles: { [key: string]: Category[] } = {
-  "4/4": [
+const puzzles: Array<Category[]> = [
+  [
     {
       Category: "MTG Land Types",
       Words: ["Mountains", "Plains", "Swamps", "Islands"],
@@ -20,7 +20,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Sausalito", "Irvine", "Fresno", "Modesto"],
     },
   ],
-  "4/5": [
+  [
     {
       Category: "Fictional Small Towns",
       Words: ["Sunnydale", "Stars Hollow", "Twin Peaks", "Smallville"],
@@ -38,7 +38,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Pikes", "Denali", "Rainier", "Huron"],
     },
   ],
-  "4/6": [
+  [
     {
       Category: "London Neighborhoods",
       Words: ["Hyde Park", "Mayrlebone", "Knightsbridge", "Kennsington"],
@@ -56,7 +56,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Valencia", "Navel", "Cara Cara", "Clementine"],
     },
   ],
-  "4/7": [
+  [
     {
       Category: "Card Games",
       Words: ["Rummy", "Poker", "Hearts", "Solitaire"],
@@ -74,7 +74,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Jocular", "Jovial", "Joyous", "Jubulant"],
     },
   ],
-  "4/8": [
+  [
     {
       Category: "Outdoor Clothing Brands",
       Words: ["North Face", "Patagonia", "Columbia", "Marmot"],
@@ -92,7 +92,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["AMZN", "GOOG", "TSLA", "AAPL"],
     },
   ],
-  "4/9": [
+  [
     {
       Category: "Types of Coffee Drinks",
       Words: ["Americano", "Cappucinno", "Macchiato", "Mocha"],
@@ -110,7 +110,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Dismal", "Agony", "Dispair", "Misery"],
     },
   ],
-  "4/10": [
+  [
     {
       Category: "Breeds of Cat",
       Words: ["Persian", "Ragdoll", "Scottish Fold", "Maine Coon"],
@@ -128,7 +128,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Styx", "Nix", "Kerberos", "Hydra"],
     },
   ],
-  "4/15": [
+  [
     {
       Category: "Collective Nouns",
       Words: ["Clowder", "Swarm", "School", "Pride"],
@@ -146,7 +146,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Call of Duty", "Overwatch", "Destiny", "Apex"],
     },
   ],
-  "4/16": [
+  [
     {
       Category: "Batman Characters",
       Words: ["Riddler", "Robin", "Catwoman", "Poison Ivy"],
@@ -164,7 +164,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Jimsonweed", "Oleander", "Mistletoe", "Nightshade"],
     },
   ],
-  "4/17": [
+  [
     {
       Category: "Short For William",
       Words: ["Bill", "Will", "Liam", "Willie"],
@@ -182,7 +182,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Dodgers", "Padres", "Giants", "Mariners"],
     },
   ],
-  "4/18": [
+  [
     {
       Category: "Sweeteners",
       Words: ["Stevia", "Aspartame", "Agave", "Sorbitol"],
@@ -200,7 +200,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Yucca", "Saguaro", "Joshua Trees", "Prickly Pear"],
     },
   ],
-  "4/19": [
+  [
     {
       Category: "Layers of the Rainforest",
       Words: ["Emergent", "Canopy", "Understory", "Forest Floor"],
@@ -218,7 +218,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Thunderclap", "Prestidigitation", "Arcane Eye", "Frostbite"],
     },
   ],
-  "4/20": [
+  [
     {
       Category: "European Capitals",
       Words: ["Helsinki", "Berlin", "Rome", "Paris"],
@@ -236,7 +236,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Waltz", "Samba", "Flamenco", "Swing"],
     },
   ],
-  "4/21": [
+  [
     {
       Category: "Types of Triangles",
       Words: ["Isosceles", "Acute", "Scalene", "Obtuse"],
@@ -254,7 +254,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Random House", "HarperCollins", "Penguin", "Pearson"],
     },
   ],
-  "4/22": [
+  [
     {
       Category: "World Deserts",
       Words: ["Mojave", "Arabian", "Gobi", "Sahara"],
@@ -272,7 +272,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Kanto", "Alola", "Sinnoh", "Kalos"],
     },
   ],
-  "4/23": [
+  [
     {
       Category: "Beatles Songs",
       Words: ["Let It Be", "Yesterday", "Love Me Do", "Hey Jude"],
@@ -290,7 +290,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["The Black Cat", "Lenore", "Annabel Lee", "The Tell Tale Heart"],
     },
   ],
-  "4/24": [
+  [
     {
       Category: "Women Authors",
       Words: ["Austen", "Woolf", "Bronte", "Shelly"],
@@ -308,7 +308,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Kerala", "Rajathan", "Orissa", "Uttar Pradesh"],
     },
   ],
-  "4/25": [
+  [
     {
       Category: "Rivers in Asia",
       Words: ["Yangtze", "Indus", "Ganges", "Tigris"],
@@ -326,7 +326,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Cornflower", "Iris", "Tulip", "Saxifage"],
     },
   ],
-  "4/26": [
+  [
     {
       Category: "Flowers That Symbolize Death",
       Words: ["Spider Lily", "Marigolds", "Chrysanthemum", "Red Poppy"],
@@ -344,7 +344,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Zidane", "Vivi", "Kuja", "Beatrix"],
     },
   ],
-  "4/27": [
+  [
     {
       Category: "Temptations Albums",
       Words: ["Legacy", "Wing of Love", "Cloud Nine", "Puzzle People"],
@@ -362,7 +362,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Santa Maria", "Mayflower", "Lusitania", "Titanic"],
     },
   ],
-  "4/28": [
+  [
     {
       Category: "Fictional Camps",
       Words: ["Wannaweep", "Campbell", "Tikihama", "Chippewa"],
@@ -380,7 +380,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Renegade", "Gladiator", "Wrangler", "Compass"],
     },
   ],
-  "4/29": [
+  [
     {
       Category: "TV Shows with Trios",
       Words: ["Beetleborgs", "Pajama Masks", "Ed, Edd & Eddy", "PB&J Otter"],
@@ -408,7 +408,7 @@ const puzzles: { [key: string]: Category[] } = {
       ],
     },
   ],
-  "4/30": [
+  [
     {
       Category: "Modern Slang Words",
       Words: ["Cap", "Bet", "Based", "Wig"],
@@ -426,7 +426,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Silk", "Honey", "Shellac", "Cochineal"],
     },
   ],
-  "5/1": [
+  [
     {
       Category: "Characters from Friends",
       Words: ["Rachel", "Ross", "Chandler", "Monica"],
@@ -444,7 +444,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Braves", "Dodgers", "Nationals", "Red Sox"],
     },
   ],
-  "5/2": [
+  [
     {
       Category: "Common Words for Dumplings",
       Words: ["Jiaozi", "Gyoza", "Potsticker", "Dumpling"],
@@ -467,7 +467,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Yamcha", "All Might", "Alex Louis Armstrong", "Piccolo"],
     },
   ],
-  "5/3": [
+  [
     {
       Category: "Fictional Sports",
       Words: ["Baseketball", "Quidditch", "Blernsball", "Calvinball"],
@@ -490,7 +490,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Shaw", "Toretto", "Yashar", "Parker"],
     },
   ],
-  "5/4": [
+  [
     {
       Category: "Banjo-Kazooie Characters",
       Words: ["Banjo", "Kazooie", "Mumbo Jumbo", "Gruntilda"],
@@ -508,7 +508,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Babbel", "Rosetta Stone", "Duolingo", "Memrise"],
     },
   ],
-  "5/5": [
+  [
     {
       Category: "Mexican Holidays Relating to Military Battles",
       Words: [
@@ -531,7 +531,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Limbo", "Hollow Knight", "Ori and the Blind Forest", "Braid"],
     },
   ],
-  "5/6": [
+  [
     {
       Category: "Types of Sharks",
       Words: ["Hammerhead", "Blue", "Lemon", "Pyjama"],
@@ -549,7 +549,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Jamb", "Latch", "Handle", "Hinge"],
     },
   ],
-  "5/7": [
+  [
     {
       Category: "Pixar Movies Main Characters",
       Words: ["Luca", "Woody", "Lightning", "Remy"],
@@ -567,7 +567,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Tornadoes", "Earthquakes", "Wildfires", "Tsunami"],
     },
   ],
-  "5/8": [
+  [
     {
       Category: "Game Show Hosts",
       Words: ["Drew Carey", "Alex Trebek", "Pat Sajak", "Bob Barker"],
@@ -590,7 +590,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Hooch", "Mr. Ed", "Lassie", "Willy"],
     },
   ],
-  "5/9": [
+  [
     {
       Category: "To Rid Fairies",
       Words: [
@@ -623,7 +623,7 @@ const puzzles: { [key: string]: Category[] } = {
       ],
     },
   ],
-  "5/10": [
+  [
     {
       Category: "Words for Ghost",
       Words: ["Specter", "Spirit", "Spook", "Ghoul"],
@@ -641,7 +641,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Cyclops", "Gorgon", "Harpy", "Sphinx"],
     },
   ],
-  "5/11": [
+  [
     {
       Category: "Named Greek Beasts",
       Words: ["Echidna", "Orthrus", "Typhon", "Cerberus"],
@@ -664,7 +664,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Rick & Morty", "Starsky & Hutch", "Kenan & Kel", "Will & Grace"],
     },
   ],
-  "5/12": [
+  [
     {
       Category: "Music Genres",
       Words: ["Blues", "Funk", "Country", "Punk"],
@@ -682,7 +682,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Crew", "Gang", "Ring", "Syndicate"],
     },
   ],
-  "5/13": [
+  [
     {
       Category: "Brass Instruments",
       Words: ["French", "Bugle", "Tuba", "Trombone"],
@@ -705,7 +705,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["The Hill", "England", "Kings", "The Jungle"],
     },
   ],
-  "5/14": [
+  [
     {
       Category: "U.S. National Parks",
       Words: ["Arches", "Badlands", "Grand Canyon", "Yosemite"],
@@ -728,7 +728,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Pence", "Cent", "p", "Tuppence"],
     },
   ],
-  "5/15": [
+  [
     {
       Category: "Chronicles",
       Words: [
@@ -761,7 +761,7 @@ const puzzles: { [key: string]: Category[] } = {
       ],
     },
   ],
-  "5/16": [
+  [
     {
       Category: "Jennifer Lawrence Movies",
       Words: [
@@ -799,7 +799,7 @@ const puzzles: { [key: string]: Category[] } = {
       ],
     },
   ],
-  "5/17": [
+  [
     {
       Category: "Fictional Schools",
       Words: [
@@ -822,7 +822,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Hemlock", "Anti-Lock", "Lockdown", "Dreadlock"],
     },
   ],
-  "5/18": [
+  [
     {
       Category: "Last 4 States Admitted Into the Union",
       Words: ["New Mexico", "Arizona", "Alaska", "Hawaii"],
@@ -840,7 +840,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Mexico", "Monaco", "Panama", "San Marino"],
     },
   ],
-  "5/19": [
+  [
     {
       Category: "State Flowers",
       Words: ["Columbine", "Peony", "Violet", "Magnolia"],
@@ -858,7 +858,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Spider Bite", "Radiation", "Artifact ", "Chemical Exposure"],
     },
   ],
-  "5/20": [
+  [
     {
       Category: "London Tube Stations",
       Words: ["Blackfriars", "Picadilly", "Seven Sisters", "Baker Street"],
@@ -876,7 +876,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Chorus Line", "Phantom of the Opera", "Cats", "Wicked"],
     },
   ],
-  "5/21": [
+  [
     {
       Category: "Famous Classical Art",
       Words: [
@@ -904,7 +904,7 @@ const puzzles: { [key: string]: Category[] } = {
       ],
     },
   ],
-  "5/22": [
+  [
     {
       Category: "Preceded by 'Red'",
       Words: ["Flag", "Herring", "Ink", "Letter Day"],
@@ -922,7 +922,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Bohemian Club", "Freemasons", "Illuminati", "Knights Templar"],
     },
   ],
-  "5/23": [
+  [
     {
       Category: "Foods with different names in UK",
       Words: ["Biscuit", "Chips", "Crisps", "Aubergine"],
@@ -940,7 +940,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Tulips", "Lily", "Crocus", "Daffodils"],
     },
   ],
-  "5/24": [
+  [
     {
       Category: "Teen Titans Characters",
       Words: ["Raven", "Cyborg", "Kid Flash", "Starfire"],
@@ -958,7 +958,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Crow", "Blue Jay", "Magpie", "Rook"],
     },
   ],
-  "5/25": [
+  [
     {
       Category: "Chess Pieces",
       Words: ["King", "Bishop", "Rook", "Knight"],
@@ -976,7 +976,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Priest", "Abbot", "Nun", "Patriarch"],
     },
   ],
-  "5/26": [
+  [
     {
       Category: "Architecture Terms",
       Words: ["Portico", "Veranda", "Louvers", "Mezzanine"],
@@ -994,7 +994,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Elephant", "Moose", "Giraffe", "Cow"],
     },
   ],
-  "5/27": [
+  [
     {
       Category: 'Proceeded by "Cake"',
       Words: ["Cup", "Pan", "Cheese", "Fish"],
@@ -1027,7 +1027,7 @@ const puzzles: { [key: string]: Category[] } = {
       ],
     },
   ],
-  "5/28": [
+  [
     {
       Category: "Italian City-States of the Middle Ages and the Renaissance",
       Words: ["Florence", "Milan", "Ferrara", "Urbino"],
@@ -1045,7 +1045,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Illinois", "Iowa", "Louisiana", "North Dakota"],
     },
   ],
-  "5/29": [
+  [
     {
       Category: "Songs from the Longest Running Broadway Musicals",
       Words: [
@@ -1078,7 +1078,7 @@ const puzzles: { [key: string]: Category[] } = {
       ],
     },
   ],
-  "5/30": [
+  [
     {
       Category: "Roles in Baseball",
       Words: ["Pitcher", "Umpire", "Outfielder", "Pinch Hitter"],
@@ -1096,7 +1096,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Spaghetti", "Space", "Australian", "Chili"],
     },
   ],
-  "5/31": [
+  [
     {
       Category: 'Preceding "Wolf"',
       Words: ["Big Bad", "Were", "Dire", "Timber"],
@@ -1114,7 +1114,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Thick-Skinned", "Toe-Tapping", "Hard Headed", "Tight-Lipped"],
     },
   ],
-  "6/1": [
+  [
     {
       Category: '"Untranslatable" Words',
       Words: ["Tartle", "L'appel Du Vide", "Kilig", "Gluggavedur"],
@@ -1132,7 +1132,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Bardot", "Budapest", "Alabama", "Krushchev"],
     },
   ],
-  "6/2": [
+  [
     {
       Category: "Ages of European Development",
       Words: [
@@ -1165,7 +1165,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Age of Empires", "Age of Kings", "Mythologies", "The Titans"],
     },
   ],
-  "6/3": [
+  [
     {
       Category: "Same Row on a Qwerty Keyboard",
       Words: ["Z", "V", "B", "N"],
@@ -1183,7 +1183,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Phobos", "Mercury", "Io", "Titan"],
     },
   ],
-  "6/4": [
+  [
     {
       Category: "Ikea Furniture Names",
       Words: ["Runnen", "Billy", "Kallax", "Hemnes"],
@@ -1201,7 +1201,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Jackie", "Tony", "Michael", "Sandra"],
     },
   ],
-  "6/5": [
+  [
     {
       Category: "Love Dieties",
       Words: ["Laka", "Rati", "Hathor", "Freyja"],
@@ -1224,7 +1224,7 @@ const puzzles: { [key: string]: Category[] } = {
       ],
     },
   ],
-  "6/6": [
+  [
     {
       Category: "Hosted SNL more than 5 times",
       Words: ["Bill Murray", "Elliot Gould", "Christopher Walken", "Tom Hanks"],
@@ -1257,7 +1257,7 @@ const puzzles: { [key: string]: Category[] } = {
       ],
     },
   ],
-  "6/7": [
+  [
     {
       Category: "Relating to Financial Markets",
       Words: ["Bear", "Bull", "Limit Order", "Short"],
@@ -1275,7 +1275,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Fuse", "Ground", "Current", "Surge"],
     },
   ],
-  "6/8": [
+  [
     {
       Category: "Famous World Fountains",
       Words: ["The Trevi", "The Apollo", "The Cascada", "The Stravinsky"],
@@ -1298,7 +1298,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Arches", "Grand Canyon", "Bryce Canyon", "Badlands"],
     },
   ],
-  "6/9": [
+  [
     {
       Category: 'US Cities Beginning with "San"',
       Words: ["Diego", "Antonio", "Francisco", "Jose"],
@@ -1316,7 +1316,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Julieta", "Agustin", "Pedro", "Dolores"],
     },
   ],
-  "6/10": [
+  [
     {
       Category: "Preceded by Solar",
       Words: ["Eclipse", "Panel", "Wind", "Telescope"],
@@ -1334,7 +1334,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["SoHo", "Tribeca", "Dumbo", "Nolita"],
     },
   ],
-  "6/11": [
+  [
     {
       Category: "Monogamous Animals",
       Words: ["Vole", "Beaver", "Wolf", "Coyote"],
@@ -1352,7 +1352,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Pooch", "Hound", "Mutt", "Fido"],
     },
   ],
-  "6/12": [
+  [
     {
       Category: "Homonyms",
       Words: ["Carat", "Karat", "Caret", "Carrot"],
@@ -1370,7 +1370,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Tomato", "Potato", "Corn", "Blueberry"],
     },
   ],
-  "6/13": [
+  [
     {
       Category: "British Rock Bands",
       Words: ["The Police", "Led Zeppelin", "Pink Floyd", "Black Sabbath"],
@@ -1388,7 +1388,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Mary", "Peter", "Miss Muffet", "Bo Peep"],
     },
   ],
-  "6/14": [
+  [
     {
       Category: "Types of Turtles",
       Words: ["Painted", "Box", "Snapping", "Pond"],
@@ -1406,7 +1406,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Lake", "Puddle", "Ocean", "Sea"],
     },
   ],
-  "6/15": [
+  [
     {
       Category: 'Things with "Eyes"',
       Words: ["Potatoes", "Hurricane", "Needle", "Tornado"],
@@ -1424,7 +1424,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Scissors", "Chalk", "Pins", "Thread"],
     },
   ],
-  "6/16": [
+  [
     {
       Category: '"Spheres" of the Earth',
       Words: ["Atmosphere", "Hydrosphere", "Geosphere", "Biosphere"],
@@ -1442,7 +1442,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Pub", "Tavern", "Cafe", "Saloon"],
     },
   ],
-  "6/17": [
+  [
     {
       Category: "Types of Bags",
       Words: ["Punching", "Shopping", "Hand", "Duffle"],
@@ -1460,7 +1460,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["What Dreams May Come", "Flubber", "Patch Adams", "Robots"],
     },
   ],
-  "6/18": [
+  [
     {
       Category: 'Types of "Lines"',
       Words: ["Bottom", "Tree", "Fault", "Air"],
@@ -1478,7 +1478,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Huddle", "Blitz", "Safety", "Scrimmage"],
     },
   ],
-  "6/19": [
+  [
     {
       Category: "Famous Dragons",
       Words: ["Fafnir", "Shenron", "Smaug", "Discord"],
@@ -1496,7 +1496,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Gandalf", "Arwen", "Celeborn", "Elendil"],
     },
   ],
-  "6/20": [
+  [
     {
       Category: "Dr. Who Enemies",
       Words: ["Daleks", "Davros", "The Silence", "Weeping Angels"],
@@ -1514,7 +1514,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Dream", "Woman", "Pie", "Cheese"],
     },
   ],
-  "6/21": [
+  [
     {
       Category: "Infinity Stones",
       Words: ["Space", "Mind", "Time", "Soul"],
@@ -1532,7 +1532,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Crystal Pepsi", "Storm", "Cherry Coke", "Jazz"],
     },
   ],
-  "6/22": [
+  [
     {
       Category: "Eukaryotic Cells",
       Words: ["Animal", "Plant", "Fungi", "Protist"],
@@ -1550,7 +1550,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Skateboard", "Bicycle", "Rollerblades", "Handcar"],
     },
   ],
-  "6/23": [
+  [
     {
       Category: "Neil Gaiman Characters",
       Words: ["Lucifer Morningstar", "Crowley", "Coraline", "Death"],
@@ -1568,7 +1568,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Wallace", "Zero", 'Edgar "E" Gore', "Norman"],
     },
   ],
-  "6/24": [
+  [
     {
       Category: "Famous Black Cats",
       Words: ["Binx", "Jiji", "Salem", "Snowball II"],
@@ -1586,7 +1586,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Tai", "Matt", "Joe", "Mimi"],
     },
   ],
-  "6/25": [
+  [
     {
       Category: "Fictional Grandmothers",
       Words: ["Fa", "Tala", "Gertie", "Endora"],
@@ -1604,7 +1604,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Nonna", "Farmor", "Oma", "Lola"],
     },
   ],
-  "6/26": [
+  [
     {
       Category: "Areas of Chakra",
       Words: ["Root", "Throat", "Heart", "Crown"],
@@ -1622,7 +1622,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Florin", "Mark", "Farthing", "Ducat"],
     },
   ],
-  "6/27": [
+  [
     {
       Category: "Mario Sports Games",
       Words: ["Golf", "Tennis", "Strikers", "Kart"],
@@ -1640,7 +1640,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Backward", "Wayward", "Skyward", "Awkward"],
     },
   ],
-  "6/28": [
+  [
     {
       Category: "Grades in Harry Potter",
       Words: ["Outstanding", "Acceptable", "Dreadful", "Troll"],
@@ -1663,7 +1663,7 @@ const puzzles: { [key: string]: Category[] } = {
       ],
     },
   ],
-  "6/29": [
+  [
     {
       Category: "Trophies Named After Athletes",
       Words: [
@@ -1691,7 +1691,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Amy Adams", "Federico Fellini", "Hugh Hefner", "Marilyn Monroe"],
     },
   ],
-  "6/30": [
+  [
     {
       Category: "Last Four Stanley Cup Winners",
       Words: ["Colorado", "Tampa Bay", "St. Louis", "Washington"],
@@ -1709,7 +1709,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Franklin", "Pig-Pen", "Peppermint Patty", "Lucy"],
     },
   ],
-  "7/1": [
+  [
     {
       Category: "Semiaquatic Mammals",
       Words: ["Platypus", "Beaver", "Capybara", "Mink"],
@@ -1737,7 +1737,7 @@ const puzzles: { [key: string]: Category[] } = {
       ],
     },
   ],
-  "7/2": [
+  [
     {
       Category: "Songs Over 10 Minutes",
       Words: [
@@ -1765,7 +1765,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Duolingo", "Babbel", "Pimsleur", "Lingoda"],
     },
   ],
-  "7/3": [
+  [
     {
       Category: "Plants Poisonous to Touch",
       Words: ["Manchineel", "Stinging Nettle", "Hog Weed", "Tread-Softly"],
@@ -1783,7 +1783,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Krypto", "Lockjaw", "Rocket Racoon", "Tigra"],
     },
   ],
-  "7/4": [
+  [
     {
       Category: "Fictional Fruit",
       Words: ["Rowa", "Paupu", "Wumpa", "Mutfruit"],
@@ -1801,7 +1801,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Ecstasy", "Euphoria", "Bliss", "Delectation"],
     },
   ],
-  "7/5": [
+  [
     {
       Category: 'Things that are "right"',
       Words: ["The Price", "The Customer", "A Broken Clock", "Mr"],
@@ -1824,7 +1824,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Mrs", "Dr", "Madam", "Esq"],
     },
   ],
-  "7/6": [
+  [
     {
       Category: 'Rhymes with "Ladder"',
       Words: ["Bladder", "Adder", "Matter", "Batter"],
@@ -1847,7 +1847,7 @@ const puzzles: { [key: string]: Category[] } = {
       ],
     },
   ],
-  "7/7": [
+  [
     {
       Category: "Executed by guillotine",
       Words: [
@@ -1875,7 +1875,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Burger King", "The King and I", "Kingsman", "The Lion King"],
     },
   ],
-  "7/8": [
+  [
     {
       Category: "Worn Around The Neck",
       Words: ["Lei", "Foulard", "Collar", "Tie"],
@@ -1887,7 +1887,7 @@ const puzzles: { [key: string]: Category[] } = {
     { Category: "Slang for Jewelry", Words: ["Ice", "Bling", "Rock", "Grill"] },
     { Category: "Cooking Methods", Words: ["Broil", "Roast", "Bake", "Poach"] },
   ],
-  "7/9": [
+  [
     { Category: "Vitamins", Words: ["B12", "C", "K", "A"] },
     {
       Category: "Plant Based Meat Ingredients",
@@ -1899,7 +1899,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Hi-C", "Fanta", "Lift", "Maaza"],
     },
   ],
-  "7/10": [
+  [
     {
       Category: "Immediate Family of Barack Obama",
       Words: ["Michelle", "Malia", "Sasha", "Marian"],
@@ -1922,7 +1922,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Dr. Reid", "Dr. Turk", "Espinosa", "Buckland, Esq."],
     },
   ],
-  "7/11": [
+  [
     {
       Category: "Titles with Street Names",
       Words: ["21 Jump", "Q", "Nightmare on Elm", "Sesame"],
@@ -1942,7 +1942,7 @@ const puzzles: { [key: string]: Category[] } = {
     },
     { Category: "Seeds", Words: ["Flax", "Poppy", "Chia", "Pumpkin"] },
   ],
-  "7/12": [
+  [
     {
       Category: 'All "Land"s',
       Words: ["Portland", "Cleveland", "Finland", "Iceland"],
@@ -1960,7 +1960,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Cuba", "Java", "Taiwan", "New Guinea"],
     },
   ],
-  "7/13": [
+  [
     {
       Category: "Boating Occupations",
       Words: ["Skipper", "Coxswain", "Helmsman", "Deck Cadet"],
@@ -1978,7 +1978,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Rose", "Rory", "Clara", "Nyssa"],
     },
   ],
-  "7/14": [
+  [
     {
       Category: "Exonyms of London",
       Words: ["Londres", "Londino", "Londen", "Lontoo"],
@@ -1996,7 +1996,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Naboo", "Tatooine", "Bespin", "Lah'mu"],
     },
   ],
-  "7/15": [
+  [
     {
       Category: "Destructured Portmanteaus",
       Words: [
@@ -2024,7 +2024,7 @@ const puzzles: { [key: string]: Category[] } = {
       ],
     },
   ],
-  "7/16": [
+  [
     {
       Category: "Arthropods",
       Words: ["Ant", "Barnacle", "Daddy Longlegs", "Mantis"],
@@ -2047,7 +2047,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Auntie Whispers", "Wirt", "Dog", "Fred"],
     },
   ],
-  "7/17": [
+  [
     {
       Category: "Scored by John Williams",
       Words: ["Tom Sawyer", "Dracula", "Jurassic Park", "Return of the Jedi"],
@@ -2070,7 +2070,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Lestat", "Edward Cullen", "Angel", "Jean-Claude"],
     },
   ],
-  "7/18": [
+  [
     {
       Category: "US States with Panhandles",
       Words: ["Florida", "Texas", "Oklahoma", "Idaho"],
@@ -2088,7 +2088,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Woodhouse", "Pennyworth", "Cogsworth", "Belvedere"],
     },
   ],
-  "7/19": [
+  [
     {
       Category: "Words That Contain Currency",
       Words: ["Pennywise", "Nickelback", "Headquarters", "Dimeter"],
@@ -2111,7 +2111,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Freddy Krueger", "Chucky", "Bughuul", "Clover"],
     },
   ],
-  "7/20": [
+  [
     {
       Category: "Named Creatures That Went to Space",
       Words: ["Albert II", "Tsygan & Dezik", "Gordo", "Yuri Gagarin"],
@@ -2134,7 +2134,7 @@ const puzzles: { [key: string]: Category[] } = {
       ],
     },
   ],
-  "7/21": [
+  [
     { Category: "Leap Years", Words: ["2068", "2072", "1920", "1988"] },
     {
       Category: "Dystopian Literature",
@@ -2164,7 +2164,7 @@ const puzzles: { [key: string]: Category[] } = {
       ],
     },
   ],
-  "7/22": [
+  [
     {
       Category: "Types of Chef Knives",
       Words: ["Paring", "Bread", "Cleaver", "Salmon"],
@@ -2179,7 +2179,7 @@ const puzzles: { [key: string]: Category[] } = {
     },
     { Category: "Baked Goods", Words: ["Brownie", "Pie", "Torte", "Bagel"] },
   ],
-  "7/23": [
+  [
     {
       Category: "Stranger Things Characters",
       Words: [
@@ -2217,7 +2217,7 @@ const puzzles: { [key: string]: Category[] } = {
       ],
     },
   ],
-  "7/24": [
+  [
     {
       Category: "Roman Emperors",
       Words: [
@@ -2255,7 +2255,7 @@ const puzzles: { [key: string]: Category[] } = {
       ],
     },
   ],
-  "7/25": [
+  [
     {
       Category: "Handheld Video Game Devices",
       Words: ["Game Gear", "Game Boy", "Nomad", "PSP"],
@@ -2270,7 +2270,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Zeni", "Bells", "Rupee", "Munny"],
     },
   ],
-  "7/26": [
+  [
     {
       Category: "Types of Skating",
       Words: ["Ice", "Inline", "Roller", "Speed"],
@@ -2279,7 +2279,7 @@ const puzzles: { [key: string]: Category[] } = {
     { Category: "Rhymes", Words: ["Brass", "Grass", "Pass", "Lass"] },
     { Category: "Pokemon Types", Words: ["Dark", "Fire", "Flying", "Water"] },
   ],
-  "7/27": [
+  [
     {
       Category: "YouTube Creator Play Button Awards",
       Words: ["Silver", "Gold", "Diamond", "Red Diamond"],
@@ -2297,7 +2297,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Redstone", "Lapis lazuli", "Emerald", "Nether Quartz"],
     },
   ],
-  "7/28": [
+  [
     {
       Category: "Polynesian Gods",
       Words: ["Maui", "Motoro", "Kohara", "Ulupoka"],
@@ -2315,7 +2315,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Lilo", "Stitch", "Jumba", "Gantu"],
     },
   ],
-  "7/29": [
+  [
     {
       Category: "Types of Pokeballs in Pokemon",
       Words: ["Great", "Ultra", "Master", "Luxury"],
@@ -2333,7 +2333,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Fresh", "Certified Fresh", "Rotten", "No Score"],
     },
   ],
-  "7/30": [
+  [
     {
       Category: "Teletubbies",
       Words: ["Tinky-Winky", "Dipsy", "Laa-Laa", "Po"],
@@ -2351,7 +2351,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Pieces of Me", "Boyfriend", "Shadow", "Ragdoll"],
     },
   ],
-  "7/31": [
+  [
     {
       Category: "International Multi-Sport Competitions",
       Words: [
@@ -2375,7 +2375,7 @@ const puzzles: { [key: string]: Category[] } = {
     },
   ],
 
-  "8/1": [
+  [
     {
       Category: "Beard Styles",
       Words: ["Mutton Chops", "Goatee", "Ducktail", "Anchor"],
@@ -2398,7 +2398,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Bike Lock", "Wheel Chocks", "Deadman", "Tie Rod"],
     },
   ],
-  "8/2": [
+  [
     {
       Category: "Types of  Mustaches",
       Words: ["Handlebar", "Dali", "Walrus", "Pencil"],
@@ -2416,7 +2416,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Highlighter", "Three-ring Binder", "Eraser", "Index Card"],
     },
   ],
-  "8/3": [
+  [
     {
       Category: "Native Names of Countries",
       Words: ["Nippon", "Hellas", "Suomi", "Sverige"],
@@ -2434,7 +2434,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Lithium", "Sodium", "Francium", "Caesium"],
     },
   ],
-  "8/4": [
+  [
     {
       Category: "Adjectives Preceding Famous Birds",
       Words: ["Angry", "Flappy", "Big", "Song"],
@@ -2462,7 +2462,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Love Island ", "Gilligan's Island ", "Survivor ", "Lost"],
     },
   ],
-  "8/5": [
+  [
     {
       Category: "Types of Grass",
       Words: ["Bent", "Bermuda", "Kentucky Blue", "Centipede"],
@@ -2485,7 +2485,7 @@ const puzzles: { [key: string]: Category[] } = {
       ],
     },
   ],
-  "8/6": [
+  [
     {
       Category: "Workouts in Rocky Movies",
       Words: [
@@ -2513,7 +2513,7 @@ const puzzles: { [key: string]: Category[] } = {
       ],
     },
   ],
-  "8/7": [
+  [
     {
       Category: "Root Tubers",
       Words: ["Sweet Potato", "Cassava", "Dahlia", "Carrot"],
@@ -2531,7 +2531,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Piece of Cake", "Bread and Butter", "Cup of Tea", "Cheesy"],
     },
   ],
-  "8/8": [
+  [
     {
       Category: "Plants That Have Animals in Their Names",
       Words: ["Salmonberry", "Elephant Garlic", "Gooseberry", "Kiwi"],
@@ -2549,7 +2549,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Stripes", "Argyle", "Plaid", "Polka Dot"],
     },
   ],
-  "8/9": [
+  [
     {
       Category: "Common Amusement Park Rides",
       Words: ["Ferris Wheel", "Bumper Cars", "Carousel", "Pirate Ship"],
@@ -2582,7 +2582,7 @@ const puzzles: { [key: string]: Category[] } = {
       ],
     },
   ],
-  "8/10": [
+  [
     {
       Category: "Types of Cheese",
       Words: ["Cheddar", "American", "Bleu", "Munster"],
@@ -2600,7 +2600,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Addams", "Brady", "Bundy", "Cleaver"],
     },
   ],
-  "8/11": [
+  [
     {
       Category: "TV Show Titles That Use a Single Letter",
       Words: ["A-Team", "X-Files", "Dragon Ball Z", "K-On!"],
@@ -2623,7 +2623,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["BattleBots", "Robotica", "RoboGames", "RoboMaster"],
     },
   ],
-  "8/12": [
+  [
     {
       Category: "Members of the Olive Oyl Family",
       Words: ["Olive", "Castor", "Cole", "Diesel"],
@@ -2641,7 +2641,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Book", "House", "Armed", "Minded"],
     },
   ],
-  "8/13": [
+  [
     {
       Category: "Played Jim Hawkins in Treasure Island Movie Adaptations",
       Words: [
@@ -2679,7 +2679,7 @@ const puzzles: { [key: string]: Category[] } = {
       ],
     },
   ],
-  "8/14": [
+  [
     {
       Category: "EGOT Winners",
       Words: ["John Legend", "Jennifer Hudson", "Mel Brooks", "Audrey Hepburn"],
@@ -2707,7 +2707,7 @@ const puzzles: { [key: string]: Category[] } = {
       ],
     },
   ],
-  "8/15": [
+  [
     {
       Category: "Crypto Currencies",
       Words: ["Ethereum", "Tether", "Dogecoin", "Bitcoin"],
@@ -2725,7 +2725,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Coquina", "Oolite", "Shelly Limestone", "Tufa"],
     },
   ],
-  "8/16": [
+  [
     {
       Category: "Famous Stones",
       Words: [
@@ -2748,7 +2748,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Y.M.C.A.", "In The Navy", "Action Man", "Fire Island"],
     },
   ],
-  "8/17": [
+  [
     {
       Category: "Fictional Lands of Hyrule",
       Words: ["Hebra", "Gerudo", "Lanayru", "Central Hyrule"],
@@ -2760,7 +2760,7 @@ const puzzles: { [key: string]: Category[] } = {
     { Category: "Zodiac Signs", Words: ["Libra", "Scorpio", "Leo", "Taurus"] },
     { Category: "Famous Lions", Words: ["Cecil", "Simba", "Aslan", "Alex"] },
   ],
-  "8/18": [
+  [
     {
       Category: "Songs Featuring Colors",
       Words: [
@@ -2788,7 +2788,7 @@ const puzzles: { [key: string]: Category[] } = {
       ],
     },
   ],
-  "8/19": [
+  [
     {
       Category: "Types of Archery Bows",
       Words: ["Short", "Long", "Compound", "Cross"],
@@ -2806,7 +2806,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Horeshoe", "Black Cat", "Broken Glass", "4 Leaf Clover"],
     },
   ],
-  "8/20": [
+  [
     {
       Category: "Hot Sauces Featured on Hot Ones",
       Words: ["Island Wings", "Collards n Ghost", "Tyrfing's Curse", "Da Bomb"],
@@ -2829,7 +2829,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Popsicle", "Kebab", "Caramel Apple", "Marshmallow"],
     },
   ],
-  "8/21": [
+  [
     {
       Category: "Mario Kart 64 Items",
       Words: ["Green Shell", "Red Shell", "Triple Mushroom", "Thunderbolt"],
@@ -2847,7 +2847,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Rocket Man", "Sugar Man", "Piano Man", "Preacher Man"],
     },
   ],
-  "8/22": [
+  [
     {
       Category: "Cups with Handles",
       Words: ["Coffee Cup", "Measuring Cup", "Sippy Cup", "Loving Cup"],
@@ -2865,7 +2865,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["3 Doors Down", "Eiffel 65", "Five for Fighting", "Apartment 26"],
     },
   ],
-  "8/23": [
+  [
     { Category: "Fa-So-La-Ti", Words: ["Faugh", "Sow", "Law", "Tea"] },
     {
       Category: "MLB Team Names in Movie Titles",
@@ -2885,7 +2885,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Dentistry", "Architecture", "Plumbing", "Nursing"],
     },
   ],
-  "8/24": [
+  [
     {
       Category: "Chapter Names in Harry Potter Books",
       Words: ["The Boy Who Lived", "Nicholas Flamel", "Aragog", "The Cave"],
@@ -2908,7 +2908,7 @@ const puzzles: { [key: string]: Category[] } = {
       ],
     },
   ],
-  "8/25": [
+  [
     {
       Category: "Characters from Sleepy Hollow",
       Words: ["Ichabod Crane", "Abbie Mills", "Jenny Mills", "Frank Irving"],
@@ -2936,7 +2936,7 @@ const puzzles: { [key: string]: Category[] } = {
       ],
     },
   ],
-  "8/26": [
+  [
     { Category: "Capitonyms", Words: ["Cancer", "Hamlet", "March", "Polish"] },
     {
       Category: "Constellations",
@@ -2951,7 +2951,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["May", "August", "October", "June"],
     },
   ],
-  "8/27": [
+  [
     {
       Category: "Landlocked Countries",
       Words: ["Switzerland", "Afghanistan", "Nepal", "South Sudan"],
@@ -2969,7 +2969,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Ron Burgundy", "Mugatu", "Jackie Moon", "Liebkind"],
     },
   ],
-  "8/28": [
+  [
     {
       Category: "Alliterative US Presidents",
       Words: [
@@ -2997,7 +2997,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Robin Williams", "Jay Leno", "Larry Bird", "Russell Crowe"],
     },
   ],
-  "8/29": [
+  [
     {
       Category: "Digital Assistants",
       Words: ["Rover", "Clippy", "Alexa", "Siri"],
@@ -3015,7 +3015,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Elf", "Ent", "Hobbit", "Goblin"],
     },
   ],
-  "8/30": [
+  [
     {
       Category: "Longest Rivers in their Respective Countries",
       Words: ["Mackenzie", "Nile", "Loire", "Shinano"],
@@ -3033,7 +3033,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Cumberland", "Mojave", "Big Sky", "Duluth"],
     },
   ],
-  "8/31": [
+  [
     {
       Category: "Scott Pilgrim Characters",
       Words: ["Pilgrim", "Wells", "Chau", "Stills"],
@@ -3051,7 +3051,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Brinker", "Griffin", "Kapahala", "Thompson"],
     },
   ],
-  "9/1": [
+  [
     {
       Category: "Styles of Pizza",
       Words: ["Margherita", "Deep Dish", "Sicilian", "New York"],
@@ -3074,7 +3074,7 @@ const puzzles: { [key: string]: Category[] } = {
       ],
     },
   ],
-  "9/2": [
+  [
     {
       Category: "Characters with Traveling Houses",
       Words: [
@@ -3107,7 +3107,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Dug", "Alpha", "Russell", "Ellie Fredricksen"],
     },
   ],
-  "9/3": [
+  [
     {
       Category: "Preceded by Weeping",
       Words: ["Angel", "Willow", "Crucifix", "Water, NE"],
@@ -3125,7 +3125,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Omaha, NE", "Lincoln, NE", "Bellevue, NE", "Grand Island, NE"],
     },
   ],
-  "9/4": [
+  [
     {
       Category: "Sprouts",
       Words: ["Brussels", "Mung Bean", "Broccoli", "Alfalfa"],
@@ -3148,7 +3148,7 @@ const puzzles: { [key: string]: Category[] } = {
       ],
     },
   ],
-  "9/5": [
+  [
     {
       Category: "Types of Planes",
       Words: ["Aero", "Hydro", "Astral", "Geometric"],
@@ -3166,7 +3166,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Simpson", "Flanders", "Houten", "Wiggum"],
     },
   ],
-  "9/6": [
+  [
     {
       Category: "Fictional Clowns",
       Words: ["Krusty", "McDonald", "Pennywise", "The Joker"],
@@ -3184,7 +3184,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Days Inn", "Hyatt", "Hampton", "Sheraton"],
     },
   ],
-  "9/7": [
+  [
     {
       Category: "Fictional Hotels",
       Words: [
@@ -3207,7 +3207,7 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["TheFacebook", "Firebird", "Stag Party", "BackRub"],
     },
   ],
-  "9/12": [
+  [
     { Category: "Notable Jedi", Words: ["Yoda", "Dooku", "Jinn", "Tano"] },
     {
       Category: "Wishing Granting Creatures",
@@ -3227,22 +3227,18 @@ const puzzles: { [key: string]: Category[] } = {
       Words: ["Gremlins", "Audrey II", "Terror Dogs", "E.T."],
     },
   ],
-};
+];
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
-  // Base it on Colorado time, for now
-  const today = new Date(
-    new Date().toLocaleString("en-US", {
-      timeZone: "America/Denver",
-    })
-  );
-  //const puzzleKey = `${today.getMonth() + 1}/${today.getDate()}`;
+  // Get body
+  const body = JSON.parse(req.body);
 
-  const puzzle: Category[] = puzzles["4/4"];
+  // The index to retrieve
+  const index = body.puzzleIndex;
+
+  const puzzle: Category[] = puzzles[index];
 
   const stringed = JSON.stringify(puzzle);
-
-  console.log({ stringed });
 
   const resBody = {
     Woah: "What you're doing right now is called cheating",
