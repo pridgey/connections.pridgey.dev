@@ -78,6 +78,7 @@ export const WinDialog = (props: WinDialogProps) => {
                 Text={tempButtonText() || "SHARE WIN"}
               />
             </Show>
+            <p>Check back tomorrow for your next puzzle!</p>
           </Show>
           <LastSevenWinsGraph />
           <GuessGraph UserHasWon={userHasWon} />

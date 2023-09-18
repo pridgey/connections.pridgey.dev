@@ -1,5 +1,7 @@
 import { Category, CategoryWord } from "./Board";
 import { Storage } from "@utilities";
+import type { Setter } from "solid-js";
+import type { StorageState } from "../../Types";
 
 // Splits the data into individual word-category pairs
 export const splitWords = (Categories: Category[]): CategoryWord[] => {
@@ -18,45 +20,113 @@ export const splitWords = (Categories: Category[]): CategoryWord[] => {
 };
 
 // Checks storage for todays data, or grabs it from the api
-export const grabTodaysPuzzle = (setPuzzle: any) => {
-  // Base it on Colorado time, for now
-  const today = new Date(
-    new Date().toLocaleString("en-US", {
-      timeZone: "America/Denver",
-    })
-  );
-  const dateKey = `${today.getFullYear()}${today.getMonth()}${today.getDate()}`;
+export const grabTodaysPuzzle = async () => {
+  const storageKey = "connectionsPuzzle";
 
-  // Check storage first
-  const storage = Storage.get(dateKey);
+  const storageObject: StorageState = Storage.get(storageKey);
 
-  if (storage) {
-    // We got the puzzle from storage
-    setPuzzle(storage);
+  // Function to call the api
+  const fetchPuzzle = async (puzzleIndex: number) => {
+    const res = await fetch("/api/puzzle", {
+      method: "post",
+      body: JSON.stringify({
+        puzzleIndex,
+      }),
+    });
+
+    if (res.status === 200) {
+      const data = await res.json();
+      const puzzleString = data.body.puzzle;
+      const parsedPuzzle = JSON.parse(puzzleString);
+
+      return parsedPuzzle;
+    }
+
+    return false;
+  };
+
+  // Logic for grabbing puzzle
+  if (!storageObject) {
+    // User doesn't have storage
+    const puzzle = await fetchPuzzle(0);
+
+    if (puzzle) {
+      const newPuzzleState: StorageState = {
+        board: puzzle,
+        correctGuesses: [],
+        currentGuesses: [],
+        currentPuzzleIndex: 0,
+        incorrectGuesses: [],
+        lastPuzzleStarted: new Date(),
+        numberOfGuesses: 0,
+        puzzle: puzzle,
+      };
+
+      return newPuzzleState;
+    }
+    // Return false for error
     return false;
   } else {
-    // We couldn't find a puzzle for today, must be a new day
-    Storage.clear();
+    // Storage exists
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const lastPuzzleComplete = storageObject.lastPuzzleComplete
+      ? new Date(storageObject.lastPuzzleComplete)
+      : undefined;
+    const lastPuzzleStarted = new Date(storageObject.lastPuzzleStarted);
+    const currentPuzzle = storageObject.puzzle;
 
-    // No storage, grab from the API
-    fetch("/api/puzzle", {
-      method: "post",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        const puzzleString = data.body.puzzle;
+    if (!currentPuzzle) {
+      // Storage exists, but there is no puzzle
+      const currentPuzzleIndex = storageObject.currentPuzzleIndex ?? 0;
+      const lastPuzzleComplete = storageObject.lastPuzzleComplete ?? new Date();
+      const puzzle = await fetchPuzzle(currentPuzzleIndex);
 
-        // Parse it
-        const puzzle = JSON.parse(puzzleString);
+      if (puzzle) {
+        const puzzleState: StorageState = {
+          board: puzzle,
+          correctGuesses: [],
+          currentGuesses: [],
+          currentPuzzleIndex: currentPuzzleIndex,
+          incorrectGuesses: [],
+          lastPuzzleStarted: lastPuzzleStarted,
+          lastPuzzleComplete: lastPuzzleComplete,
+          numberOfGuesses: 0,
+          puzzle: puzzle,
+        };
 
-        // Store the string in storage
-        Storage.set(dateKey, puzzle);
+        return puzzleState;
+      }
+    }
 
-        // Update state
-        setPuzzle(puzzle);
-      })
-      .catch((err) => console.error("Error:", err));
-    return true;
+    // We have storage object and a puzzle
+    if (lastPuzzleComplete && today > lastPuzzleComplete) {
+      // It is the next day, load the next puzzle
+      const puzzleIndex = storageObject.currentPuzzleIndex + 1;
+
+      const puzzle = await fetchPuzzle(puzzleIndex);
+
+      if (puzzle) {
+        const puzzleState: StorageState = {
+          board: puzzle,
+          correctGuesses: [],
+          currentGuesses: [],
+          currentPuzzleIndex: puzzleIndex,
+          incorrectGuesses: [],
+          lastPuzzleStarted: new Date(),
+          numberOfGuesses: 0,
+          puzzle: puzzle,
+        };
+
+        return puzzleState;
+      }
+
+      // Return false for error
+      return false;
+    } else {
+      // It is the same day, we should use the state in storage
+      return storageObject;
+    }
   }
 };
 
@@ -72,6 +142,11 @@ export const logWin = (numOfGuesses: number) => {
       lastSevenDays: [],
     };
   }
+
+  // Update date last completed
+  const storageObject: StorageState = Storage.get("connectionsPuzzle");
+  storageObject.lastPuzzleComplete = new Date();
+  Storage.set("connectionsPuzzle", storageObject);
 
   // Increment the win total per num of guesses
   const numOfWins = stats.winsByGuessNum[numOfGuesses] || 0;

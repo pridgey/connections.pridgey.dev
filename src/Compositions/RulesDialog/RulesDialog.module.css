@@ -7,16 +7,16 @@
 }
 
 .example {
-  display: grid;
-  grid-template-columns: 1fr min-content;
-  grid-template-rows: 1fr;
-  gap: 30px;
-  justify-items: center;
+  display: flex;
+  flex-direction: row;
+  gap: 60px;
+  justify-content: center;
 }
 
 @media only screen and (max-width: 600px) {
   .example {
-    grid-template-columns: 1fr;
-    grid-template-rows: min-content min-content;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
   }
 }
