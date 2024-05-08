@@ -2,6 +2,7 @@ import { Category, CategoryWord } from "./Board";
 import { Storage } from "@utilities";
 import type { Setter } from "solid-js";
 import type { StorageState } from "../../Types";
+import PocketBase from "pocketbase";
 
 // Splits the data into individual word-category pairs
 export const splitWords = (Categories: Category[]): CategoryWord[] => {
@@ -27,19 +28,17 @@ export const grabTodaysPuzzle = async () => {
 
   // Function to call the api
   const fetchPuzzle = async (puzzleIndex: number) => {
-    const res = await fetch("/api/puzzle", {
-      method: "post",
-      body: JSON.stringify({
-        puzzleIndex,
-      }),
-    });
+    const pb = new PocketBase(import.meta.env.VITE_POCKETBASE_URL);
 
-    if (res.status === 200) {
-      const data = await res.json();
-      const puzzleString = data.body.puzzle;
-      const parsedPuzzle = JSON.parse(puzzleString);
+    const puzzleRecord = await pb
+      .collection("connections_puzzles")
+      .getFullList({
+        filter: `index = ${puzzleIndex}`,
+      });
 
-      return parsedPuzzle;
+    if (puzzleRecord.length > 0) {
+      console.log(puzzleRecord[0].puzzle);
+      return puzzleRecord[0].puzzle;
     }
 
     return false;
@@ -68,18 +67,28 @@ export const grabTodaysPuzzle = async () => {
     return false;
   } else {
     // Storage exists
+
+    // Determine today's date
     const today = new Date();
     today.setHours(0, 0, 0, 0);
+
+    // The date the last puzzle was completed for this user
     const lastPuzzleComplete = storageObject.lastPuzzleComplete
       ? new Date(storageObject.lastPuzzleComplete)
       : undefined;
+
+    // The date the last puzzle was started
     const lastPuzzleStarted = new Date(storageObject.lastPuzzleStarted);
+
+    // The current puzzle data
     const currentPuzzle = storageObject.puzzle;
 
     if (!currentPuzzle) {
-      // Storage exists, but there is no puzzle
+      // Storage exists, but there is no puzzle, so grab index and determine which puzzle to grab
+      // Current puzzle index
       const currentPuzzleIndex = storageObject.currentPuzzleIndex ?? 0;
       const lastPuzzleComplete = storageObject.lastPuzzleComplete ?? new Date();
+      // Fetch the puzzle
       const puzzle = await fetchPuzzle(currentPuzzleIndex);
 
       if (puzzle) {

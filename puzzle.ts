@@ -1,4 +1,3 @@
-import { NextApiRequest, NextApiResponse } from "next";
 import { Category } from "@compositions";
 
 const puzzles: Array<Category[]> = [
@@ -3228,26 +3227,3 @@ const puzzles: Array<Category[]> = [
     },
   ],
 ];
-
-const handler = (req: NextApiRequest, res: NextApiResponse) => {
-  // Get body
-  const body = JSON.parse(req.body);
-
-  // The index to retrieve
-  const index = body.puzzleIndex;
-
-  const puzzle: Category[] = puzzles[index];
-
-  const stringed = JSON.stringify(puzzle);
-
-  const resBody = {
-    Woah: "What you're doing right now is called cheating",
-    puzzle: stringed,
-  };
-
-  res.status(200).json({
-    body: resBody,
-  });
-};
-
-export default handler;
